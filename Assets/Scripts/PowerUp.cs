@@ -22,9 +22,8 @@ public class PowerUp : MonoBehaviour
         if (player != null)
         {
             player.currenProj = projectile;
-            Destroy(gameObject);
         }
-        
+        Destroy(gameObject);
     }
 
 
