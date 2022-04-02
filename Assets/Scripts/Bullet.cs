@@ -18,9 +18,4 @@ public class Bullet : MonoBehaviour
         rb.velocity = speedVec;
     }
 
-    
-    void Update()
-    {
-        
-    }
 }

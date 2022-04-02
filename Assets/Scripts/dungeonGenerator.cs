@@ -5,7 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class dungeonGenerator : MonoBehaviour
 {
-
+    [SerializeField] GameObject[] trees;
+    [SerializeField] GameObject[] grass;
     [SerializeField]
     private Tile groundTile;
     [SerializeField]
@@ -63,7 +64,13 @@ public class dungeonGenerator : MonoBehaviour
                 TileBase tileAbove = groundMap.GetTile(posAbove);
                 if (tile == null)
                 {
-                    pitMap.SetTile(pos, pitTile);
+                    pitMap.SetTile(pos, pitTile);   //setting grass tile
+                    if(Random.Range(0f,1f)<0.2f)
+                    {
+                        GameObject newTree = Instantiate(trees[Random.Range(0,3)]);
+                        newTree.transform.position = pitMap.GetCellCenterLocal(pos);
+                    }
+
                     if (tileBelow != null)
                     {
                         wallMap.SetTile(pos, topWallTile);

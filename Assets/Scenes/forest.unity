@@ -632,6 +632,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2919951924215668950, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: currenProj
+      value: 
+      objectReference: {fileID: 8221547130648313157, guid: 3ba1171202d23e46aa667a0e107a1d2b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
 --- !u!1 &1106259541
@@ -678,6 +682,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c365f93ffa684284ab4e720a153be31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trees:
+  - {fileID: 8241081582720439640, guid: 772172f5cf0024041b294afc38aba988, type: 3}
+  - {fileID: 3285480706800970678, guid: 84a7c4f982397fa47bc614f1b1da9d53, type: 3}
+  - {fileID: 5472678218991669752, guid: 7f2a7fda188c78f46ad3af8bb070b93e, type: 3}
+  grass: []
   groundTile: {fileID: 11400000, guid: 4977b683b1c4ee647b8c767f1ec34ac8, type: 2}
   pitTile: {fileID: 11400000, guid: b410f0f92708d67459eeaca474e3971f, type: 2}
   topWallTile: {fileID: 11400000, guid: b84faf79f3faafd43a273331039f32e0, type: 2}
