@@ -6,7 +6,8 @@ using UnityEngine.Tilemaps;
 public class dungeonGenerator : MonoBehaviour
 {
     [SerializeField] GameObject[] trees;
-    [SerializeField] GameObject[] grass;
+    [SerializeField] GameObject props;
+    [SerializeField] Sprite[] propSprites;
     [SerializeField]
     private Tile groundTile;
     [SerializeField]
@@ -69,6 +70,12 @@ public class dungeonGenerator : MonoBehaviour
                     {
                         GameObject newTree = Instantiate(trees[Random.Range(0,3)]);
                         newTree.transform.position = pitMap.GetCellCenterLocal(pos);
+                    }
+                    if(Random.Range(0f,1f)<0.05f)
+                    {
+                        GameObject newProp = Instantiate(props);
+                        newProp.GetComponent<SpriteRenderer>().sprite = propSprites[Random.Range(0,12)];
+                        newProp.transform.position = pitMap.GetCellCenterLocal(pos);
                     }
 
                     if (tileBelow != null)
@@ -168,6 +175,12 @@ public class dungeonGenerator : MonoBehaviour
             {
                 Vector3Int tilePos = new Vector3Int(tileX, tileY, 0);
                 groundMap.SetTile(tilePos, groundTile);
+                if(Random.Range(0f,1f)<0.05f)
+                    {
+                        GameObject newProp = Instantiate(props);
+                        newProp.GetComponent<SpriteRenderer>().sprite = propSprites[Random.Range(0,12)];
+                        newProp.transform.position = pitMap.GetCellCenterLocal(tilePos);
+                    }
             }
         }
     }
