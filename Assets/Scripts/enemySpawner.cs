@@ -36,7 +36,7 @@ public class enemySpawner : MonoBehaviour
                 pos.y += Random.Range(-roomSize/2,roomSize/2);
                 newEnemy.transform.position = pos;
             }
-            if(Random.Range(0f,1f)<0.66f)
+            if(Random.Range(0f,1f)<0.75f)
                 break;
         }
     }

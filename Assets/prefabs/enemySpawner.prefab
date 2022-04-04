@@ -47,4 +47,4 @@ MonoBehaviour:
   spawnTriggerRadius: 3
   enemyList:
   - {fileID: 8481340507210086115, guid: 07121fe9319f5e5188a98922f334933a, type: 3}
-  - {fileID: 8481340507210086115, guid: 07121fe9319f5e5188a98922f334933a, type: 3}
+  - {fileID: 940480129654245645, guid: c6a67ae8668c22442bb5ba68687f82c1, type: 3}

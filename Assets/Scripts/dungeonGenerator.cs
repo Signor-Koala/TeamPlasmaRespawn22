@@ -184,7 +184,7 @@ public class dungeonGenerator : MonoBehaviour
 
                 //setting up spawners in rooms
                 if(radius>1)
-                    spawnSpawner(x,y,0.01f);
+                    spawnSpawner(x,y,0.001f);
                 
                 //spawning props
                 if(Random.Range(0f,1f)<0.05f)
