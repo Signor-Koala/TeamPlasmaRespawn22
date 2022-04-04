@@ -46,6 +46,8 @@ public class dungeonGenerator : MonoBehaviour
         powerupSpawnCount=0;
         GenerateSquare(x, y, 1);
         Vector2Int previousPos = new Vector2Int(x, y);
+        Vector3Int pos = new Vector3Int(x,y,0);
+        player.transform.position = groundMap.GetCellCenterLocal(pos);
         y += 3;
         GenerateSquare(x, y, 1);
         NewRoute(x, y, routeLength, previousPos);
