@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CEO_script : MonoBehaviour {
 public static CEO_script instance;
+public static GameObject[] powerups;
+public static int[] powerupSpawned;
  
   private void Awake() {
    if (instance != null) {
@@ -13,4 +15,9 @@ public static CEO_script instance;
      DontDestroyOnLoad(gameObject);
    }
  }
+
+ private void Start() {
+     powerupSpawned = new int[4];
+ }
+
 }

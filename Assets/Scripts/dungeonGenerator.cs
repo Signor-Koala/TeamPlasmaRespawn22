@@ -35,13 +35,15 @@ public class dungeonGenerator : MonoBehaviour
     private int maxRoutes = 20;
     private int routeCount = 0;
     
-    bool[] powerupSpawned;
-
+    public GameObject[] powerups;
+    int powerupSpawnCount;
+    
     private void Start()
     {
         int x = 0;
         int y = 0;
         int routeLength = 0;
+        powerupSpawnCount=0;
         GenerateSquare(x, y, 1);
         Vector2Int previousPos = new Vector2Int(x, y);
         y += 3;
@@ -67,7 +69,7 @@ public class dungeonGenerator : MonoBehaviour
                 if (tile == null)
                 {
                     pitMap.SetTile(pos, pitTile);   //setting grass tile
-                    if(Random.Range(0f,1f)<0.2f)
+                    if(Random.Range(0f,1f)<0.1f)
                     {
                         GameObject newTree = Instantiate(trees[Random.Range(0,3)]);
                         newTree.transform.position = pitMap.GetCellCenterLocal(pos);
@@ -105,7 +107,7 @@ public class dungeonGenerator : MonoBehaviour
                 int yOffset = y - previousPos.y; //3
                 int roomSize = 1; //Hallway size
                 if (Random.Range(1, 100) <= roomRate)
-                    roomSize = Random.Range(4, 8);
+                    roomSize = Random.Range(3, 6);
                 previousPos = new Vector2Int(x, y);
 
                 //Go Straight
@@ -121,7 +123,6 @@ public class dungeonGenerator : MonoBehaviour
                         x = previousPos.x + xOffset;
                         y = previousPos.y + yOffset;
                         GenerateSquare(x, y, roomSize);
-                        spawnSpawner(x,y,0.1f);
                         routeUsed = true;
                     }
                 }
@@ -139,7 +140,7 @@ public class dungeonGenerator : MonoBehaviour
                         y = previousPos.y + xOffset;
                         x = previousPos.x - yOffset;
                         GenerateSquare(x, y, roomSize);
-                        spawnSpawner(x,y,0.1f);
+                        
                         routeUsed = true;
                     }
                 }
@@ -156,7 +157,7 @@ public class dungeonGenerator : MonoBehaviour
                         y = previousPos.y - xOffset;
                         x = previousPos.x + yOffset;
                         GenerateSquare(x, y, roomSize);
-                        spawnSpawner(x,y,0.1f);
+                        
                         routeUsed = true;
                     }
                 }
@@ -180,12 +181,20 @@ public class dungeonGenerator : MonoBehaviour
             {
                 Vector3Int tilePos = new Vector3Int(tileX, tileY, 0);
                 groundMap.SetTile(tilePos, groundTile);
+
+                //setting up spawners in rooms
+                if(radius>1)
+                    spawnSpawner(x,y,0.01f);
+                
+                //spawning props
                 if(Random.Range(0f,1f)<0.05f)
                 {
                     GameObject newProp = Instantiate(props);
                     newProp.GetComponent<SpriteRenderer>().sprite = propSprites[Random.Range(0,12)];
                     newProp.transform.position = pitMap.GetCellCenterLocal(tilePos);
                 }
+                if(Random.Range(0f,1f)<0.001f && radius>1)
+                    spawnPowerups(x,y);
             }
         }
     }
@@ -197,6 +206,23 @@ public class dungeonGenerator : MonoBehaviour
             GameObject newSpawner = Instantiate(enemySpawner);
             Vector3Int cellPos = new Vector3Int(x,y,0);
             newSpawner.transform.position = groundMap.GetCellCenterLocal(cellPos);
+        }
+    }
+
+    void spawnPowerups(int x, int y)
+    {
+        if(powerupSpawnCount<2)
+        {
+            int roll = Random.Range(0,4);
+            if(CEO_script.powerupSpawned[roll]==0)
+            {
+                CEO_script.powerupSpawned[roll]=1;
+                GameObject powerUp = Instantiate(powerups[roll]);
+                Vector3Int cellPos = new Vector3Int(x,y,0);
+                powerUp.transform.position = groundMap.GetCellCenterLocal(cellPos);
+                powerupSpawnCount++;
+                return;
+            }
         }
     }
     
