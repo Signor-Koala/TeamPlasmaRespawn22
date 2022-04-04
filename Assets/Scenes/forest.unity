@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 42878380}
   - component: {fileID: 42878379}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ Transform:
   - {fileID: 780528012}
   - {fileID: 302835538}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302835537
 GameObject:
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 302835540}
   - component: {fileID: 302835539}
   - component: {fileID: 302835541}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pit Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ TilemapCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 780528010}
   - component: {fileID: 780528011}
   - component: {fileID: 780528013}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Wall Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,8 +636,53 @@ PrefabInstance:
       propertyPath: currenProj
       value: 
       objectReference: {fileID: 8221547130648313157, guid: 3ba1171202d23e46aa667a0e107a1d2b, type: 3}
+    - target: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0584
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0584
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1168
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5653
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5653
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589436837990088420, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589436837990088420, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: firepoint
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589436837990088420, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: currenProj
+      value: 
+      objectReference: {fileID: 5171863051786014653, guid: eaa689cc7e028b9e68743d6d873bc173, type: 3}
+    - target: {fileID: 3589436837990088423, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579267007534034446, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: orthographic size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+--- !u!1 &962121407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3589436837990088423, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+  m_PrefabInstance: {fileID: 962121406}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1106259541
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +713,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1106259543
 MonoBehaviour:
@@ -682,6 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c365f93ffa684284ab4e720a153be31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 5876479116192530579, guid: bab27babd4354aa41a2295e212991e3f, type: 3}
   trees:
   - {fileID: 8241081582720439640, guid: 772172f5cf0024041b294afc38aba988, type: 3}
   - {fileID: 3285480706800970678, guid: 84a7c4f982397fa47bc614f1b1da9d53, type: 3}
@@ -707,9 +753,9 @@ MonoBehaviour:
   groundMap: {fileID: 430708521}
   pitMap: {fileID: 302835540}
   wallMap: {fileID: 780528010}
-  player: {fileID: 0}
-  deviationRate: 15
-  roomRate: 15
+  player: {fileID: 962121407}
+  deviationRate: 10
+  roomRate: 10
   maxRouteLength: 150
   maxRoutes: 20
 --- !u!114 &1106259544
@@ -719,7 +765,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106259541}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a47a0630546c79469858e9b73675832, type: 3}
   m_Name: 

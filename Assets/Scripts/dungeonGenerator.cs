@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class dungeonGenerator : MonoBehaviour
 {
+    [SerializeField] GameObject enemySpawner;
     [SerializeField] GameObject[] trees;
     [SerializeField] GameObject props;
     [SerializeField] Sprite[] propSprites;
@@ -32,9 +33,9 @@ public class dungeonGenerator : MonoBehaviour
     private int maxRouteLength;
     [SerializeField]
     private int maxRoutes = 20;
-    
-
     private int routeCount = 0;
+    
+    bool[] powerupSpawned;
 
     private void Start()
     {
@@ -104,7 +105,7 @@ public class dungeonGenerator : MonoBehaviour
                 int yOffset = y - previousPos.y; //3
                 int roomSize = 1; //Hallway size
                 if (Random.Range(1, 100) <= roomRate)
-                    roomSize = Random.Range(3, 6);
+                    roomSize = Random.Range(4, 8);
                 previousPos = new Vector2Int(x, y);
 
                 //Go Straight
@@ -120,6 +121,7 @@ public class dungeonGenerator : MonoBehaviour
                         x = previousPos.x + xOffset;
                         y = previousPos.y + yOffset;
                         GenerateSquare(x, y, roomSize);
+                        spawnSpawner(x,y,0.1f);
                         routeUsed = true;
                     }
                 }
@@ -137,6 +139,7 @@ public class dungeonGenerator : MonoBehaviour
                         y = previousPos.y + xOffset;
                         x = previousPos.x - yOffset;
                         GenerateSquare(x, y, roomSize);
+                        spawnSpawner(x,y,0.1f);
                         routeUsed = true;
                     }
                 }
@@ -153,6 +156,7 @@ public class dungeonGenerator : MonoBehaviour
                         y = previousPos.y - xOffset;
                         x = previousPos.x + yOffset;
                         GenerateSquare(x, y, roomSize);
+                        spawnSpawner(x,y,0.1f);
                         routeUsed = true;
                     }
                 }
@@ -162,6 +166,7 @@ public class dungeonGenerator : MonoBehaviour
                     x = previousPos.x + xOffset;
                     y = previousPos.y + yOffset;
                     GenerateSquare(x, y, roomSize);
+                    spawnSpawner(x,y,0.1f);
                 }
             }
         }
@@ -176,13 +181,24 @@ public class dungeonGenerator : MonoBehaviour
                 Vector3Int tilePos = new Vector3Int(tileX, tileY, 0);
                 groundMap.SetTile(tilePos, groundTile);
                 if(Random.Range(0f,1f)<0.05f)
-                    {
-                        GameObject newProp = Instantiate(props);
-                        newProp.GetComponent<SpriteRenderer>().sprite = propSprites[Random.Range(0,12)];
-                        newProp.transform.position = pitMap.GetCellCenterLocal(tilePos);
-                    }
+                {
+                    GameObject newProp = Instantiate(props);
+                    newProp.GetComponent<SpriteRenderer>().sprite = propSprites[Random.Range(0,12)];
+                    newProp.transform.position = pitMap.GetCellCenterLocal(tilePos);
+                }
             }
         }
     }
+
+    void spawnSpawner(int x, int y, float p)
+    {
+        if(Random.Range(0f,1f)<p)
+        {
+            GameObject newSpawner = Instantiate(enemySpawner);
+            Vector3Int cellPos = new Vector3Int(x,y,0);
+            newSpawner.transform.position = groundMap.GetCellCenterLocal(cellPos);
+        }
+    }
+    
 }
 

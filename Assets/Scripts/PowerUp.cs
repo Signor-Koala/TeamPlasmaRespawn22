@@ -16,15 +16,11 @@ public class PowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col.name);
-        
-        PlayerController player = col.GetComponent<PlayerController>();
+        controller player = col.GetComponent<controller>();
         if (player != null)
         {
             player.currenProj = projectile;
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
-
-
 }
