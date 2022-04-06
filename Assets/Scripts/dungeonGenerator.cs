@@ -71,7 +71,7 @@ public class dungeonGenerator : MonoBehaviour
                 if (tile == null)
                 {
                     pitMap.SetTile(pos, pitTile);   //setting grass tile
-                    if(Random.Range(0f,1f)<0.1f)
+                    if(Random.Range(0f,1f)<0.01f)
                     {
                         GameObject newTree = Instantiate(trees[Random.Range(0,3)]);
                         newTree.transform.position = pitMap.GetCellCenterLocal(pos);

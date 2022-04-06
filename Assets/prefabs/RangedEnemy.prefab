@@ -102,9 +102,12 @@ MonoBehaviour:
   reload: 1.6
   agroDistance: 1.2
   speed: 130
-  attackDistance: 3
+  attackDistance: 0.1
   enemyType: 2
   currenProj: {fileID: 7440538034304910794, guid: afdfcbc9f28f67a4b8c136e86cccc1bd, type: 3}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
   attackPoint: {fileID: 0}
 --- !u!50 &940480129654245641
 Rigidbody2D:
@@ -125,7 +128,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &940480129654245654
 BoxCollider2D:
@@ -137,7 +140,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

@@ -36,29 +36,27 @@ public class controller : MonoBehaviour
     
     void FixedUpdate()
     {
+        //Input
         float xaxis = Input.GetAxisRaw("Horizontal");
         float yaxis = Input.GetAxisRaw("Vertical");
         
+        //Bullet positioning
         looking = rbd.position - (Vector2)maincam.ScreenToWorldPoint(Input.mousePosition);
-        
-        float temp = (float)Math.Sqrt(Math.Pow(looking.x, 2) + Math.Pow(looking.y, 2));
-        looking.x /= (temp/firepoint);
-        looking.y /= (temp/firepoint);
+        looking /= (looking.magnitude/firepoint);
         
         deviation = Vector2.Perpendicular(looking);
-        deviation.x /= 10;
-        deviation.y /= 10;
+        deviation /= 10;
 
         if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible))
         {
-            fireWeapon((rbd.position-looking), rot);
+            FireWeapon((rbd.position-looking), rot);
         }
 
-        direction.x = xaxis;
-        direction.y = yaxis;
+        direction = new Vector2(xaxis, yaxis);
 
         if (direction.x != 0 || direction.y != 0)
         {
+            //Dash
             if (Input.GetButton("Fire2") && (Time.time > lastRollTime + rollReload))
             {
                 invincible = true;
@@ -68,22 +66,22 @@ public class controller : MonoBehaviour
 
             if (invincible)
             {
-                rbd.transform.position += (Vector3)dodgeDir * 5 * speed * Time.deltaTime;
+                rbd.transform.position += (Vector3)dodgeDir * (5 * speed * Time.deltaTime);
                 if (Time.time > lastRollTime + rollDuration)
                 {
                     invincible = false;
                 }
             }
-            else
+            else // Normal movement
             {
-                rbd.transform.position += (Vector3) direction * speed * Time.deltaTime;
+                rbd.transform.position += (Vector3) direction * (speed * Time.deltaTime);
             }
         }
 
 
     }
 
-    void fireWeapon(Vector3 position, Quaternion rotation)
+    void FireWeapon(Vector3 position, Quaternion rotation)
     {
         GameObject bullet = Instantiate(currenProj, position, rotation);
         bullet.GetComponent<Bullet>().plr = transform;
@@ -100,7 +98,7 @@ public class controller : MonoBehaviour
         lastFireTime = Time.time;
     }
 
-    public void takeDamage(int dam)
+    public void TakeDamage(int dam)
     {
         if (!invincible)
         {

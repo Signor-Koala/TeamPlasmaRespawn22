@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3589436837990088423}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children:
   - {fileID: 352664056432524700}
   m_Father: {fileID: 0}
@@ -117,7 +117,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -135,11 +135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b85a9516bc5dab2b825becc20af4c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 0.5
   health: 100
   died: 0
   looking: {x: 0, y: 0}
-  firepoint: 1
+  firepoint: 0.1
   reloadTime: 0.5
   rollDuration: 0.18
   rollReload: 1.25
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 352664056432524700}
   - component: {fileID: 4579267007534034446}
   - component: {fileID: 8119025017240311848}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ Camera:
   far clip plane: 1000
   field of view: 90
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 1
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

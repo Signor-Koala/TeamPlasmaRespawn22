@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     public float attackDistance = 3f;
     public int enemyType = 0; // (0,1,2) -> (Invalid,Melee,Ranged)
     public GameObject currenProj;
+    public LayerMask playerLayer;
 
     public Transform attackPoint;
     
@@ -44,66 +45,62 @@ public class EnemyScript : MonoBehaviour
         }
         else if (isAgro && enemyType == 2)
         {
-            Ranged(distance);
+            Ranged();
         }
 
     }
 
     void Melee(Vector2 distance)
     {
-        var position = plr.position;
-        destination = (position - rbd.transform.position) / (position - rbd.transform.position).magnitude;
-        rbd.velocity = (Vector3)destination * speed * Time.deltaTime;
-        
+        var positionplr = plr.position;
+        var position = rbd.transform.position;
+        destination = (positionplr - position) / (positionplr - position).magnitude;
+        rbd.velocity = destination * (speed * Time.deltaTime);
         if ((distance.magnitude < attackDistance) && (Time.time > reload + lastAttack))
         {
             lastAttack = Time.time;
-            hit();
+            Hit();
         }
     }
 
-    void Ranged(Vector2 distance)
+    void Ranged()
     {
         var position = rbd.transform.position;
-        destination = (position - plr.position) / (plr.position - position).magnitude;
-        
+        var positionplr = plr.position;
+        destination = (position - positionplr) / (positionplr - position).magnitude;
+        destination *= attackDistance;
         if (Time.time > lastAttack + reload)
         {
-            fireWeapon((rbd.position- (Vector2)destination), rot);
+            FireWeapon((rbd.position- (Vector2)destination), rot);
         }
     }
     
-    void fireWeapon(Vector3 position, Quaternion rotation)
+    void FireWeapon(Vector3 position, Quaternion rotation)
     {
         GameObject bullet = Instantiate(currenProj, position, rotation);
-        bullet.GetComponent<Bullet>().plr = transform;
+        bullet.GetComponent<Bullet>().plr = this.transform;
         reload = bullet.GetComponent<Bullet>().reload;
         lastAttack = Time.time;
     }
-    
-    
-    
-    public void hit()
+
+    void Hit()
     {
-        Collider2D[] hitplayer = Physics2D.OverlapCircleAll(attackPoint.position, attackDistance, 10);
+        Collider2D[] hitplayer = Physics2D.OverlapCircleAll(attackPoint.position, attackDistance, playerLayer);
         
         foreach (Collider2D player in hitplayer)
         {
             controller play = player.GetComponent<controller>();
             if (play != null)
             {
-                play.takeDamage(damage);
+                play.TakeDamage(damage);
             }
         }
     }
     
-    public void takeDamage(int dam)
+    public void TakeDamage(int dam)
     {
-        if (!isAgro)
-        {
-            isAgro = true;
-        }
-        
+        if (!isAgro) isAgro = true;
+
         health -= dam;
         if (health <= 0)
         {
