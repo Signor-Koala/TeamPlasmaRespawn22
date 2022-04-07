@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4976788252546902422}
   - component: {fileID: 1359436708250724227}
   - component: {fileID: 3943652016157181938}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,10 +106,10 @@ MonoBehaviour:
   explosiveRange: 4
   playerLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1024
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 512
   bulletLifetime: 10
 --- !u!50 &1359436708250724227
 Rigidbody2D:

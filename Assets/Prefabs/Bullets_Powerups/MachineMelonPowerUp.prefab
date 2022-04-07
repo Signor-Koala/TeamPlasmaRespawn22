@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4593926195378784474}
   - component: {fileID: 4593926195378784475}
   - component: {fileID: 4593926195378784471}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: MachineMelonPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

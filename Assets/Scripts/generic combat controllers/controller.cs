@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class controller : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 1.0f;
     public int health = 100;
     public bool died = false;
     public Vector2 looking;
@@ -31,6 +31,8 @@ public class controller : MonoBehaviour
     void Start()
     {
         rbd = GetComponent<Rigidbody2D>();
+        health = CEO_script.health;
+        speed = CEO_script.speed;
     }
 
     
@@ -108,6 +110,7 @@ public class controller : MonoBehaviour
             {
                 //dying animation
                 //trigger game over
+                CEO_script.gameOver();
                 this.enabled = false;
             }
         }

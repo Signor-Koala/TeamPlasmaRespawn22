@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1260651963555240210}
   - component: {fileID: 5094159142325049095}
   - component: {fileID: 7121611964139419510}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,10 +106,10 @@ MonoBehaviour:
   explosiveRange: 4
   playerLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1024
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 512
   bulletLifetime: 10
 --- !u!50 &5094159142325049095
 Rigidbody2D:

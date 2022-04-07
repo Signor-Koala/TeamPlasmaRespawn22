@@ -11,9 +11,9 @@ public class EnemyScript : MonoBehaviour
     public float speed = 380f;
     public float attackDistance = 3f;
     public int enemyType = 0; // (0,1,2) -> (Invalid,Melee,Ranged)
-    public GameObject currenProj;
     public LayerMask playerLayer;
 
+    public GameObject currenProj;
     public Transform attackPoint;
     
     private Transform plr;
@@ -21,6 +21,9 @@ public class EnemyScript : MonoBehaviour
     private float lastAttack = 0;
     private bool isAgro = false;
     private Quaternion rot = Quaternion.Euler(0, 0, 0);
+    private Vector2 deviation;
+    
+    
 
     private Rigidbody2D rbd;
     void Start()
@@ -37,6 +40,7 @@ public class EnemyScript : MonoBehaviour
         if (!isAgro && distance.magnitude < agroDistance)
         {
             isAgro = true;
+            CEO_script.dangerLevel++;
         }
 
         if (isAgro && enemyType == 1)
@@ -46,6 +50,10 @@ public class EnemyScript : MonoBehaviour
         else if (isAgro && enemyType == 2)
         {
             Ranged();
+        }
+        else if (isAgro && enemyType == 3)
+        {
+            ShotgunRanged();
         }
 
     }
@@ -75,10 +83,33 @@ public class EnemyScript : MonoBehaviour
         }
     }
     
+    void ShotgunRanged()
+    {
+        var position = rbd.transform.position;
+        var positionplr = plr.position;
+        destination = (position - positionplr) / (positionplr - position).magnitude;
+        destination *= attackDistance;
+        deviation = Vector2.Perpendicular(destination);
+        deviation /= 10;
+
+        if (Time.time > lastAttack + reload)
+        {
+            FireWeapon((rbd.position- (Vector2)destination), rot);
+        }
+    }
+    
     void FireWeapon(Vector3 position, Quaternion rotation)
     {
         GameObject bullet = Instantiate(currenProj, position, rotation);
         bullet.GetComponent<Bullet>().plr = this.transform;
+        if (enemyType == 3)
+        {
+            GameObject bullet1 = Instantiate(currenProj, position + (Vector3) deviation, rotation);
+            bullet1.GetComponent<Bullet>().plr = transform;
+            GameObject bullet2 = Instantiate(currenProj, position - (Vector3) deviation, rotation);
+            bullet2.GetComponent<Bullet>().plr = transform;
+        }
+
         reload = bullet.GetComponent<Bullet>().reload;
         lastAttack = Time.time;
     }
@@ -105,7 +136,22 @@ public class EnemyScript : MonoBehaviour
         if (health <= 0)
         {
             rbd.velocity = new Vector2(0, 0);
+
             //dying animation
+
+            CEO_script.dangerLevel--;
+            if (enemyType == 1)
+            {
+                CEO_script.enemiesKilled[1]++;
+            }
+            else if (enemyType == 2)
+            {
+                CEO_script.enemiesKilled[2]++;
+            }
+            else if (enemyType == 3)
+            {
+                CEO_script.enemiesKilled[3]++;
+            }
             this.enabled = false;
         }
     }

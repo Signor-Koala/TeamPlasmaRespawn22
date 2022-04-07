@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3765178021052517311}
   - component: {fileID: 2408279111123454726}
   - component: {fileID: 3605230956421080962}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: ShotgunPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

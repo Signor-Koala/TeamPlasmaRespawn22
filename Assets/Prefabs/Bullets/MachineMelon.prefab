@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -5790284227783774762}
   - component: {fileID: -7038269027445449491}
   - component: {fileID: 4395447462919925461}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: MachineMelon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,10 +106,10 @@ MonoBehaviour:
   explosiveRange: 4
   playerLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1024
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 512
   bulletLifetime: 7.5
 --- !u!50 &-7038269027445449491
 Rigidbody2D:

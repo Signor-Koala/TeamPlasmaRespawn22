@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6466905527465746934}
   - component: {fileID: 5518145609328714063}
   - component: {fileID: 6915228103850773963}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: PeaShooterPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

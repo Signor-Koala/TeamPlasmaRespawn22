@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8148012205382564971}
   - component: {fileID: 4116242382439922589}
   - component: {fileID: 4263976843564597235}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: SniperPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

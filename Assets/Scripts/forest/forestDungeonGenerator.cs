@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class dungeonGenerator : MonoBehaviour
+public class forestDungeonGenerator : MonoBehaviour
 {
     [SerializeField] GameObject enemySpawner;
     [SerializeField] GameObject[] trees;
@@ -48,6 +48,7 @@ public class dungeonGenerator : MonoBehaviour
         Vector2Int previousPos = new Vector2Int(x, y);
         Vector3Int pos = new Vector3Int(x,y,0);
         player.transform.position = groundMap.GetCellCenterLocal(pos);
+        forestManager.spawnPoint = player.transform.position;
         y += 3;
         GenerateSquare(x, y, 1);
         NewRoute(x, y, routeLength, previousPos);
@@ -71,7 +72,7 @@ public class dungeonGenerator : MonoBehaviour
                 if (tile == null)
                 {
                     pitMap.SetTile(pos, pitTile);   //setting grass tile
-                    if(Random.Range(0f,1f)<0.01f)
+                    if(Random.Range(0f,1f)<0.05f)
                     {
                         GameObject newTree = Instantiate(trees[Random.Range(0,3)]);
                         newTree.transform.position = pitMap.GetCellCenterLocal(pos);
@@ -169,7 +170,7 @@ public class dungeonGenerator : MonoBehaviour
                     x = previousPos.x + xOffset;
                     y = previousPos.y + yOffset;
                     GenerateSquare(x, y, roomSize);
-                    spawnSpawner(x,y,0.1f);
+                    
                 }
             }
         }
@@ -177,6 +178,9 @@ public class dungeonGenerator : MonoBehaviour
 
     private void GenerateSquare(int x, int y, int radius)
     {
+        bool spawnerSpawned = false;
+        bool powerUpSpawned = false;
+
         for (int tileX = x - radius; tileX <= x + radius; tileX++)
         {
             for (int tileY = y - radius; tileY <= y + radius; tileY++)
@@ -185,8 +189,11 @@ public class dungeonGenerator : MonoBehaviour
                 groundMap.SetTile(tilePos, groundTile);
 
                 //setting up spawners in rooms
-                if(radius>1)
-                    spawnSpawner(x,y,0.001f);
+                if(radius>2 && spawnerSpawned==false)
+                {
+                    spawnSpawner(x,y,1f);
+                    spawnerSpawned = true;
+                }
                 
                 //spawning props
                 if(Random.Range(0f,1f)<0.05f)
@@ -195,15 +202,18 @@ public class dungeonGenerator : MonoBehaviour
                     newProp.GetComponent<SpriteRenderer>().sprite = propSprites[Random.Range(0,12)];
                     newProp.transform.position = pitMap.GetCellCenterLocal(tilePos);
                 }
-                if(Random.Range(0f,1f)<0.001f && radius>1)
+                if(powerUpSpawned==false && radius>2 && Random.Range(0f,1f)<0.33f)
+                {
                     spawnPowerups(x,y);
+                    powerUpSpawned = true;
+                }
             }
         }
     }
 
     void spawnSpawner(int x, int y, float p)
     {
-        if(Random.Range(0f,1f)<p)
+        if(Random.Range(0f,1f)<=p)
         {
             GameObject newSpawner = Instantiate(enemySpawner);
             Vector3Int cellPos = new Vector3Int(x,y,0);

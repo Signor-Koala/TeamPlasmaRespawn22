@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4426101024104453483}
   - component: {fileID: 8458026333419590301}
   - component: {fileID: 8598381972698060531}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: ExplosivePowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
