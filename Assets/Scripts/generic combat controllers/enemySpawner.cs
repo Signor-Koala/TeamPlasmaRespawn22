@@ -8,8 +8,9 @@ public class enemySpawner : MonoBehaviour
     public Transform playerPos;
     public float spawnTriggerRadius=3f;
     [SerializeField] GameObject[] enemyList;
-    int[] enemyCount = {2,1};
-    int[] enemyCountScatter = {1,0};
+    int[] enemyCount = {5,1,1};
+    int[] enemyCountScatter = {1,1,0};
+    public int enemyVariety;
     
     private void Start() {
         playerPos = GameObject.Find("Player").GetComponent<Transform>();
@@ -20,7 +21,7 @@ public class enemySpawner : MonoBehaviour
         if(((this.transform.position - playerPos.position).magnitude < spawnTriggerRadius) && isTriggered==false)
         {
             isTriggered=true;
-            initializeRoom(2,enemyList,enemyCount,enemyCountScatter,5);
+            initializeRoom(enemyVariety,enemyList,enemyCount,enemyCountScatter,3);
         }
     }
 
@@ -28,15 +29,16 @@ public class enemySpawner : MonoBehaviour
     {
         for (int i = 0; i < enemyVariety; i++)
         {
-            for (int j = 0; j < enemyCount[i] + (int)(countScatter[i]*Random.Range(-1f,1f)); j++)
+            int scatterDir=Random.Range(-1,2);
+            for (int j = 0; j < enemyCount[i] + (countScatter[i]*scatterDir); j++)
             {
                 GameObject newEnemy = Instantiate(enemies[i]);
                 Vector3 pos = new Vector3(transform.position.x,transform.position.y,0);
-                pos.x += Random.Range(-roomSize/4,roomSize/4);
-                pos.y += Random.Range(-roomSize/4,roomSize/4);
+                pos.x += Random.Range(-roomSize/5,roomSize/5);
+                pos.y += Random.Range(-roomSize/5,roomSize/5);
                 newEnemy.transform.position = pos;
             }
-            if(Random.Range(0f,1f)<0.75f)
+            if(Random.Range(0f,1f)<0.33f)
                 break;
         }
     }

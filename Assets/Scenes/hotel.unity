@@ -193,7 +193,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198737818}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a47a0630546c79469858e9b73675832, type: 3}
   m_Name: 
@@ -778,14 +778,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f762639e5990e08449ce7f78c3f5ce3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawner: {fileID: 0}
-  trees: []
-  props: {fileID: 0}
-  propSprites: []
+  enemySpawner: {fileID: 5876479116192530579, guid: bab27babd4354aa41a2295e212991e3f, type: 3}
+  props: {fileID: 7589775245552835277, guid: 1269ac0c64eb4394999e4e9035c4418f, type: 3}
+  propSprites:
+  - {fileID: 2132535878712514883, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: 8808859571310830456, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: -3027782111604198055, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: -4917881067709642230, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: -5871667795669756244, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: -4715416408944206972, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: -5780460213378756249, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: 8307030112634560281, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: 1428731561810082683, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: -3624466932721182813, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: -3148545679559786203, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: 6558567262423513941, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: 8584285218498451622, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
+  - {fileID: 1607768824699851824, guid: fa9a9550107ab6147a9108a852b24c4c, type: 3}
   groundTile: {fileID: 11400000, guid: 848f796fc7ba53242920f30807db3d5e, type: 2}
   pitTile: {fileID: 11400000, guid: c3339cd9910a75f45af012561b2e2dd7, type: 2}
   topWallTile: {fileID: 11400000, guid: 9170eb6477d14974d8a4ca9c2b4d8a54, type: 2}
-  botWallTile: {fileID: 11400000, guid: 47ebedc203b255949a1d2cf8b363c8ca, type: 2}
+  botWallTile: {fileID: 11400000, guid: c3339cd9910a75f45af012561b2e2dd7, type: 2}
   groundMap: {fileID: 430708521}
   pitMap: {fileID: 302835540}
   wallMap: {fileID: 780528010}
@@ -793,8 +806,12 @@ MonoBehaviour:
   deviationRate: 10
   roomRate: 15
   maxRouteLength: 100
-  maxRoutes: 20
-  powerups: []
+  maxRoutes: 10
+  powerups:
+  - {fileID: 2486835680098447365, guid: a80cd2ee9fa78a74da61c410119a5545, type: 3}
+  - {fileID: 4593926195378784476, guid: 7903c2d31d90013bcb9c3c9f1b3bfbdf, type: 3}
+  - {fileID: 3911605194804372762, guid: 3609c41084fe29548ad97dfa18681652, type: 3}
+  - {fileID: 7997308132985018629, guid: a1021a851be93942d92e2eeaa84121b0, type: 3}
 --- !u!1 &1250664712
 GameObject:
   m_ObjectHideFlags: 0

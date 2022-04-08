@@ -6,7 +6,6 @@ using UnityEngine.Tilemaps;
 public class hotelDungeonGenerator : MonoBehaviour
 {
     [SerializeField] GameObject enemySpawner;
-    [SerializeField] GameObject[] trees;
     [SerializeField] GameObject props;
     [SerializeField] Sprite[] propSprites;
     [SerializeField]
@@ -72,17 +71,6 @@ public class hotelDungeonGenerator : MonoBehaviour
                 if (tile == null)
                 {
                     pitMap.SetTile(pos, pitTile);   //setting grass tile
-                    if(Random.Range(0f,1f)<0.05f)
-                    {
-                        GameObject newTree = Instantiate(trees[Random.Range(0,3)]);
-                        newTree.transform.position = pitMap.GetCellCenterLocal(pos);
-                    }
-                    if(Random.Range(0f,1f)<0.05f)
-                    {
-                        GameObject newProp = Instantiate(props);
-                        newProp.GetComponent<SpriteRenderer>().sprite = propSprites[Random.Range(0,12)];
-                        newProp.transform.position = pitMap.GetCellCenterLocal(pos);
-                    }
 
                     if (tileBelow != null)
                     {
@@ -196,11 +184,24 @@ public class hotelDungeonGenerator : MonoBehaviour
                 }
                 
                 //spawning props
-                if(Random.Range(0f,1f)<0.05f)
+                if(props != null && radius>=3)
                 {
-                    GameObject newProp = Instantiate(props);
-                    newProp.GetComponent<SpriteRenderer>().sprite = propSprites[Random.Range(0,12)];
-                    newProp.transform.position = pitMap.GetCellCenterLocal(tilePos);
+                    if(tileX==x && tileY==y)
+                    {
+                        GameObject newProp = Instantiate(props);
+                        newProp.GetComponent<SpriteRenderer>().sprite = propSprites[Random.Range(0,3)];
+                        newProp.transform.position = pitMap.GetCellCenterLocal(tilePos);
+                    }
+                    else if(tileX==x+radius-1 || tileX==x-radius+1)
+                    {
+                        if(tileY==y+radius-1 || tileY==y-radius+1)
+                        {
+                            GameObject newProp = Instantiate(props);
+                            newProp.GetComponent<SpriteRenderer>().sprite = propSprites[Random.Range(3,14)];
+                            newProp.transform.position = pitMap.GetCellCenterLocal(tilePos);
+                        }
+                    }
+                    
                 }
                 if(powerUpSpawned==false && radius>2 && Random.Range(0f,1f)<0.33f)
                 {
