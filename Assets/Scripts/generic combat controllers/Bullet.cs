@@ -63,6 +63,11 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject);
         }
+
+        if(col.CompareTag("OutLands") || col.CompareTag("Tree"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()

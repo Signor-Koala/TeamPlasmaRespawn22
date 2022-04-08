@@ -155,4 +155,14 @@ public class EnemyScript : MonoBehaviour
             this.enabled = false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(enemyType==2 || enemyType==3)
+        {
+            if(other.CompareTag("Tree"))
+            {
+                other.gameObject.SetActive(false);
+            }
+        }
+    }
 }

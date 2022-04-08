@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 302835540}
   - component: {fileID: 302835539}
   - component: {fileID: 302835541}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Pit Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

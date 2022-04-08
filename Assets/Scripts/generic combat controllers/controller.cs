@@ -49,7 +49,7 @@ public class controller : MonoBehaviour
         deviation = Vector2.Perpendicular(looking);
         deviation /= 10;
 
-        if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible))
+        if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible) && currenProj !=null)
         {
             FireWeapon((rbd.position-looking), rot);
         }
@@ -115,4 +115,7 @@ public class controller : MonoBehaviour
             }
         }
     }
+
+   
+    
 }

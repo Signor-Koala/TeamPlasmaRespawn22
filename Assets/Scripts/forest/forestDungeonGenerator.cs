@@ -72,7 +72,7 @@ public class forestDungeonGenerator : MonoBehaviour
                 if (tile == null)
                 {
                     pitMap.SetTile(pos, pitTile);   //setting grass tile
-                    if(Random.Range(0f,1f)<0.05f)
+                    if(Random.Range(0f,1f)<0.1f)
                     {
                         GameObject newTree = Instantiate(trees[Random.Range(0,3)]);
                         newTree.transform.position = pitMap.GetCellCenterLocal(pos);

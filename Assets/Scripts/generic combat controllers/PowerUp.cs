@@ -15,5 +15,9 @@ public class PowerUp : MonoBehaviour
             player.currenProj = projectile;
             Destroy(gameObject);
         }
+        if(col.CompareTag("Tree"))
+            {
+                col.gameObject.SetActive(false);
+            }
     }
 }
