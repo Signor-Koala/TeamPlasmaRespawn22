@@ -23,6 +23,7 @@ public class EnemyScript : MonoBehaviour
     private Quaternion rot = Quaternion.Euler(0, 0, 0);
     private Vector2 deviation;
     bool aggroTriggered=false;
+    Animator enemyAnim;
     
     
 
@@ -31,10 +32,12 @@ public class EnemyScript : MonoBehaviour
     {
         plr = GameObject.Find("Player").transform;
         rbd = this.GetComponent<Rigidbody2D>();
+        enemyAnim = this.GetComponent<Animator>();
         if (enemyType == 4)
         {
             enemyType = 1;
             isAgro = true;
+            enemyAnim.SetBool("isAggro",true);
         }
     }
 
@@ -149,21 +152,38 @@ public class EnemyScript : MonoBehaviour
 
             //dying animation
 
+            addScore();
             CEO_script.dangerLevel--;
-            if (enemyType == 1)
+            
+            this.gameObject.GetComponent<Collider2D>().enabled = false;
+            this.enabled = false;
+            StartCoroutine(deSpawn());
+        }
+    }
+
+    void addScore()
+    {
+        if (enemyType == 1)
             {
                 CEO_script.enemiesKilled[1]++;
+                CEO_script.money += 5;
             }
             else if (enemyType == 2)
             {
                 CEO_script.enemiesKilled[2]++;
+                CEO_script.money += 10;
             }
             else if (enemyType == 3)
             {
                 CEO_script.enemiesKilled[3]++;
+                CEO_script.money += 20;
             }
-            this.enabled = false;
-        }
+    }
+
+    IEnumerator deSpawn()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
