@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/hotel.unity
     guid: ce49edc5b62eb974f8b7030c3fe07b61
+  - enabled: 1
+    path: Assets/Scenes/boss_room.unity
+    guid: b4f4fe2c08bb2be4585de39b2cf29f73
   m_configObjects: {}

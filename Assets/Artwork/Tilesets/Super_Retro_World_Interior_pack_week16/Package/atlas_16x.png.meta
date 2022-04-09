@@ -59,6 +59,48 @@ TextureImporter:
   - first:
       213: -5566037074515333637
     second: stairs_down
+  - first:
+      213: 7163661937026927790
+    second: bossRoom_tiles
+  - first:
+      213: -2046762322740271305
+    second: chimney_base
+  - first:
+      213: 7331804470849511987
+    second: basin_1
+  - first:
+      213: -1297168168471260756
+    second: bookShelf_1
+  - first:
+      213: -8359758514589808890
+    second: sofa_L
+  - first:
+      213: 5673910272569780926
+    second: atlas_16x_27
+  - first:
+      213: -2195456867257232785
+    second: table_wide
+  - first:
+      213: 735270460777346848
+    second: map
+  - first:
+      213: 174711960444950930
+    second: table_with_cloth
+  - first:
+      213: -3691678079313487496
+    second: chair_L
+  - first:
+      213: -5716135279274612142
+    second: chair_R
+  - first:
+      213: -4750890422282348836
+    second: grandpa_clock
+  - first:
+      213: -7861882499946256172
+    second: entrance_mat
+  - first:
+      213: 7705022296292488815
+    second: sofa_
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -576,7 +618,7 @@ TextureImporter:
         width: 18
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -597,7 +639,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -605,6 +647,300 @@ TextureImporter:
       bones: []
       spriteID: bfdebd655c671c2b0800000000000000
       internalID: -5566037074515333637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossRoom_tiles
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac0a77b3907a6360800000000000000
+      internalID: 7163661937026927790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chimney_base
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 167
+        width: 31
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737a96df2807893e0800000000000000
+      internalID: -2046762322740271305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basin_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 52
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3322b97125dcfb560800000000000000
+      internalID: 7331804470849511987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bookShelf_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 64
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca193586c688ffde0800000000000000
+      internalID: -1297168168471260756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sofa_L
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607c3d14ceb2cfb80800000000000000
+      internalID: -8359758514589808890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atlas_16x_27
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 6
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba26fbc457cdbe40800000000000000
+      internalID: 5673910272569780926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: table_wide
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 151
+        width: 43
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f62d07b7c9b2881e0800000000000000
+      internalID: -2195456867257232785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 102
+        width: 30
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 027b874a694343a00800000000000000
+      internalID: 735270460777346848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: table_with_cloth
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 103
+        width: 43
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29955543a93bc6200800000000000000
+      internalID: 174711960444950930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chair_L
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 144
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8795c61a85684ccc0800000000000000
+      internalID: -3691678079313487496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chair_R
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 112
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25a22c6bf353ca0b0800000000000000
+      internalID: -5716135279274612142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grandpa_clock
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 16
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd61e0d0552711eb0800000000000000
+      internalID: -4750890422282348836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: entrance_mat
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 194
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8e7d4358bf4e290800000000000000
+      internalID: -7861882499946256172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sofa_
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f667afc94fcbdea60800000000000000
+      internalID: 7705022296292488815
       vertices: []
       indices: 
       edges: []

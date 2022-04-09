@@ -7,7 +7,7 @@ public class UpgradeScript : MonoBehaviour
     public int healthPrice = 50;
     public int speedPrice = 50;
     public int healthAmount = 20;
-    public float speedAmount = 1f;
+    public float speedAmount = 0.2f;
 
     public void healthUpgrade()
     {

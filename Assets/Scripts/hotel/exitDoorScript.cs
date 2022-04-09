@@ -20,7 +20,7 @@ public class exitDoorScript : MonoBehaviour
     IEnumerator bossRoomTransition()
     {
         fadeAnim.SetTrigger("fadeTrigger");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         UnityEngine.SceneManagement.SceneManager.LoadScene("boss_room");
     }
 }
