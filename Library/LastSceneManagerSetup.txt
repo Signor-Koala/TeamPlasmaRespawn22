@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/boss_room.unity
+- path: Assets/Scenes/forest_start.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

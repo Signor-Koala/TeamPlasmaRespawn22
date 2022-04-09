@@ -53,6 +53,7 @@ public class EnemyScript : MonoBehaviour
             {
                 CEO_script.dangerLevel++;
                 aggroTriggered = true;
+                enemyAnim.SetBool("isAggro",true);
             }
         }
 
