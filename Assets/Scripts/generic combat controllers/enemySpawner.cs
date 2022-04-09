@@ -8,7 +8,7 @@ public class enemySpawner : MonoBehaviour
     public Transform playerPos;
     public float spawnTriggerRadius=3f;
     [SerializeField] GameObject[] enemyList;
-    int[] enemyCount = {5,1,1};
+    int[] enemyCount = {4,1,1};
     int[] enemyCountScatter = {1,1,0};
     public int enemyVariety;
     
@@ -34,8 +34,8 @@ public class enemySpawner : MonoBehaviour
             {
                 GameObject newEnemy = Instantiate(enemies[i]);
                 Vector3 pos = new Vector3(transform.position.x,transform.position.y,0);
-                pos.x += Random.Range(-roomSize/5,roomSize/5);
-                pos.y += Random.Range(-roomSize/5,roomSize/5);
+                pos.x += Random.Range(-(float)roomSize/5,(float)roomSize/5);
+                pos.y += Random.Range(-(float)roomSize/5,(float)roomSize/5);
                 newEnemy.transform.position = pos;
             }
             if(Random.Range(0f,1f)<0.33f)

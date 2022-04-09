@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class portalScript : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player"))
-        {
-            Debug.Log("Hello peter!");
-        }
+    public bool isActivated;
+    public Sprite inactiveSprite, activeSprite;
+
+    private void Start() {
+        
+        deactivatePortal();
     }
+
+    public void activatePortal()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = activeSprite;
+        isActivated=true;
+    }
+
+    public void deactivatePortal()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = inactiveSprite;
+        isActivated=false;
+    }
+
 }

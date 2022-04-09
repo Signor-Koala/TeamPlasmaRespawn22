@@ -13,12 +13,16 @@ public class forestManager : MonoBehaviour
     bool pidjonHasArrived = false;
     Rigidbody2D pidjonRB;
     Animator pidjonAnim;
+    public Dialogue dialogue;
+	DialogueManager dialogueManager;
     void Start()
     {
         CEO_script.currentGameState = CEO_script.gameState.forestLevel; 
+        player.GetComponent<controller>().currenProj = CEO_script.activePowerUp;
         pidjonRB = GameObject.Find("Pidjon").GetComponent<Rigidbody2D>();
         pidjonAnim = GameObject.Find("Pidjon").GetComponent<Animator>();
         pidjon.SetActive(false);
+        dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
     private void Update() {
@@ -34,6 +38,7 @@ public class forestManager : MonoBehaviour
             if(Random.Range(0,10)<CEO_script.totalKillScore)
             {
                 Debug.Log("HELLO PIDJON!");
+                dialogueManager.StartDialogue(dialogue);
                 pidjon.SetActive(true);
                 pidjonHasArrived = true;
                 

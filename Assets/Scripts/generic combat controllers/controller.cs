@@ -33,6 +33,7 @@ public class controller : MonoBehaviour
         rbd = GetComponent<Rigidbody2D>();
         health = CEO_script.health;
         speed = CEO_script.speed;
+        currenProj = CEO_script.activePowerUp;
     }
 
     
@@ -68,9 +69,10 @@ public class controller : MonoBehaviour
 
             if (invincible)
             {
-                rbd.transform.position += (Vector3)dodgeDir * (5 * speed * Time.deltaTime);
+                rbd.velocity = (Vector3)dodgeDir * (5 * speed);
                 if (Time.time > lastRollTime + rollDuration)
                 {
+                    rbd.velocity = Vector2.zero;
                     invincible = false;
                 }
             }

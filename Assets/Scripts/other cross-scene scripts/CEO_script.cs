@@ -8,13 +8,14 @@ public class CEO_script : MonoBehaviour
     public static CEO_script instance;
     public static GameObject[] powerups;
     public static int[] powerupSpawned;
+    public static GameObject activePowerUp;
     public static int[] enemiesKilled = new int[3];
     public static int totalKillScore=0;
     public static int dangerLevel=0;
     public enum gameState
     {
-        forestLevel, forestLevelCleared,
-        hotelLevel, hotelLevelCleared,
+        preForestLevel,forestLevel, forestLevelCleared,
+        preHotelLevel,hotelLevel, hotelLevelCleared,
         bossBattle, bossBattleCleared
     }
     public static gameState currentGameState;
