@@ -8,6 +8,11 @@ public class UpgradeScript : MonoBehaviour
     public int speedPrice = 50;
     public int healthAmount = 20;
     public float speedAmount = 0.2f;
+    [SerializeField] controller playerScript;
+
+    private void Start() {
+        playerScript = GameObject.Find("Player").GetComponent<controller>();
+    }
 
     public void healthUpgrade()
     {
@@ -17,6 +22,7 @@ public class UpgradeScript : MonoBehaviour
             CEO_script.money -= healthPrice;
             PlayerPrefs.SetInt("health", CEO_script.health + healthAmount);
             CEO_script.health += healthAmount;
+            playerScript.health += healthAmount;
         }
     }
     
@@ -28,6 +34,7 @@ public class UpgradeScript : MonoBehaviour
             CEO_script.money -= speedPrice;
             PlayerPrefs.SetFloat("speed", CEO_script.speed + speedAmount);
             CEO_script.speed += speedAmount;
+            playerScript.speed += speedAmount;
         }
     }
 }

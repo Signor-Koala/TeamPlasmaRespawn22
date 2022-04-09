@@ -178,6 +178,11 @@ public class EnemyScript : MonoBehaviour
                 CEO_script.enemiesKilled[3]++;
                 CEO_script.money += 20;
             }
+            else if (enemyType == 4)
+            {
+                CEO_script.enemiesKilled[1]++;
+                CEO_script.money += 5;
+            }
     }
 
     IEnumerator deSpawn()
