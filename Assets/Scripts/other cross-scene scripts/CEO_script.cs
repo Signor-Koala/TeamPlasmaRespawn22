@@ -23,7 +23,7 @@ public class CEO_script : MonoBehaviour
     public static int money = 0;
     public static int health = 100;
     public static float speed = 1.0f;
-     
+    public static int firstLoad = 0;
     private void Awake()
     { 
         if (instance != null)
@@ -43,6 +43,7 @@ public class CEO_script : MonoBehaviour
         money = PlayerPrefs.GetInt("money", 0);
         health = PlayerPrefs.GetInt("health", 100);
         speed = PlayerPrefs.GetFloat("speed", 1.0f);
+        firstLoad = PlayerPrefs.GetInt("firstload",0);
     }
 
     public static void transition(int newhealth)

@@ -25821,7 +25821,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8305078611823535963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.072, y: -0.167, z: -8.45}
+  m_LocalPosition: {x: 0, y: 0.66, z: -8.45}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -26090,7 +26090,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  enemyMinion: {fileID: 9147751423019982069, guid: aaaa0c4dfe46ad7c2bf4e92b6e3bde52, type: 3}
+  enemyMinion: {fileID: 9147751423019982069, guid: 6e0abc33e18f1e844bb4cb2e1773e761, type: 3}
   projectile: {fileID: 0}
   clouds: {fileID: 0}
   spawnPoint: {fileID: 8212303600210143412}
@@ -26109,7 +26109,7 @@ GameObject:
   - component: {fileID: 8212303600210143415}
   - component: {fileID: 1099551112064673406}
   - component: {fileID: 7361681768585545143}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26209,6 +26209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 352664057436306397}
+  - component: {fileID: 8305078611823535964}
   - component: {fileID: 4579267008000419919}
   - component: {fileID: 8119025017441934953}
   m_Layer: 10
@@ -26218,3 +26219,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8305078611823535964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305078611823535963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c136da68e74618249a4ccfcbd84c6405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3589436838192167078}
+  boss: {fileID: 8212303600210143411}
