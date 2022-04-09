@@ -33,6 +33,8 @@ public class hotelDungeonGenerator : MonoBehaviour
     [SerializeField]
     private int maxRoutes = 20;
     private int routeCount = 0;
+    [SerializeField] GameObject door;
+    bool doorSpawned=false;
     
     public GameObject[] powerups;
     int powerupSpawnCount;
@@ -75,6 +77,12 @@ public class hotelDungeonGenerator : MonoBehaviour
                     if (tileBelow != null)
                     {
                         wallMap.SetTile(pos, topWallTile);
+                        if(Random.Range(0f,1f)<=0.02f && doorSpawned==false)
+                        {
+                            GameObject exitDoor = Instantiate(door);
+                            exitDoor.transform.position = wallMap.GetCellCenterLocal(pos);
+                            doorSpawned=true;
+                        }
                     }
                     else if (tileAbove != null)
                     {
