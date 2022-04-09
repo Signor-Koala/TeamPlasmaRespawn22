@@ -25847,7 +25847,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!4 &3589436838192167073
 Transform:
   m_ObjectHideFlags: 0
@@ -26109,7 +26109,7 @@ GameObject:
   - component: {fileID: 8212303600210143415}
   - component: {fileID: 1099551112064673406}
   - component: {fileID: 7361681768585545143}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}

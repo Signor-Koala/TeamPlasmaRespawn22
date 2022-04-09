@@ -138,6 +138,7 @@ public class bossScript : MonoBehaviour
         {
             rbd.velocity = new Vector2(0, 0);
             anim.SetTrigger("Die");
+            CEO_script.currentGameState=CEO_script.gameState.bossBattleCleared;
             this.enabled = false;
         }
     }

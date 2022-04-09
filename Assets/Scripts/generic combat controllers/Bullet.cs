@@ -51,6 +51,11 @@ public class Bullet : MonoBehaviour
                 {
                     enem.TakeDamage(damage);
                 }
+                bossScript boss = enemy.GetComponent<bossScript>();
+                if (boss != null)
+                {
+                    boss.TakeDamage(damage);
+                }
             }
             Destroy(gameObject);
         }
@@ -60,6 +65,11 @@ public class Bullet : MonoBehaviour
             if (enemy != null) 
             {
                 enemy.TakeDamage(damage);
+            }
+            bossScript boss = col.GetComponent<bossScript>();
+            if (boss != null)
+            {
+                boss.TakeDamage(damage);
             }
             Destroy(gameObject);
         }

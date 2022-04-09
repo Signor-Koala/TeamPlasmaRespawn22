@@ -110,7 +110,7 @@ MonoBehaviour:
     m_Bits: 1024
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 768
   bulletLifetime: 10
 --- !u!50 &7358573265111379155
 Rigidbody2D:

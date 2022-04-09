@@ -10,7 +10,7 @@ public class EnemyScript : MonoBehaviour
     public float agroDistance = 12f;
     public float speed = 380f;
     public float attackDistance = 3f;
-    public int enemyType = 0; // (0,1,2) -> (Invalid,Melee,Ranged)
+    public int enemyType = 0; // (0,1,2,3,4) -> (Invalid,Melee,Ranged,shotgunRanged,MeleeBoss)
     public LayerMask playerLayer;
 
     public GameObject currenProj;
@@ -31,6 +31,11 @@ public class EnemyScript : MonoBehaviour
     {
         plr = GameObject.Find("Player").transform;
         rbd = this.GetComponent<Rigidbody2D>();
+        if (enemyType == 4)
+        {
+            enemyType = 1;
+            isAgro = true;
+        }
     }
 
     
