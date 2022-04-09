@@ -10,11 +10,12 @@ public class forestManager : MonoBehaviour
     public static Vector3 spawnPoint;
     public GameObject pidjon;
     public GameObject player;
-    bool pidjonHasArrived = false;
+    public bool pidjonHasArrived = false;
     Rigidbody2D pidjonRB;
     Animator pidjonAnim;
     public Dialogue dialogue;
 	DialogueManager dialogueManager;
+    bool PidjonCame = false;
     void Start()
     {
         CEO_script.currentGameState = CEO_script.gameState.forestLevel; 
@@ -35,12 +36,13 @@ public class forestManager : MonoBehaviour
         if(Time.time - lastRerollTime > 10f && CEO_script.dangerLevel==0 && pidjonHasArrived==false)
         {
             lastRerollTime = Time.time;
-            if(Random.Range(0,10)<CEO_script.totalKillScore)
+            if(Random.Range(0,1)<=CEO_script.totalKillScore)
             {
                 Debug.Log("HELLO PIDJON!");
                 dialogueManager.StartDialogue(dialogue);
                 pidjon.SetActive(true);
-                pidjonHasArrived = true;
+                
+                PidjonCame=true;
                 
                 pidjonAnim.SetBool("isFlying",true);
                 pidjon.transform.position = player.transform.position + new Vector3(-2f,0.5f,0);
@@ -48,14 +50,26 @@ public class forestManager : MonoBehaviour
                 StartCoroutine("setExit");
             }
         }
+        if(PidjonCame==true)
+		{
+			if(Input.GetKeyDown("z"))
+				dialogueManager.DisplayNextSentence();	
+		}
     }
 
     private IEnumerator setExit()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2.5f);
+        dialogueManager.DisplayNextSentence();	
+        yield return new WaitForSeconds(4f);
+        dialogueManager.DisplayNextSentence();
+        yield return new WaitForSeconds(3f);
+        dialogueManager.DisplayNextSentence();
         pidjonRB.velocity = new Vector3(0,0,0);
         pidjon.transform.position = forestManager.spawnPoint;
         pidjonAnim.SetBool("isFlying",false);
+        pidjonHasArrived = true;
+        PidjonCame=false;
         pidjonRB.constraints = RigidbodyConstraints2D.FreezePositionX;
         pidjonRB.constraints = RigidbodyConstraints2D.FreezePositionY;
     }

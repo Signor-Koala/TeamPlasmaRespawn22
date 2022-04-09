@@ -22,6 +22,7 @@ public class EnemyScript : MonoBehaviour
     private bool isAgro = false;
     private Quaternion rot = Quaternion.Euler(0, 0, 0);
     private Vector2 deviation;
+    bool aggroTriggered=false;
     
     
 
@@ -40,7 +41,11 @@ public class EnemyScript : MonoBehaviour
         if (!isAgro && distance.magnitude < agroDistance)
         {
             isAgro = true;
-            CEO_script.dangerLevel++;
+            if(!aggroTriggered)
+            {
+                CEO_script.dangerLevel++;
+                aggroTriggered = true;
+            }
         }
 
         if (isAgro && enemyType == 1)
