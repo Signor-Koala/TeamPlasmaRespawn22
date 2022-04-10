@@ -56,6 +56,11 @@ public class MainMenuUI : MonoBehaviour
     IEnumerator sceneLoadDelay()
     {
         yield return new WaitForSeconds(2);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("forest_start");
+        if(CEO_script.firstLoad==1)
+            UnityEngine.SceneManagement.SceneManager.LoadScene("forest_start");
+        else if(CEO_script.firstLoad==0)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("forest");
+        }
     }
 }

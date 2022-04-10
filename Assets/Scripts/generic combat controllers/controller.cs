@@ -112,12 +112,20 @@ public class controller : MonoBehaviour
             {
                 //dying animation
                 //trigger game over
-                CEO_script.gameOver();
+                StartCoroutine(gameOverSequence());
+
                 this.enabled = false;
             }
         }
     }
 
+    IEnumerator gameOverSequence()
+    {
+        yield return new WaitForSeconds(2);
+        CEO_script.gameOver();
+    }
+
+    
    
     
 }

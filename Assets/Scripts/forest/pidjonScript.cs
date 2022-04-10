@@ -11,12 +11,16 @@ public class pidjonScript : MonoBehaviour
     bool dialogueStarted = false;
     bool dialogueFinished = false;
     bool portalFlag=false;
+    [SerializeField] GameObject portal;
+    GameObject whiteScreen;
 
     void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
+        portalController = portal.GetComponent<portalScript>();
         portalController.gameObject.SetActive(false);
-
+        whiteScreen = GameObject.Find("White Screen");
+        whiteScreen.SetActive(false);
     }
 
     private void Update() {
@@ -38,6 +42,8 @@ public class pidjonScript : MonoBehaviour
 
     IEnumerator teleporter()
 	{
+        whiteScreen.SetActive(true);
+        whiteScreen.GetComponent<Animator>().SetTrigger("portalTrigger");
 		yield return new WaitForSeconds(2);
 		dialogueManager.DisplayNextSentence();
 		Debug.Log("Exiting the forest");
@@ -45,7 +51,7 @@ public class pidjonScript : MonoBehaviour
 	}
     
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && forestManager.pidjonHasArrived)
         {
             Debug.Log("Letsa Gooo!");
             dialogueStarted=true;

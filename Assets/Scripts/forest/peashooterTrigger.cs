@@ -9,6 +9,7 @@ public class peashooterTrigger : MonoBehaviour
     [SerializeField] controller player;
     [SerializeField] PowerUp peaPowerUp;
     bool eventFlag=false, playerInRange=false;
+    
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class peashooterTrigger : MonoBehaviour
     }
 
     private void Update() {
+
+        
         if(dialogueManager.sentenceNumber>=2 && eventFlag==false && playerInRange && peaPowerUp !=null)
         {
             player.currenProj=peaPowerUp.projectile;

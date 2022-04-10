@@ -23,7 +23,7 @@ public class CEO_script : MonoBehaviour
     public static int money = 0;
     public static int health = 100;
     public static float speed = 1.0f;
-    public static int firstLoad = 0;
+    public static int firstLoad;
     public static int Highscore=0;
     public static float musicLevel, SFxLevel;
     private void Awake()
@@ -45,7 +45,7 @@ public class CEO_script : MonoBehaviour
         money = PlayerPrefs.GetInt("money", 0);
         health = PlayerPrefs.GetInt("health", 100);
         speed = PlayerPrefs.GetFloat("speed", 1.0f);
-        firstLoad = PlayerPrefs.GetInt("firstload",0);
+        firstLoad = PlayerPrefs.GetInt("firstload",1);
         Highscore = PlayerPrefs.GetInt("Highscore",0);
         musicLevel = PlayerPrefs.GetFloat("musicLevel", 0.5f);
         SFxLevel = PlayerPrefs.GetFloat("SFxLevel", 0.5f);
@@ -59,8 +59,10 @@ public class CEO_script : MonoBehaviour
     public static void gameOver()
     {
         PlayerPrefs.SetInt("money",money);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("game_over");
         //other things
     }
+    
 
     private void Update() {
         for (int i = 0; i < 3; i++)

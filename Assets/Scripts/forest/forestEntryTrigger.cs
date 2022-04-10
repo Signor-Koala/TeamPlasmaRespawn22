@@ -17,6 +17,9 @@ public class forestEntryTrigger : MonoBehaviour
 		dialogueManager = FindObjectOfType<DialogueManager>();
 		portalController = this.GetComponent<portalScript>();
 		CEO_script.currentGameState = CEO_script.gameState.preForestLevel;
+		
+		PlayerPrefs.SetInt("firstload",0);
+		CEO_script.firstLoad=0;
 	}
 
 	private void Update() {

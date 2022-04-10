@@ -5,6 +5,7 @@ using UnityEngine;
 public class pauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenuUI, pauseButton, endConfirmUI;
+    [SerializeField] TMPro.TextMeshProUGUI VEamt;
 
     private void Start() {
         endConfirmUI.SetActive(false);
@@ -15,6 +16,7 @@ public class pauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         pauseButton.SetActive(false);
+        VEamt.text = CEO_script.money.ToString();
         Time.timeScale = 0;
     }
     public void resumeGame()
@@ -33,6 +35,7 @@ public class pauseMenu : MonoBehaviour
     public void confirmEnd()
     {
         Debug.Log("Exiting...");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("main_menu");
     }
     public void notConfirmEnd()
     {
