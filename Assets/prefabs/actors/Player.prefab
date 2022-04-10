@@ -146,6 +146,12 @@ MonoBehaviour:
   rollReload: 1.25
   currenProj: {fileID: 5784528689938768142, guid: 73890c8a888206f778d1dd2ce715a5c4, type: 3}
   maincam: {fileID: 4579267007534034446}
+  projList:
+  - {fileID: 5784528689938768142, guid: 73890c8a888206f778d1dd2ce715a5c4, type: 3}
+  - {fileID: 8221547130648313157, guid: 3ba1171202d23e46aa667a0e107a1d2b, type: 3}
+  - {fileID: 5171863051786014653, guid: eaa689cc7e028b9e68743d6d873bc173, type: 3}
+  - {fileID: 3687813881070744910, guid: 1a0a566b886c34448b7e6159d761fb96, type: 3}
+  - {fileID: 1405491376409824922, guid: 12a154608dbd5554396a1d498cf23bed, type: 3}
 --- !u!95 &5448863415655218300
 Animator:
   serializedVersion: 3

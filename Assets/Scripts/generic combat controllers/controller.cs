@@ -28,6 +28,7 @@ public class controller : MonoBehaviour
     private Quaternion rot = Quaternion.Euler(0, 0, 0);
     private bool invincible = false;
     Animator anim;
+    public GameObject[] projList;
 
     void Start()
     {
@@ -91,6 +92,11 @@ public class controller : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < 5; i++)
+        {
+            if(currenProj !=null && currenProj==projList[i])
+                anim.SetInteger("attackMode",i+1);
+        }
 
     }
 
