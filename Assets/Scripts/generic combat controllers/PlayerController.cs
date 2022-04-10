@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rbd = GetComponent<Rigidbody2D>();
-        PlayerPrefs.SetInt("firstload",1);
+        
     }
 
     

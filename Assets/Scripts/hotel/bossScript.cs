@@ -17,8 +17,9 @@ public class bossScript : MonoBehaviour
     public GameObject clouds;
     public Transform spawnPoint;
     public Transform pepperPoint;
+    public GameObject PlayerObject;
     
-    private Transform plr;
+    public Transform plr;
     private Vector3 destination;
     private Vector3 direction;
     private float destinationLeniency = 0.1f;
@@ -33,7 +34,6 @@ public class bossScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        plr = GameObject.Find("Player").transform;
         rbd = this.GetComponent<Rigidbody2D>();
         health = maxhealth;
         anim = this.GetComponent<Animator>();
@@ -62,21 +62,18 @@ public class bossScript : MonoBehaviour
 
     public void IdleStage2()
     {
-        nextAttack = Random.Range(1, 5);
+        nextAttack = Random.Range(1, 4);
         switch (nextAttack)
         {
             case 1:
                 Debug.Log("Idle");
                 break;
+            
             case 2:
-                Debug.Log("spawnAngry");
-                spawnAngry();
-                break;
-            case 3:
                 Debug.Log("dashAttackFast");
                 anim.SetTrigger("DashAttack");
                 break;
-            case 4:
+            case 3:
                 Debug.Log("pepperCan");
                 break;
         }
@@ -91,20 +88,13 @@ public class bossScript : MonoBehaviour
 
     public void spawnAngry() //receives trigger from animator
     {
-        Instantiate(enemyMinion, spawnPoint.position + Vector3.right, rot);
-        Instantiate(enemyMinion, spawnPoint.position + Vector3.left, rot);
+        Instantiate(enemyMinion, spawnPoint.position + Vector3.right*0.5f, rot);
+        Instantiate(enemyMinion, spawnPoint.position + Vector3.left*0.5f, rot);
     }
     
     public void dashAttackFast() //receives trigger from animator
     {
-        destination = plr.transform.position;
-        Vector3 position = transform.position;
-        direction = (destination - position) / ((destination - position).magnitude);
         
-        while ((destination-transform.position).magnitude >= destinationLeniency)
-        {
-            rbd.transform.position += direction * (5 * speed * Time.deltaTime);
-        }
         anim.SetTrigger("Smash");
     }
     

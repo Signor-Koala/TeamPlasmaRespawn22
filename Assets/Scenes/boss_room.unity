@@ -39970,7 +39970,7 @@ MonoBehaviour:
   reloadTime: 0.5
   rollDuration: 0.18
   rollReload: 1.25
-  currenProj: {fileID: 5784528689938768142, guid: 73890c8a888206f778d1dd2ce715a5c4, type: 3}
+  currenProj: {fileID: 5171863051786014653, guid: eaa689cc7e028b9e68743d6d873bc173, type: 3}
   maincam: {fileID: 4579267008000419919}
 --- !u!1 &3589436838192167078
 GameObject:
@@ -40095,6 +40095,8 @@ MonoBehaviour:
   clouds: {fileID: 0}
   spawnPoint: {fileID: 8212303600210143412}
   pepperPoint: {fileID: 0}
+  PlayerObject: {fileID: 3589436838192167078}
+  plr: {fileID: 3589436838192167073}
 --- !u!1 &8212303600210143411
 GameObject:
   m_ObjectHideFlags: 0
