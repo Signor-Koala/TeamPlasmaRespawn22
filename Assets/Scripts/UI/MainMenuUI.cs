@@ -6,12 +6,15 @@ public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] GameObject inactivePortal, activePortal,MainUI,HighScoreUI,OptionsUI;
     Animator blindingAnim;
+    [SerializeField] TMPro.TextMeshProUGUI highscoreText;
     void Start()
     {
         MainUI.SetActive(true);
         HighScoreUI.SetActive(false);
         OptionsUI.SetActive(false);
         blindingAnim = GameObject.Find("White Screen").GetComponent<Animator>();
+        activePortal.SetActive(false);
+        inactivePortal.SetActive(true);
     }
 
     public void newRun()
@@ -20,11 +23,17 @@ public class MainMenuUI : MonoBehaviour
         inactivePortal.SetActive(false);
         activePortal.SetActive(true);
         blindingAnim.SetTrigger("portalTrigger");
+        CEO_script.currentGameState = CEO_script.gameState.preForestLevel;
+        CEO_script.health = 100;
+        CEO_script.speed = 1f;
+        StartCoroutine(sceneLoadDelay());
+
     }
     public void HighScores()
     {
         MainUI.SetActive(false);
         HighScoreUI.SetActive(true);
+        highscoreText.text = "Highscore - " + CEO_script.Highscore.ToString();
     }
     public void Options()
     {
@@ -36,5 +45,17 @@ public class MainMenuUI : MonoBehaviour
         MainUI.SetActive(true);
         HighScoreUI.SetActive(false);
         OptionsUI.SetActive(false);
+    }
+    public void quit()
+    {
+        CEO_script.quitGame();
+        Debug.Log("Quitting Application...");
+        Application.Quit();
+    }
+
+    IEnumerator sceneLoadDelay()
+    {
+        yield return new WaitForSeconds(2);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("forest_start");
     }
 }

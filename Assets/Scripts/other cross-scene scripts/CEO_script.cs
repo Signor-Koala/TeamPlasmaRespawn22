@@ -24,6 +24,8 @@ public class CEO_script : MonoBehaviour
     public static int health = 100;
     public static float speed = 1.0f;
     public static int firstLoad = 0;
+    public static int Highscore=0;
+    public static float musicLevel, SFxLevel;
     private void Awake()
     { 
         if (instance != null)
@@ -44,6 +46,9 @@ public class CEO_script : MonoBehaviour
         health = PlayerPrefs.GetInt("health", 100);
         speed = PlayerPrefs.GetFloat("speed", 1.0f);
         firstLoad = PlayerPrefs.GetInt("firstload",0);
+        Highscore = PlayerPrefs.GetInt("Highscore",0);
+        musicLevel = PlayerPrefs.GetFloat("musicLevel", 0.5f);
+        SFxLevel = PlayerPrefs.GetFloat("SFxLevel", 0.5f);
     }
 
     public static void transition(int newhealth)
@@ -60,9 +65,15 @@ public class CEO_script : MonoBehaviour
     private void Update() {
         for (int i = 0; i < 3; i++)
         {
-            totalKillScore += i*enemiesKilled[i];
+            totalKillScore += 10*i*enemiesKilled[i];
         }
         if(dangerLevel<0)
             dangerLevel=0;
+    }
+
+    public static void quitGame()
+    {
+        PlayerPrefs.SetInt("HighScore",Highscore);
+        PlayerPrefs.SetInt("money",money);
     }
 }

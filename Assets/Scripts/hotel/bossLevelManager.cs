@@ -39,7 +39,12 @@ public class bossLevelManager : MonoBehaviour
         player.GetComponent<controller>().enabled = false;
         yield return new WaitForSeconds(2);
         endScreen.SetActive(true);
-        scoreText.text = "Score - " + (CEO_script.totalKillScore*10 + CEO_script.money).ToString();
+        int runScore = CEO_script.totalKillScore + CEO_script.money;
+        scoreText.text = "Score - " + runScore.ToString();
+
+        if(runScore>CEO_script.Highscore)
+            CEO_script.Highscore = runScore;
+            
         yield return new WaitForSeconds(5);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Menu");
         Debug.Log("The End");
