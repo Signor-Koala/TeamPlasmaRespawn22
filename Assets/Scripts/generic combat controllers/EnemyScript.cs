@@ -153,6 +153,7 @@ public class EnemyScript : MonoBehaviour
             rbd.velocity = new Vector2(0, 0);
 
             //dying animation
+            enemyAnim.SetTrigger("death");
 
             addScore();
             CEO_script.dangerLevel--;
