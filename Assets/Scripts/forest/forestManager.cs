@@ -36,7 +36,7 @@ public class forestManager : MonoBehaviour
         if(Time.time - lastRerollTime > 10f && CEO_script.dangerLevel==0 && pidjonHasArrived==false)
         {
             lastRerollTime = Time.time;
-            if(Random.Range(0,1)<=CEO_script.totalKillScore)
+            if(Random.Range(0,100)<=CEO_script.totalKillScore)
             {
                 Debug.Log("HELLO PIDJON!");
                 dialogueManager.StartDialogue(dialogue);

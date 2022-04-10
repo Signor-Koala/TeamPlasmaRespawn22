@@ -107,7 +107,7 @@ public class EnemyScript : MonoBehaviour
         deviation = Vector2.Perpendicular(destination);
         deviation /= 10;
 
-        if (Time.time > lastAttack + reload)
+        if (Time.time > lastAttack + reload && health>0)
         {
             FireWeapon((rbd.position- (Vector2)destination), rot);
         }

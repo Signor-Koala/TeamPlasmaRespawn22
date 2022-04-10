@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2975594232158656321}
   - component: {fileID: 9117473432094153044}
   - component: {fileID: 6548479192033196325}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: enemyShotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

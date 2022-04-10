@@ -27,10 +27,12 @@ public class controller : MonoBehaviour
     private float lastRollTime = 0f;
     private Quaternion rot = Quaternion.Euler(0, 0, 0);
     private bool invincible = false;
+    Animator anim;
 
     void Start()
     {
         rbd = GetComponent<Rigidbody2D>();
+        anim = this.gameObject.GetComponent<Animator>();
         health = CEO_script.health;
         speed = CEO_script.speed;
         //currenProj = CEO_script.activePowerUp;
@@ -43,6 +45,12 @@ public class controller : MonoBehaviour
         //Input
         float xaxis = Input.GetAxisRaw("Horizontal");
         float yaxis = Input.GetAxisRaw("Vertical");
+        anim.SetFloat("xInput",xaxis);
+        anim.SetFloat("yInput",yaxis);
+
+        if(xaxis<0)
+            this.gameObject.transform.localScale = new Vector3(-1,1,1);
+        
         
         //Bullet positioning
         looking = rbd.position - (Vector2)maincam.ScreenToWorldPoint(Input.mousePosition);
