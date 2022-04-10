@@ -22,7 +22,7 @@ public class vitaminatorUI : MonoBehaviour
     public void showUI()
     {
         UI.SetActive(true);
-        healthContainer.SetActive(false);
+        healthContainer.SetActive(true);
         VTbutton.SetActive(false);
         Time.timeScale = 0;
     }
