@@ -9,6 +9,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] TMPro.TextMeshProUGUI highscoreText;
     void Start()
     {
+        Time.timeScale=1;
         MainUI.SetActive(true);
         HighScoreUI.SetActive(false);
         OptionsUI.SetActive(false);
@@ -23,7 +24,8 @@ public class MainMenuUI : MonoBehaviour
         inactivePortal.SetActive(false);
         activePortal.SetActive(true);
         blindingAnim.SetTrigger("portalTrigger");
-        CEO_script.currentGameState = CEO_script.gameState.preForestLevel;
+        if(CEO_script.firstLoad==1)
+            CEO_script.currentGameState = CEO_script.gameState.preForestLevel;
         CEO_script.health = 100;
         CEO_script.speed = 1f;
         StartCoroutine(sceneLoadDelay());

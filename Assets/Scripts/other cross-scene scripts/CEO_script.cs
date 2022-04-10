@@ -24,7 +24,7 @@ public class CEO_script : MonoBehaviour
     public static int health = 100;
     public static float speed = 1.0f;
     public static int firstLoad;
-    public static int Highscore=0;
+    public static int Highscore;
     public static float musicLevel, SFxLevel;
     private void Awake()
     { 
@@ -49,6 +49,8 @@ public class CEO_script : MonoBehaviour
         Highscore = PlayerPrefs.GetInt("Highscore",0);
         musicLevel = PlayerPrefs.GetFloat("musicLevel", 0.5f);
         SFxLevel = PlayerPrefs.GetFloat("SFxLevel", 0.5f);
+        if(firstLoad==1)
+            Highscore=0;
     }
 
     public static void transition(int newhealth)
