@@ -28,7 +28,7 @@ Anusha Hitendra Borole - Artist (Character and weapon design)
 Ashwini Kumar Biswal - Artist (Boss design and effects)
 
 
-Unity Engine - For making this project possible and making it as painful as possible.
+Unity Engine - For making this project possible.
 
 ## External resources used
 
