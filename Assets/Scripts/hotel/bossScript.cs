@@ -88,8 +88,11 @@ public class bossScript : MonoBehaviour
 
     public void spawnAngry() //receives trigger from animator
     {
-        Instantiate(enemyMinion, spawnPoint.position + Vector3.right*0.5f, rot);
-        Instantiate(enemyMinion, spawnPoint.position + Vector3.left*0.5f, rot);
+        for (int i = 0; i < 8; i++)
+        {
+            Instantiate(enemyMinion, spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*i/8),Mathf.Sin(Mathf.PI*i/8))*0.5f, rot);
+        }
+        
     }
     
     public void dashAttackFast() //receives trigger from animator
