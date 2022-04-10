@@ -37,6 +37,7 @@ public class EnemyScript : MonoBehaviour
         {
             enemyType = 1;
             isAgro = true;
+            CEO_script.dangerLevel++;
             enemyAnim.SetBool("isAggro",true);
         }
     }

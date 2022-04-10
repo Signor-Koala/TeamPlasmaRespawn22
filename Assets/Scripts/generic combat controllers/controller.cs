@@ -76,7 +76,7 @@ public class controller : MonoBehaviour
                     invincible = false;
                 }
             }
-            else // Normal movement
+            else if(!(CEO_script.currentGameState==CEO_script.gameState.bossBattleCleared && CEO_script.dangerLevel<=0)) // Normal movement
             {
                 rbd.transform.position += (Vector3) direction * (speed * Time.deltaTime);
             }
