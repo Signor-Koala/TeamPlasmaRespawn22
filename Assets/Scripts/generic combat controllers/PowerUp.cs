@@ -14,6 +14,7 @@ public class PowerUp : MonoBehaviour
         {
             player.currenProj = projectile;
             CEO_script.activePowerUp = projectile;
+            
             Destroy(gameObject);
         }
         if(col.CompareTag("Tree"))
