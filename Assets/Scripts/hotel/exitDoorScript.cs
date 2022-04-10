@@ -7,7 +7,7 @@ public class exitDoorScript : MonoBehaviour
     [SerializeField] Animator fadeAnim;
 
     private void Start() {
-        fadeAnim = GameObject.Find("FadeScreen").GetComponent<Animator>();
+        fadeAnim = GameObject.Find("Black Screen").GetComponent<Animator>();
     }
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player"))

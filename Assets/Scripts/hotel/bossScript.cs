@@ -139,7 +139,7 @@ public class bossScript : MonoBehaviour
             rbd.velocity = new Vector2(0, 0);
             anim.SetTrigger("Die");
             CEO_script.currentGameState=CEO_script.gameState.bossBattleCleared;
-            StartCoroutine(exitSequence());
+            
             this.enabled = false;
         }
     }
@@ -162,9 +162,5 @@ public class bossScript : MonoBehaviour
         Instantiate(projectile, pos3 + rbd.position, rot);
     }
     
-    IEnumerator exitSequence()
-    {
-        yield return new WaitForSeconds(3);
-        Debug.Log("The End");
-    }
+    
 }
