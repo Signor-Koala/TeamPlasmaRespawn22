@@ -60,7 +60,7 @@ public class bossScript : MonoBehaviour
         }
     }
 
-    public void IdleStage2()
+    public void IdleStage2()    //decides the next action
     {
         nextAttack = Random.Range(1, 4);
         switch (nextAttack)

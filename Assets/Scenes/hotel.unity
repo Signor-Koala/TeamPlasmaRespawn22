@@ -810,7 +810,7 @@ PrefabInstance:
     - target: {fileID: 3589436837990088420, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: currenProj
       value: 
-      objectReference: {fileID: 5784528689938768142, guid: 73890c8a888206f778d1dd2ce715a5c4, type: 3}
+      objectReference: {fileID: 8221547130648313157, guid: 3ba1171202d23e46aa667a0e107a1d2b, type: 3}
     - target: {fileID: 3589436837990088421, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_IsTrigger
       value: 0
