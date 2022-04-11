@@ -19,13 +19,13 @@ This game was made for the Respawn Game Jam 2022 using the Unity engine.
 
 ## Authors and acknowledgment
 
-Jeffrey Samuel - Developer (Gameplay and game backend)
+Jeffrey Samuel - Developer (Gameplay Mechanics and game backend)
 
-Gabriel Abraham - Developer (UI and level design & generation)
+Gabriel Abraham - Developer (UI, level design & procedural generation, animations and concept art)
 
-Anusha Hitendra Borole - Artist (Character and weapon design)
+Anusha Hitendra Borole - Artist (Character and weapon sprite design)
 
-Ashwini Kumar Biswal - Artist (Boss design and effects)
+Ashwini Kumar Biswal - Artist (Boss sprite design and effects)
 
 
 Unity Engine - For making this project possible.
