@@ -7,6 +7,7 @@ public class bossfightCamcontroller : MonoBehaviour
     [SerializeField] GameObject player,boss;
     Vector3 playerPosInit,bossPosInit;
     bool isIntro=true;
+    float separation;
     Camera cam;
     
     void Start()
@@ -25,8 +26,10 @@ public class bossfightCamcontroller : MonoBehaviour
     {
         if(isIntro==false)
         {
-            transform.position = (player.transform.position + boss.transform.position)/2 + new Vector3(0,0,-10);
-            cam.orthographicSize = (player.transform.position - boss.transform.position).magnitude/(playerPosInit-bossPosInit).magnitude +0.16f;
+            separation = (player.transform.position - boss.transform.position).magnitude;
+            float ratio = 0.3151f*separation + 0.1071f;
+            transform.position = (player.transform.position*ratio + boss.transform.position)/(1+ratio) + new Vector3(0,0,-10);
+            cam.orthographicSize = 0.757f*separation +0.215f;
         }
     }
 

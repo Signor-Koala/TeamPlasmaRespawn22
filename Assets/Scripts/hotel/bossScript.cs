@@ -76,6 +76,9 @@ public class bossScript : MonoBehaviour
             case 3:
                 Debug.Log("pepperCan");
                 break;
+            case 4:
+                Debug.Log("MeleeMania!");
+                break;
         }
     }
     
