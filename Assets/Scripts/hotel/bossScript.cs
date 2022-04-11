@@ -30,6 +30,7 @@ public class bossScript : MonoBehaviour
     private bool isAttacking = false;
     private int nextAttack = 0;
     private Animator anim;
+    public GameObject[] enemies;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +63,7 @@ public class bossScript : MonoBehaviour
 
     public void IdleStage2()    //decides the next action
     {
-        nextAttack = Random.Range(1, 4);
+        nextAttack = Random.Range(1, 6);
         switch (nextAttack)
         {
             case 1:
@@ -78,6 +79,11 @@ public class bossScript : MonoBehaviour
                 break;
             case 4:
                 Debug.Log("MeleeMania!");
+                anim.SetTrigger("spawnHorde");
+                break;
+            case 5:
+                Debug.Log("Spawn");
+                anim.SetTrigger("Spawn");
                 break;
         }
     }
@@ -90,6 +96,16 @@ public class bossScript : MonoBehaviour
     }
 
     public void spawnAngry() //receives trigger from animator
+    {
+        int j = Random.Range(2,4);
+        for (int i = 0; i < j; i++)
+        {
+            Instantiate(enemies[Random.Range(0,3)], spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*Random.Range(0,16)*j/16),Mathf.Sin(Mathf.PI*Random.Range(0,16)*j/16))*1f, rot);
+        }
+        
+    }
+
+    public void meleeMania() //receives trigger from animator
     {
         for (int i = 0; i < 8; i++)
         {
