@@ -40038,7 +40038,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!1 &3589436836596399440
 GameObject:
   m_ObjectHideFlags: 0
@@ -40426,7 +40426,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 8ae01eec96ba14c648492aa8c51dabea, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

@@ -40,6 +40,7 @@ public class bossScript : MonoBehaviour
         rbd = this.GetComponent<Rigidbody2D>();
         health = maxhealth;
         anim = this.GetComponent<Animator>();
+        anim.SetBool("isAngry",true);
     }
 
     // Update is called once per frame
@@ -88,7 +89,7 @@ public class bossScript : MonoBehaviour
                 if(Time.time - phase2LastAttackTime[3]>8)
                 {
                     Debug.Log("Spawn");
-                    anim.SetTrigger("Spawn");
+                    //anim.SetTrigger("Spawn");
                     phase2LastAttackTime[3]=Time.time;
                 }
                 break;
@@ -103,7 +104,7 @@ public class bossScript : MonoBehaviour
                 if(Time.time - phase2LastAttackTime[5]>16)
                 {
                     Debug.Log("MeleeMania!");
-                    anim.SetTrigger("spawnHorde");
+                    //anim.SetTrigger("spawnHorde");
                     phase2LastAttackTime[5]=Time.time;
                 }
                 break;
@@ -147,27 +148,20 @@ public class bossScript : MonoBehaviour
         
     }
     
+    float dashDuration=0.1f;
     public void dashAttackFast() //receives trigger from animator
     {
-        rbd.velocity = (transform.position - plr.position).normalized*10;
+        rbd.velocity = (plr.position - transform.position)/dashDuration;
         isDashing=true;
         StartCoroutine(dashing());
     }
 
     IEnumerator dashing()
     {
-        while (true)
-        {
-            if((transform.position - plr.position).magnitude <= destinationLeniency)
-            {
-                rbd.velocity=Vector2.zero;
-                isDashing=false;
-                anim.SetTrigger("Smash");
-                break;
-            }
-            
-        }
-        yield return null;
+        yield return new WaitForSeconds(dashDuration);
+        rbd.velocity = Vector2.zero;
+        anim.SetTrigger("Smash");
+        isDashing=false;
     }
     
     
@@ -194,7 +188,7 @@ public class bossScript : MonoBehaviour
 
         if (health <= (maxhealth / 2) && !isAngry)
         {
-            anim.SetTrigger("Angry");
+            anim.SetBool("isAngry",true);
             isAngry = true;
         }
         if (health <= 0)
@@ -226,12 +220,13 @@ public class bossScript : MonoBehaviour
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
-        //if(other.CompareTag("Player") && isDashing==true)
-        //{
-            //isDashing=false;
-           // rbd.velocity=Vector2.zero;
-            //anim.SetTrigger("Smash");
-        //}
+        if(other.CompareTag("Player") && isDashing==true)
+        {
+            StopCoroutine(dashing());
+            isDashing=false;
+            rbd.velocity=Vector2.zero;
+            anim.SetTrigger("Smash");
+        }
     }
     
 }
