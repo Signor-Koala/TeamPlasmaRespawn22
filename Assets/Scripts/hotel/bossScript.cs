@@ -67,7 +67,7 @@ public class bossScript : MonoBehaviour
 
     public void IdleStage2()    //decides the next action
     {
-        nextAttack = Random.Range(1, 7);
+        nextAttack = Random.Range(1, 4);
         switch (nextAttack)
         {
             case 1:
@@ -151,9 +151,8 @@ public class bossScript : MonoBehaviour
     float dashDuration=0.1f;
     public void dashAttackFast() //receives trigger from animator
     {
-        rbd.velocity = (plr.position - transform.position)/dashDuration;
-        isDashing=true;
-        StartCoroutine(dashing());
+        transform.position = plr.transform.position + (transform.position - plr.position).normalized*0.2f;
+        anim.SetTrigger("Smash");
     }
 
     IEnumerator dashing()
