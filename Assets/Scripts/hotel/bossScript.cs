@@ -8,7 +8,7 @@ public class bossScript : MonoBehaviour
     public int health = 1000;
     public int damage = 20;
     public float speed = 40f;
-    public float attackRangeMelee = 1f;
+    public float attackRangeMelee = 0.5f;
     public float attackRangePepper = 3f;
     public LayerMask playerLayer;
 
@@ -106,6 +106,10 @@ public class bossScript : MonoBehaviour
                     phase2LastAttackTime[5]=Time.time;
                 }
                 break;
+            case 7:
+                Debug.Log("Bullet Attack");         //increasing the probability of bullet attack
+                anim.SetTrigger("bulletAttack");
+                break;
         }
     }
     
@@ -144,13 +148,28 @@ public class bossScript : MonoBehaviour
     
     public void dashAttackFast() //receives trigger from animator
     {
+        rbd.velocity = (transform.position - plr.position)/0.2f;
         
+        StartCoroutine(dashing());
+    }
+
+    IEnumerator dashing()
+    {
+        while (true)
+        {
+            if((transform.position+new Vector3(0,-0.2f,0) - plr.position).magnitude <= 0.2f)
+            {
+                rbd.velocity=Vector2.zero;
+                break;
+            }
+        }
+        yield return new WaitForSeconds(0.2f);
         anim.SetTrigger("Smash");
     }
     
     void Hit() // receives trigger from animator
     {
-        Collider2D[] hitplayer = Physics2D.OverlapCircleAll(transform.position, attackRangeMelee, playerLayer);
+        Collider2D[] hitplayer = Physics2D.OverlapCircleAll(transform.position + new Vector3(0,-0.2f,0), attackRangeMelee, playerLayer);
         
         foreach (Collider2D player in hitplayer)
         {
