@@ -103,6 +103,8 @@ public class controller : MonoBehaviour
     void FireWeapon(Vector3 position, Quaternion rotation)
     {
         GameObject bullet = Instantiate(currenProj, position, rotation);
+
+        
         bullet.GetComponent<Bullet>().plr = transform;
         
         if (currenProj.name == "shotgun")

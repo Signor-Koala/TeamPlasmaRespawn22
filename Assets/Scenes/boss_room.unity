@@ -39933,7 +39933,7 @@ PrefabInstance:
       objectReference: {fileID: 3589436836596399443}
     - target: {fileID: 5734618341762403765, guid: f20f4083b3e6d844da2009d94415a976, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 33.299988
+      value: 33.30005
       objectReference: {fileID: 0}
     - target: {fileID: 5734618341762403765, guid: f20f4083b3e6d844da2009d94415a976, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -40262,7 +40262,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -40308,16 +40308,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   enemyMinion: {fileID: 9147751423019982069, guid: 6e0abc33e18f1e844bb4cb2e1773e761, type: 3}
+  enemies:
+  - {fileID: 9147751423019982069, guid: 6e0abc33e18f1e844bb4cb2e1773e761, type: 3}
+  - {fileID: 940480129654245645, guid: c6a67ae8668c22442bb5ba68687f82c1, type: 3}
+  - {fileID: 1199193955490662923, guid: c28ba40852e55a042a92c87086eb552c, type: 3}
   projectile: {fileID: 0}
   clouds: {fileID: 0}
   spawnPoint: {fileID: 8212303600210143412}
   pepperPoint: {fileID: 0}
   PlayerObject: {fileID: 3589436836596399440}
   plr: {fileID: 3589436836596399447}
-  enemies:
-  - {fileID: 9147751423019982069, guid: 6e0abc33e18f1e844bb4cb2e1773e761, type: 3}
-  - {fileID: 940480129654245645, guid: c6a67ae8668c22442bb5ba68687f82c1, type: 3}
-  - {fileID: 1199193955490662923, guid: c28ba40852e55a042a92c87086eb552c, type: 3}
   bossBullet: {fileID: 7440538034304910794, guid: ff7dac8350b1f10409f06e1659632d65, type: 3}
   phase2LastAttackTime:
   - 0

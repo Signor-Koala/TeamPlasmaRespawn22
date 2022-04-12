@@ -22,7 +22,7 @@ public class bossfightCamcontroller : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(isIntro==false)
         {

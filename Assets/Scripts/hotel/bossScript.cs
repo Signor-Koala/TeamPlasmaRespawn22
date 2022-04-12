@@ -13,6 +13,7 @@ public class bossScript : MonoBehaviour
     public LayerMask playerLayer;
 
     public GameObject enemyMinion;
+    public GameObject[] enemies;
     public GameObject projectile;
     public GameObject clouds;
     public Transform spawnPoint;
@@ -22,15 +23,14 @@ public class bossScript : MonoBehaviour
     public Transform plr;
     private Vector3 destination;
     private Vector3 direction;
-    private float destinationLeniency = 0.1f;
+    private float destinationLeniency = 0.15f;
     private float lastAttack = 0;
     private Quaternion rot = Quaternion.Euler(0, 0, 0);
     private Rigidbody2D rbd;
-    private bool isAngry = false;
-    private bool isAttacking = false;
+    
+    private bool isAttacking = false,isAngry = false, isDashing = false;
     private int nextAttack = 0;
     private Animator anim;
-    public GameObject[] enemies;
     [SerializeField] GameObject bossBullet;
     public float[] phase2LastAttackTime = new float[6];
 
@@ -45,7 +45,8 @@ public class bossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if(rbd.velocity.magnitude > 0)
+            //rbd.velocity -= rbd.velocity*Time.deltaTime;
     }
 
     public void IdleStage1()
@@ -148,8 +149,8 @@ public class bossScript : MonoBehaviour
     
     public void dashAttackFast() //receives trigger from animator
     {
-        rbd.velocity = (transform.position - plr.position)/0.2f;
-        
+        rbd.velocity = (transform.position - plr.position).normalized*10;
+        isDashing=true;
         StartCoroutine(dashing());
     }
 
@@ -157,15 +158,18 @@ public class bossScript : MonoBehaviour
     {
         while (true)
         {
-            if((transform.position+new Vector3(0,-0.2f,0) - plr.position).magnitude <= 0.2f)
+            if((transform.position - plr.position).magnitude <= destinationLeniency)
             {
                 rbd.velocity=Vector2.zero;
+                isDashing=false;
+                anim.SetTrigger("Smash");
                 break;
             }
+            
         }
-        yield return new WaitForSeconds(0.2f);
-        anim.SetTrigger("Smash");
+        yield return null;
     }
+    
     
     void Hit() // receives trigger from animator
     {
@@ -221,5 +225,13 @@ public class bossScript : MonoBehaviour
         Instantiate(projectile, pos3 + rbd.position, rot);
     }
     
+    private void OnTriggerEnter2D(Collider2D other) {
+        //if(other.CompareTag("Player") && isDashing==true)
+        //{
+            //isDashing=false;
+           // rbd.velocity=Vector2.zero;
+            //anim.SetTrigger("Smash");
+        //}
+    }
     
 }
