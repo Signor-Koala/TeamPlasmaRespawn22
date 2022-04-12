@@ -40302,7 +40302,7 @@ MonoBehaviour:
   health: 1000
   damage: 20
   speed: 40
-  attackRangeMelee: 1
+  attackRangeMelee: 0.5
   attackRangePepper: 3
   playerLayer:
     serializedVersion: 2

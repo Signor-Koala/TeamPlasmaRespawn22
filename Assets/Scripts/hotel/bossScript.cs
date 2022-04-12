@@ -40,7 +40,7 @@ public class bossScript : MonoBehaviour
         rbd = this.GetComponent<Rigidbody2D>();
         health = maxhealth;
         anim = this.GetComponent<Animator>();
-        anim.SetBool("isAngry",true);
+        //anim.SetBool("isAngry",true);         //for phase 2 testing
     }
 
     // Update is called once per frame
@@ -67,7 +67,7 @@ public class bossScript : MonoBehaviour
 
     public void IdleStage2()    //decides the next action
     {
-        nextAttack = Random.Range(1, 4);
+        nextAttack = Random.Range(1, 8);
         switch (nextAttack)
         {
             case 1:
@@ -89,7 +89,7 @@ public class bossScript : MonoBehaviour
                 if(Time.time - phase2LastAttackTime[3]>8)
                 {
                     Debug.Log("Spawn");
-                    //anim.SetTrigger("Spawn");
+                    anim.SetTrigger("Spawn");
                     phase2LastAttackTime[3]=Time.time;
                 }
                 break;
@@ -104,7 +104,7 @@ public class bossScript : MonoBehaviour
                 if(Time.time - phase2LastAttackTime[5]>16)
                 {
                     Debug.Log("MeleeMania!");
-                    //anim.SetTrigger("spawnHorde");
+                    anim.SetTrigger("spawnHorde");
                     phase2LastAttackTime[5]=Time.time;
                 }
                 break;
