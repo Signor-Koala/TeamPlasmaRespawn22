@@ -168,22 +168,22 @@ public class EnemyScript : MonoBehaviour
     {
         if (enemyType == 1)
             {
-                CEO_script.enemiesKilled[1]++;
+                CEO_script.enemiesKilled[0]++;
                 CEO_script.money += 5;
             }
             else if (enemyType == 2)
             {
-                CEO_script.enemiesKilled[2]++;
+                CEO_script.enemiesKilled[1]++;
                 CEO_script.money += 10;
             }
             else if (enemyType == 3)
             {
-                CEO_script.enemiesKilled[3]++;
+                CEO_script.enemiesKilled[2]++;
                 CEO_script.money += 20;
             }
             else if (enemyType == 4)
             {
-                CEO_script.enemiesKilled[1]++;
+                CEO_script.enemiesKilled[0]++;
                 CEO_script.money += 5;
             }
     }

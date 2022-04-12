@@ -31,6 +31,8 @@ public class bossScript : MonoBehaviour
     private int nextAttack = 0;
     private Animator anim;
     public GameObject[] enemies;
+    [SerializeField] GameObject bossBullet;
+    public float[] phase2LastAttackTime = new float[6];
 
     // Start is called before the first frame update
     void Start()
@@ -63,32 +65,58 @@ public class bossScript : MonoBehaviour
 
     public void IdleStage2()    //decides the next action
     {
-        nextAttack = Random.Range(1, 6);
+        nextAttack = Random.Range(1, 7);
         switch (nextAttack)
         {
             case 1:
                 Debug.Log("Idle");
                 break;
-            
             case 2:
-                Debug.Log("dashAttackFast");
-                anim.SetTrigger("DashAttack");
+                Debug.Log("Bullet Attack");
+                anim.SetTrigger("bulletAttack");
                 break;
             case 3:
-                Debug.Log("pepperCan");
+                if(Time.time - phase2LastAttackTime[2]>4)
+                {
+                    Debug.Log("Dash-n-Smash!");
+                    anim.SetTrigger("DashAttack");
+                    phase2LastAttackTime[2]=Time.time;
+                }
                 break;
             case 4:
-                Debug.Log("MeleeMania!");
-                anim.SetTrigger("spawnHorde");
+                if(Time.time - phase2LastAttackTime[3]>8)
+                {
+                    Debug.Log("Spawn");
+                    anim.SetTrigger("Spawn");
+                    phase2LastAttackTime[3]=Time.time;
+                }
                 break;
             case 5:
-                Debug.Log("Spawn");
-                anim.SetTrigger("Spawn");
+                if(Time.time - phase2LastAttackTime[4]>8)
+                {
+                    Debug.Log("Pepper Blasts");
+                    phase2LastAttackTime[4]=Time.time;
+                }
+                break;
+            case 6:
+                if(Time.time - phase2LastAttackTime[5]>16)
+                {
+                    Debug.Log("MeleeMania!");
+                    anim.SetTrigger("spawnHorde");
+                    phase2LastAttackTime[5]=Time.time;
+                }
                 break;
         }
     }
     
-    
+    public void bulletAttack()  //recieves trigger from animator
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            GameObject newBossBullet = Instantiate(bossBullet);
+            newBossBullet.transform.position = spawnPoint.position + new Vector3(0,-0.2f,0) + new Vector3(Mathf.Cos(Mathf.PI*i/8),Mathf.Sin(Mathf.PI*i/8))*0.125f;
+        }
+    }
 
     public void attackSpawn() //receives trigger from animator
     {
@@ -97,10 +125,10 @@ public class bossScript : MonoBehaviour
 
     public void spawnAngry() //receives trigger from animator
     {
-        int j = Random.Range(2,4);
+        int j = 2;
         for (int i = 0; i < j; i++)
         {
-            Instantiate(enemies[Random.Range(0,3)], spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*Random.Range(0,16)*j/16),Mathf.Sin(Mathf.PI*Random.Range(0,16)*j/16))*1f, rot);
+            Instantiate(enemies[Random.Range(0,3)], spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*Random.Range(0,16)*2/16),-Mathf.Sin(Mathf.PI*Random.Range(0,8)*2/16))*1f, rot);
         }
         
     }
@@ -109,7 +137,7 @@ public class bossScript : MonoBehaviour
     {
         for (int i = 0; i < 8; i++)
         {
-            Instantiate(enemyMinion, spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*i/8),Mathf.Sin(Mathf.PI*i/8))*0.5f, rot);
+            Instantiate(enemyMinion, spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*2*i/8),Mathf.Sin(Mathf.PI*2*i/8))*0.5f, rot);
         }
         
     }

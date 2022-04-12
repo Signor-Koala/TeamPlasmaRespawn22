@@ -39921,7 +39921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4248083953423799772, guid: f20f4083b3e6d844da2009d94415a976, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4248083954761010051, guid: f20f4083b3e6d844da2009d94415a976, type: 3}
       propertyPath: m_RootOrder
@@ -40318,6 +40318,14 @@ MonoBehaviour:
   - {fileID: 9147751423019982069, guid: 6e0abc33e18f1e844bb4cb2e1773e761, type: 3}
   - {fileID: 940480129654245645, guid: c6a67ae8668c22442bb5ba68687f82c1, type: 3}
   - {fileID: 1199193955490662923, guid: c28ba40852e55a042a92c87086eb552c, type: 3}
+  bossBullet: {fileID: 7440538034304910794, guid: ff7dac8350b1f10409f06e1659632d65, type: 3}
+  phase2LastAttackTime:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!1 &8212303600210143411
 GameObject:
   m_ObjectHideFlags: 0

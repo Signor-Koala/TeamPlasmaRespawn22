@@ -6,10 +6,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 5f;
-    public Transform plr;
+    public Transform plr,boss;
     public float reload = 0.5f;
     public int damage = 20;
     public bool enemyBullet = false;
+    public bool bossBullet;
     public bool explosive = false;
     public float explosiveRange = 4f;
     public LayerMask playerLayer;
@@ -22,9 +23,20 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        plr = GameObject.Find("Player").GetComponent<Transform>();
+
+        if(GameObject.Find("Boss") != null)
+            boss = GameObject.Find("Boss").GetComponent<Transform>();
+
         var position = rb.position;
         var positionplr = plr.position;
-        speedVec = new Vector2(speed*(position.x - positionplr.x),speed*(position.y - positionplr.y));
+
+        if(!bossBullet)
+            speedVec = speed*(position-(Vector2)positionplr).normalized;
+        else if(boss != null)
+        {
+            speedVec = speed*(boss.position+new Vector3(0,-0.2f,0) - transform.position).normalized;
+        }
         rb.velocity = speedVec;
         bulletLife = Time.time;
     }
