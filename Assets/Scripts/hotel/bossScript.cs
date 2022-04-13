@@ -98,9 +98,10 @@ public class bossScript : MonoBehaviour
     }
 
     int stage2AttackLowerBound=1;
+    int stage2AttackUpperBound=6;
     public void IdleStage2()    //decides the next action
     {
-        nextAttack = Random.Range(stage2AttackLowerBound,6);
+        nextAttack = Random.Range(stage2AttackLowerBound,stage2AttackUpperBound);
         switch (nextAttack)
         {
             case 1:
@@ -141,8 +142,9 @@ public class bossScript : MonoBehaviour
     bool veryAngry=false;
     public void finalPush()
     {
+        stage2AttackUpperBound=5; //Fine, I'll do it by myself
         stage2AttackLowerBound=2; //no time to be idle anymore :harold:
-        bulletReloadProbability=0.8f;   //what's the point in saving bullets? :harold:
+        bulletReloadProbability=0.75f;   //what's the point in saving bullets? :harold:
         pepperGunReloadProbability=0.9f;    //Rain fire protocol :harold:
         veryAngry = true;
     }
@@ -166,22 +168,16 @@ public class bossScript : MonoBehaviour
         }
     }
 
-    /*public void spawnAngry() //receives trigger from animator
-    {
-        int j = 2;
-        for (int i = 0; i < j; i++)
-        {
-            Instantiate(enemies[Random.Range(0,3)], spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*Random.Range(0,16)*2/16)*0.75f,-Mathf.Sin(Mathf.PI*Random.Range(0,8)*2/16))*0.75f, rot);
-        }
-        
-    }*/
-
     public void meleeMania() //receives trigger from animator
     {
-        for (int i = 0; i < 8; i++)
+        if(!veryAngry)
         {
-            Instantiate(enemyMinion, spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*2*i/8),Mathf.Sin(Mathf.PI*2*i/8))*0.5f, rot);
+            for (int i = 0; i < 8; i++)
+            {
+                Instantiate(enemyMinion, spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*2*i/8),Mathf.Sin(Mathf.PI*2*i/8))*0.5f, rot);
+            }
         }
+        
         
     }
     
