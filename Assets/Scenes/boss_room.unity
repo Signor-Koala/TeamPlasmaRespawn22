@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &29431004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29431005}
+  m_Layer: 8
+  m_Name: PepperSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &29431005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29431004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.244, y: 0.433, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8212303600210143412}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &34716257
 GameObject:
   m_ObjectHideFlags: 0
@@ -40312,14 +40342,14 @@ MonoBehaviour:
   - {fileID: 9147751423019982069, guid: 6e0abc33e18f1e844bb4cb2e1773e761, type: 3}
   - {fileID: 940480129654245645, guid: c6a67ae8668c22442bb5ba68687f82c1, type: 3}
   - {fileID: 1199193955490662923, guid: c28ba40852e55a042a92c87086eb552c, type: 3}
-  projectile: {fileID: 0}
-  clouds: {fileID: 0}
+  targetRing: {fileID: 8092345571293865225, guid: 4c2c08278c48b444e8f9ed10e7b73e5a, type: 3}
   spawnPoint: {fileID: 8212303600210143412}
-  pepperPoint: {fileID: 0}
+  pepperPoint: {fileID: 29431005}
   PlayerObject: {fileID: 3589436836596399440}
   plr: {fileID: 3589436836596399447}
   bossBullet: {fileID: 7440538034304910794, guid: ff7dac8350b1f10409f06e1659632d65, type: 3}
   popcorn: {fileID: 3340796498241719821, guid: e8e5a96cac81e6443921d63239154bf0, type: 3}
+  pepperBullet: {fileID: 2036305496406111972, guid: 22dded4962ae7cf458a499e1bc5f5408, type: 3}
   phase2LastAttackTime:
   - 0
   - 0
@@ -40360,6 +40390,7 @@ Transform:
   m_LocalScale: {x: 0.47223312, y: 0.5076556, z: 0.50173515}
   m_Children:
   - {fileID: 341436178}
+  - {fileID: 29431005}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

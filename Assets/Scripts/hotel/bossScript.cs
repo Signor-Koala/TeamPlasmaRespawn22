@@ -14,8 +14,7 @@ public class bossScript : MonoBehaviour
 
     public GameObject enemyMinion;
     public GameObject[] enemies;
-    public GameObject projectile;
-    public GameObject clouds;
+    public GameObject targetRing;
     public Transform spawnPoint;
     public Transform pepperPoint;
     public GameObject PlayerObject;
@@ -31,7 +30,7 @@ public class bossScript : MonoBehaviour
     private bool isAttacking = false,isAngry = false, isDashing = false;
     private int nextAttack = 0;
     private Animator anim;
-    [SerializeField] GameObject bossBullet, popcorn;
+    [SerializeField] GameObject bossBullet, popcorn, pepperBullet;
     public float[] phase2LastAttackTime = new float[6];
 
     // Start is called before the first frame update
@@ -66,7 +65,7 @@ public class bossScript : MonoBehaviour
 
     public void IdleStage2()    //decides the next action
     {
-        nextAttack = Random.Range(1, 7);
+        nextAttack = Random.Range(1,7);
         switch (nextAttack)
         {
             case 1:
@@ -230,7 +229,7 @@ public class bossScript : MonoBehaviour
         }
     }
 
-    public void pepperAttack() //receives trigger from animator
+    /*public void pepperAttack() //receives trigger from animator
     {
         //shoot cans up
         Instantiate(projectile, pepperPoint.position, rot);
@@ -246,7 +245,16 @@ public class bossScript : MonoBehaviour
         Instantiate(projectile, pos1 + rbd.position, rot);
         Instantiate(projectile, pos2 + rbd.position, rot);
         Instantiate(projectile, pos3 + rbd.position, rot);
+    }*/
+
+    public void firePepperShot()
+    {
+        GameObject newPepperShot = Instantiate(pepperBullet, pepperPoint.position, rot);
+        newPepperShot.GetComponent<Rigidbody2D>().velocity = new Vector3(0,3,0);
+        newPepperShot.GetComponent<pepperBullet>().target = plr.transform.position;
+        Instantiate(targetRing,plr.position,rot);
     }
+
 
     public void pepperGunReload()
     {
