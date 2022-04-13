@@ -96,6 +96,8 @@ public class bossScript : MonoBehaviour
                 if(Time.time - phase2LastAttackTime[4]>10)
                 {
                     Debug.Log("Pepper Blasts");
+                    anim.SetTrigger("pepperAttack");
+                    anim.SetTrigger("pepperGunFire");
                     phase2LastAttackTime[4]=Time.time;
                 }
                 break;
@@ -122,7 +124,7 @@ public class bossScript : MonoBehaviour
 
     public void bulletReload()
     {
-        if(Random.Range(0f,1f)<0.5f)
+        if(Random.Range(0f,1f)<0.75f)
         {
             anim.SetTrigger("bulletAttack");
         }
@@ -130,13 +132,13 @@ public class bossScript : MonoBehaviour
 
     public void serving() //receives trigger from animator
     {
-        int i = Random.Range(0,2);
+        int i = Random.Range(0,3);
         switch (i)
         {
-            case 0: //case 1: case 2:
+            case 0: case 1:
                 Instantiate(enemyMinion, spawnPoint.position, rot);
                 break;
-            case 1:
+            case 2:
                 Debug.Log("Popcorns");
                 popcornMania();
                 break;
@@ -244,6 +246,14 @@ public class bossScript : MonoBehaviour
         Instantiate(projectile, pos1 + rbd.position, rot);
         Instantiate(projectile, pos2 + rbd.position, rot);
         Instantiate(projectile, pos3 + rbd.position, rot);
+    }
+
+    public void pepperGunReload()
+    {
+        if(Random.Range(0f,1f)<0.75f)
+        {
+            anim.SetTrigger("pepperGunFire");
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
