@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class bossScript : MonoBehaviour
 {
-    public int maxhealth = 1000;
-    public int health = 1000;
+    public int maxhealth = 1500;
+    public int health = 1500;
     public int damage = 20;
     public float speed = 40f;
     public float attackRangeMelee = 0.5f;
@@ -69,10 +69,38 @@ public class bossScript : MonoBehaviour
                 break;
         }
     }
+    public void serving() //receives trigger from animator
+    {
+        int i = Random.Range(0,2);
+        switch (i)
+        {
+            case 0:
+                Instantiate(enemyMinion, spawnPoint.position, rot);
+                break;
+            case 1:
+                Debug.Log("Popcorns");
+                popcornMania();
+                break;
+        }
+    }
+    Vector3 popcornTarget;
+    private void popcornMania()
+    {
+        for (int i = 0; i < Random.Range(10,20); i++)
+        {
+            popcornTarget = plr.transform.position;
+            GameObject newPopcorn = Instantiate(popcorn,spawnPoint.position,rot);
+            Rigidbody2D popcornRb = newPopcorn.GetComponent<Rigidbody2D>();
+            popcornRb.velocity = new Vector3(Random.Range(-1.5f,1.5f),Random.Range(-1f,1f),0);
+            popcornRb.angularVelocity = 360;
+            newPopcorn.GetComponent<popcorn>().gravityVector = (popcornTarget - transform.position).normalized*0.25f;
+        }
+    }
 
+    int stage2AttackLowerBound=1;
     public void IdleStage2()    //decides the next action
     {
-        nextAttack = Random.Range(1,7);
+        nextAttack = Random.Range(stage2AttackLowerBound,6);
         switch (nextAttack)
         {
             case 1:
@@ -91,14 +119,6 @@ public class bossScript : MonoBehaviour
                 }
                 break;
             case 4:
-                if(Time.time - phase2LastAttackTime[3]>10)
-                {
-                    Debug.Log("Spawn");
-                    anim.SetTrigger("Spawn");
-                    phase2LastAttackTime[3]=Time.time;
-                }
-                break;
-            case 5:
                 if(Time.time - phase2LastAttackTime[4]>10)
                 {
                     Debug.Log("Pepper Blasts");
@@ -107,7 +127,7 @@ public class bossScript : MonoBehaviour
                     phase2LastAttackTime[4]=Time.time;
                 }
                 break;
-            case 6:
+            case 5:
                 if(Time.time - phase2LastAttackTime[5]>20)
                 {
                     Debug.Log("MeleeMania!");
@@ -116,6 +136,15 @@ public class bossScript : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    bool veryAngry=false;
+    public void finalPush()
+    {
+        stage2AttackLowerBound=2; //no time to be idle anymore :harold:
+        bulletReloadProbability=0.8f;   //what's the point in saving bullets? :harold:
+        pepperGunReloadProbability=0.9f;    //Rain fire protocol :harold:
+        veryAngry = true;
     }
     
     public void bulletAttack()  //recieves trigger from animator
@@ -128,44 +157,16 @@ public class bossScript : MonoBehaviour
         }
     }
 
+    float bulletReloadProbability=0.66f;
     public void bulletReload()
     {
-        if(Random.Range(0f,1f)<0.75f)
+        if(Random.Range(0f,1f)<bulletReloadProbability)
         {
             anim.SetTrigger("bulletAttack");
         }
     }
 
-    public void serving() //receives trigger from animator
-    {
-        int i = Random.Range(0,3);
-        switch (i)
-        {
-            case 0: case 1:
-                Instantiate(enemyMinion, spawnPoint.position, rot);
-                break;
-            case 2:
-                Debug.Log("Popcorns");
-                popcornMania();
-                break;
-        }
-    }
-
-    Vector3 popcornTarget;
-    private void popcornMania()
-    {
-        for (int i = 0; i < Random.Range(10,20); i++)
-        {
-            popcornTarget = plr.transform.position;
-            GameObject newPopcorn = Instantiate(popcorn,spawnPoint.position,rot);
-            Rigidbody2D popcornRb = newPopcorn.GetComponent<Rigidbody2D>();
-            popcornRb.velocity = new Vector3(Random.Range(-1.5f,1.5f),Random.Range(-2f,2f),0);
-            popcornRb.angularVelocity = 360;
-            newPopcorn.GetComponent<popcorn>().gravityVector = (popcornTarget - transform.position).normalized*0.5f;
-        }
-    }
-
-    public void spawnAngry() //receives trigger from animator
+    /*public void spawnAngry() //receives trigger from animator
     {
         int j = 2;
         for (int i = 0; i < j; i++)
@@ -173,7 +174,7 @@ public class bossScript : MonoBehaviour
             Instantiate(enemies[Random.Range(0,3)], spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*Random.Range(0,16)*2/16)*0.75f,-Mathf.Sin(Mathf.PI*Random.Range(0,8)*2/16))*0.75f, rot);
         }
         
-    }
+    }*/
 
     public void meleeMania() //receives trigger from animator
     {
@@ -227,6 +228,10 @@ public class bossScript : MonoBehaviour
             anim.SetBool("isAngry",true);
             isAngry = true;
         }
+        if (health <= (maxhealth / 5) && !veryAngry)
+        {
+            finalPush();
+        }
         if (health <= 0)
         {
             rbd.velocity = new Vector2(0, 0);
@@ -238,24 +243,6 @@ public class bossScript : MonoBehaviour
         }
     }
 
-    /*public void pepperAttack() //receives trigger from animator
-    {
-        //shoot cans up
-        Instantiate(projectile, pepperPoint.position, rot);
-        
-        //spawn cans at location
-        Vector2 pos1 = new Vector2(Random.Range(0.1f * attackRangePepper, attackRangePepper),
-                                   Random.Range(0.1f * attackRangePepper, attackRangePepper));
-        Vector2 pos2 = new Vector2(Random.Range(0.1f * attackRangePepper, attackRangePepper),
-                                   Random.Range(0.1f * attackRangePepper, attackRangePepper));
-        Vector2 pos3 = new Vector2(Random.Range(0.1f * attackRangePepper, attackRangePepper),
-                                   Random.Range(0.1f * attackRangePepper, attackRangePepper));
-        
-        Instantiate(projectile, pos1 + rbd.position, rot);
-        Instantiate(projectile, pos2 + rbd.position, rot);
-        Instantiate(projectile, pos3 + rbd.position, rot);
-    }*/
-
     public void firePepperShot()
     {
         GameObject newPepperShot = Instantiate(pepperBullet, pepperPoint.position, rot);
@@ -264,10 +251,10 @@ public class bossScript : MonoBehaviour
         Instantiate(targetRing,plr.position,rot);
     }
 
-
+    float pepperGunReloadProbability=0.66f;
     public void pepperGunReload()
     {
-        if(Random.Range(0f,1f)<0.75f)
+        if(Random.Range(0f,1f)<pepperGunReloadProbability)
         {
             anim.SetTrigger("pepperGunFire");
         }
