@@ -8,6 +8,7 @@ public class bossLevelManager : MonoBehaviour
     public TMPro.TextMeshProUGUI scoreText;
     Animator whiteScreenAnim;
     bool endingTriggered = false;
+    
     void Start()
     {
         player = GameObject.Find("Player");
@@ -23,6 +24,7 @@ public class bossLevelManager : MonoBehaviour
             StartCoroutine(exitSequence());
             endingTriggered=true;
         }
+
     }
 
     IEnumerator exitSequence()

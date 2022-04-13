@@ -31,9 +31,11 @@ public class Bullet : MonoBehaviour
         var position = rb.position;
         var positionplr = plr.position;
 
-        if(!bossBullet)
+        if(!bossBullet && !enemyBullet)
             speedVec = speed*(position-(Vector2)positionplr).normalized;
-        else if(boss != null)
+        else if(enemyBullet && !bossBullet)
+            speedVec = speed*((Vector2)positionplr - position).normalized;
+        else if(boss != null && bossBullet)
         {
             speedVec = speed*(boss.position+new Vector3(0,-0.2f,0) - transform.position).normalized;
         }

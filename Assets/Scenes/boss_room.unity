@@ -40319,6 +40319,7 @@ MonoBehaviour:
   PlayerObject: {fileID: 3589436836596399440}
   plr: {fileID: 3589436836596399447}
   bossBullet: {fileID: 7440538034304910794, guid: ff7dac8350b1f10409f06e1659632d65, type: 3}
+  popcorn: {fileID: 3340796498241719821, guid: e8e5a96cac81e6443921d63239154bf0, type: 3}
   phase2LastAttackTime:
   - 0
   - 0
