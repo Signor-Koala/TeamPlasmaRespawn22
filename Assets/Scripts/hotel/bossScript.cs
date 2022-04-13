@@ -31,21 +31,28 @@ public class bossScript : MonoBehaviour
     private int nextAttack = 0;
     private Animator anim;
     [SerializeField] GameObject bossBullet, popcorn, pepperBullet;
+    public healthBar healthBar;
     public float[] phase2LastAttackTime = new float[6];
 
     // Start is called before the first frame update
     void Start()
     {
         rbd = this.GetComponent<Rigidbody2D>();
+        healthBar.gameObject.SetActive(true);
         health = maxhealth;
+        healthBar.initializeHealth(maxhealth);
         anim = this.GetComponent<Animator>();
         //anim.SetBool("isAngry",true);         //for phase 2 testing
     }
 
-    // Update is called once per frame
+    bool healthBarCorrection = false;
     void Update()
     {
-        
+        if(!healthBarCorrection)
+        {
+            healthBar.setHealth(health);
+            healthBarCorrection = true;
+        }
     }
 
     public void IdleStage1()
@@ -210,6 +217,7 @@ public class bossScript : MonoBehaviour
     public void TakeDamage(int dam)
     {
         health -= dam;
+        healthBar.setHealth(health);
         Debug.Log("Boss health : "+health);
         if(dam > 30)
             anim.SetTrigger("Damage");
@@ -224,6 +232,7 @@ public class bossScript : MonoBehaviour
             rbd.velocity = new Vector2(0, 0);
             anim.SetTrigger("Die");
             CEO_script.currentGameState=CEO_script.gameState.bossBattleCleared;
+            healthBar.gameObject.SetActive(false);
             
             this.enabled = false;
         }
