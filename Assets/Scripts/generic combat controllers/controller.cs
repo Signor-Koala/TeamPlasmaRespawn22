@@ -128,6 +128,7 @@ public class controller : MonoBehaviour
             if (health <= 0)
             {
                 //dying animation
+                anim.SetBool("isDead",true);
                 //trigger game over
                 StartCoroutine(gameOverSequence());
 

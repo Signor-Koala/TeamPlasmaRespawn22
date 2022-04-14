@@ -19,20 +19,27 @@ public class peashooterTrigger : MonoBehaviour
     private void Update() {
 
         
-        if(dialogueManager.sentenceNumber>=2 && eventFlag==false && playerInRange && peaPowerUp !=null)
+        if(dialogueManager.sentenceNumber>=2 && eventFlag==false && playerInRange && peaPowerUp !=null && CEO_script.firstLoad==1)
         {
             player.currenProj=peaPowerUp.projectile;
             CEO_script.activePowerUp = peaPowerUp.projectile;
+            CEO_script.firstLoad=0;
             Destroy(peaPowerUp.gameObject);
             eventFlag=true;
         }
     }
 
    private void OnTriggerEnter2D(Collider2D other) {
-       if(other.CompareTag("Player") && peaPowerUp !=null)
+       if(other.CompareTag("Player") && peaPowerUp !=null && CEO_script.firstLoad==1)
        {
            playerInRange=true;
            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+       }
+       else if(other.CompareTag("Player") && peaPowerUp !=null)
+       {
+            player.currenProj=peaPowerUp.projectile;
+            CEO_script.activePowerUp = peaPowerUp.projectile;
+            Destroy(peaPowerUp.gameObject);
        }
    }
     

@@ -24,7 +24,7 @@ public class MainMenuUI : MonoBehaviour
         inactivePortal.SetActive(false);
         activePortal.SetActive(true);
         blindingAnim.SetTrigger("portalTrigger");
-        if(CEO_script.firstLoad==1)
+        if(CEO_script.firstTimeInSession==1)
             CEO_script.currentGameState = CEO_script.gameState.preForestLevel;
         CEO_script.health = 100;
         CEO_script.speed = 1f;
@@ -58,9 +58,9 @@ public class MainMenuUI : MonoBehaviour
     IEnumerator sceneLoadDelay()
     {
         yield return new WaitForSeconds(2);
-        if(CEO_script.firstLoad==1)
+        if(CEO_script.firstTimeInSession==1)
             UnityEngine.SceneManagement.SceneManager.LoadScene("forest_start");
-        else if(CEO_script.firstLoad==0)
+        else if(CEO_script.firstTimeInSession==0)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("forest");
         }

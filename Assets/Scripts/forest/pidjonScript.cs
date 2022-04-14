@@ -46,6 +46,8 @@ public class pidjonScript : MonoBehaviour
         whiteScreen.GetComponent<Animator>().SetTrigger("portalTrigger");
 		yield return new WaitForSeconds(2);
 		dialogueManager.DisplayNextSentence();
+        CEO_script.health = GameObject.Find("Player").GetComponent<controller>().health;
+        CEO_script.speed = GameObject.Find("Player").GetComponent<controller>().speed;
 		Debug.Log("Exiting the forest");
         UnityEngine.SceneManagement.SceneManager.LoadScene("hotel");
 	}

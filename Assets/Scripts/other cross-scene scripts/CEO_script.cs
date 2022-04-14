@@ -23,7 +23,7 @@ public class CEO_script : MonoBehaviour
     public static int money = 0;
     public static int health = 100;
     public static float speed = 1.0f;
-    public static int firstLoad;
+    public static int firstLoad,firstTimeInSession=1;
     public static int Highscore;
     public static float musicLevel, SFxLevel;
     private void Awake()
@@ -67,10 +67,7 @@ public class CEO_script : MonoBehaviour
     
 
     private void Update() {
-        for (int i = 0; i < 3; i++)
-        {
-            totalKillScore += 10*i*enemiesKilled[i];
-        }
+        
         if(dangerLevel<0)
             dangerLevel=0;
     }

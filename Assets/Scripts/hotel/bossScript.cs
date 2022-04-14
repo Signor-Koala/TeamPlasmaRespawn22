@@ -27,7 +27,7 @@ public class bossScript : MonoBehaviour
     private Quaternion rot = Quaternion.Euler(0, 0, 0);
     private Rigidbody2D rbd;
     
-    private bool isAttacking = false,isAngry = false, isDashing = false;
+    private bool isAttacking = false,isAngry = false, isDashing = false, invincible=false;
     private int nextAttack = 0;
     private Animator anim;
     [SerializeField] GameObject bossBullet, popcorn, pepperBullet;
@@ -71,13 +71,13 @@ public class bossScript : MonoBehaviour
     }
     public void serving() //receives trigger from animator
     {
-        int i = Random.Range(0,2);
+        int i = Random.Range(0,3);
         switch (i)
         {
-            case 0:
+            case 0: case 1:
                 Instantiate(enemyMinion, spawnPoint.position, rot);
                 break;
-            case 1:
+            case 2:
                 Debug.Log("Popcorns");
                 popcornMania();
                 break;
@@ -86,14 +86,14 @@ public class bossScript : MonoBehaviour
     Vector3 popcornTarget;
     private void popcornMania()
     {
-        for (int i = 0; i < Random.Range(10,20); i++)
+        for (int i = 0; i < Random.Range(5,10); i++)
         {
             popcornTarget = plr.transform.position;
             GameObject newPopcorn = Instantiate(popcorn,spawnPoint.position,rot);
             Rigidbody2D popcornRb = newPopcorn.GetComponent<Rigidbody2D>();
             popcornRb.velocity = new Vector3(Random.Range(-1.5f,1.5f),Random.Range(-1f,1f),0);
             popcornRb.angularVelocity = 360;
-            newPopcorn.GetComponent<popcorn>().gravityVector = (popcornTarget - transform.position).normalized*0.25f;
+            newPopcorn.GetComponent<popcorn>().gravityVector = (popcornTarget - transform.position).normalized*0.5f;
         }
     }
 
@@ -146,6 +146,8 @@ public class bossScript : MonoBehaviour
         stage2AttackLowerBound=2; //no time to be idle anymore :harold:
         bulletReloadProbability=0.75f;   //what's the point in saving bullets? :harold:
         pepperGunReloadProbability=0.9f;    //Rain fire protocol :harold:
+        dashEncoreProbablilty=0.9f;     //I'll smack you down!
+        anim.SetBool("lastDitchEffort",true);
         veryAngry = true;
     }
     
@@ -159,7 +161,7 @@ public class bossScript : MonoBehaviour
         }
     }
 
-    float bulletReloadProbability=0.66f;
+    float bulletReloadProbability=0.4f;
     public void bulletReload()
     {
         if(Random.Range(0f,1f)<bulletReloadProbability)
@@ -181,7 +183,7 @@ public class bossScript : MonoBehaviour
         
     }
     
-    float dashDuration=0.1f;
+    float dashDuration=0.1f, dashEncoreProbablilty=0.4f;
     public void dashAttackFast() //receives trigger from animator
     {
         transform.position = plr.transform.position + (transform.position - plr.position).normalized*0.2f;
@@ -194,6 +196,11 @@ public class bossScript : MonoBehaviour
         rbd.velocity = Vector2.zero;
         anim.SetTrigger("Smash");
         isDashing=false;
+    }
+    public void dashAgain()
+    {
+        if(Random.Range(0f,1f) < dashEncoreProbablilty)
+            anim.SetTrigger("DashAttack");
     }
     
     
@@ -213,30 +220,53 @@ public class bossScript : MonoBehaviour
     
     public void TakeDamage(int dam)
     {
-        health -= dam;
-        healthBar.setHealth(health);
-        Debug.Log("Boss health : "+health);
-        if(dam > 30)
-            anim.SetTrigger("Damage");
+        if(!invincible)
+        {
+            health -= dam;
+            healthBar.setHealth(health);
+            Debug.Log("Boss health : "+health);
+            if(dam > 30)
+                anim.SetTrigger("Damage");
 
-        if (health <= (maxhealth / 2) && !isAngry)
-        {
-            anim.SetBool("isAngry",true);
-            isAngry = true;
+            if (health <= (maxhealth / 2) && !isAngry)
+            {
+                anim.SetBool("isAngry",true);
+                isAngry = true;
+            }
+            if (health <= (maxhealth / 4) && !veryAngry)
+            {
+                finalPush();
+            }
+            if (health <= 0)
+            {
+                rbd.velocity = new Vector2(0, 0);
+                anim.SetTrigger("Die");
+                CEO_script.currentGameState=CEO_script.gameState.bossBattleCleared;
+                healthBar.gameObject.SetActive(false);
+                
+                this.enabled = false;
+            }
         }
-        if (health <= (maxhealth / 5) && !veryAngry)
+    }
+
+    public void invincibility()
+    {
+        invincible=true;
+    }
+    public void heal()
+    {
+        StartCoroutine(regeneration());
+    }
+    IEnumerator regeneration()
+    {
+        while(health<0.75*maxhealth)
         {
-            finalPush();
+            health+=1;
+            healthBar.setHealth(health);
+            yield return new WaitForEndOfFrame();
         }
-        if (health <= 0)
-        {
-            rbd.velocity = new Vector2(0, 0);
-            anim.SetTrigger("Die");
-            CEO_script.currentGameState=CEO_script.gameState.bossBattleCleared;
-            healthBar.gameObject.SetActive(false);
-            
-            this.enabled = false;
-        }
+        invincible=false;
+        yield return null;
     }
 
     public void firePepperShot()

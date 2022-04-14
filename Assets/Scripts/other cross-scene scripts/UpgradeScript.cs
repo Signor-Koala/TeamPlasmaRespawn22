@@ -24,6 +24,9 @@ public class UpgradeScript : MonoBehaviour
             CEO_script.health += healthAmount;
             playerScript.health += healthAmount;
         }
+        else {
+            Debug.Log("Not Enough Vital Extract!");
+        }
     }
     
     public void speedUpgrade()
@@ -35,6 +38,9 @@ public class UpgradeScript : MonoBehaviour
             PlayerPrefs.SetFloat("speed", CEO_script.speed + speedAmount);
             CEO_script.speed += speedAmount;
             playerScript.speed += speedAmount;
+        }
+        else {
+            Debug.Log("Not Enough Vital Extract!");
         }
     }
 }

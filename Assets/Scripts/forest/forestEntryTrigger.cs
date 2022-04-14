@@ -8,7 +8,7 @@ public class forestEntryTrigger : MonoBehaviour
 	public Dialogue dialogue;
 	DialogueManager dialogueManager;
 	portalScript portalController;
-	[SerializeField] GameObject titleUI;
+	[SerializeField] GameObject titleUI, player;
 
 	bool eventFlag=false, playerInRange=false;
 
@@ -17,9 +17,9 @@ public class forestEntryTrigger : MonoBehaviour
 		dialogueManager = FindObjectOfType<DialogueManager>();
 		portalController = this.GetComponent<portalScript>();
 		CEO_script.currentGameState = CEO_script.gameState.preForestLevel;
-		
-		PlayerPrefs.SetInt("firstload",0);
-		CEO_script.firstLoad=0;
+		CEO_script.firstTimeInSession=0;
+		player.GetComponent<Animator>().SetInteger("attackMode",0);
+		CEO_script.activePowerUp = null;
 	}
 
 	private void Update() {
@@ -53,6 +53,8 @@ public class forestEntryTrigger : MonoBehaviour
 		yield return new WaitForSeconds(2);
 		dialogueManager.DisplayNextSentence();
 		Debug.Log("Entering the forest");
+		PlayerPrefs.SetInt("firstload",0);
+		CEO_script.firstLoad=0;
 		titleUI.SetActive(true);
 	}
 

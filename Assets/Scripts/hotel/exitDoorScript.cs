@@ -16,6 +16,8 @@ public class exitDoorScript : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Debug.Log("Entering Boss room...");
+            CEO_script.health = other.gameObject.GetComponent<controller>().health;
+            CEO_script.speed = GameObject.Find("Player").GetComponent<controller>().speed;
             StartCoroutine(bossRoomTransition());
         }
     }
