@@ -19,11 +19,14 @@ public class Bullet : MonoBehaviour
 
     private Vector2 speedVec;
     private Rigidbody2D rb;
+    Animator anim;
     private float bulletLife = 0;
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         plr = GameObject.Find("Player").GetComponent<Transform>();
+        if(this.GetComponent<Animator>() != null)
+            anim = this.GetComponent<Animator>();
 
         if(GameObject.Find("Boss") != null)
             boss = GameObject.Find("Boss").GetComponent<Transform>();
@@ -71,7 +74,9 @@ public class Bullet : MonoBehaviour
                     boss.TakeDamage(damage);
                 }
             }
-            Destroy(gameObject);
+            anim.SetTrigger("explosion");
+            rb.velocity = Vector2.zero;
+            
         }
         else
         {
@@ -92,6 +97,11 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void destroy() 
+    {
+        Destroy(gameObject);
     }
 
     private void Update()

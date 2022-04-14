@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3590017143806780102}
   - component: {fileID: 7358573265111379155}
   - component: {fileID: 4790138418799709346}
+  - component: {fileID: 1233143247680164041}
   m_Layer: 12
   m_Name: Explosive
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405491376409824922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00183, y: -0.0019, z: 0}
-  m_LocalScale: {x: 0.3484654, y: 0.3484654, z: 8.711636}
+  m_LocalPosition: {x: -0.04809, y: 0.04133, z: 0}
+  m_LocalScale: {x: 0.67886126, y: 0.64660084, z: 8.711636}
   m_Children:
   - {fileID: 5618941010639839351}
   m_Father: {fileID: 0}
@@ -101,12 +102,12 @@ MonoBehaviour:
   speed: 2
   plr: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
   boss: {fileID: 0}
-  reload: 2
-  damage: 40
+  reload: 2.5
+  damage: 60
   enemyBullet: 0
   bossBullet: 0
   explosive: 1
-  explosiveRange: 0.25
+  explosiveRange: 0.3
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -150,7 +151,26 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.008371318, y: -0.018932575}
   serializedVersion: 2
-  m_Radius: 0.10739242
+  m_Radius: 0.1
+--- !u!95 &1233143247680164041
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405491376409824922}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42fa55aac023d1a42b9819e37add847a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2923792464429718050
 GameObject:
   m_ObjectHideFlags: 0

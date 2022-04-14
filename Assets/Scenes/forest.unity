@@ -792,7 +792,7 @@ PrefabInstance:
     - target: {fileID: 3589436837990088420, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: currenProj
       value: 
-      objectReference: {fileID: 5784528689938768142, guid: 73890c8a888206f778d1dd2ce715a5c4, type: 3}
+      objectReference: {fileID: 1405491376409824922, guid: 12a154608dbd5554396a1d498cf23bed, type: 3}
     - target: {fileID: 3589436837990088421, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -888,7 +888,7 @@ MonoBehaviour:
   player: {fileID: 3589436838143684697}
   deviationRate: 10
   roomRate: 10
-  maxRouteLength: 100
+  maxRouteLength: 200
   maxRoutes: 10
   powerups:
   - {fileID: 4593926195378784476, guid: 7903c2d31d90013bcb9c3c9f1b3bfbdf, type: 3}

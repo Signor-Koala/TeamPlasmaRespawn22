@@ -36,7 +36,7 @@ public class controller : MonoBehaviour
         anim = this.gameObject.GetComponent<Animator>();
         health = CEO_script.health;
         speed = CEO_script.speed;
-        currenProj = CEO_script.activePowerUp;
+        //currenProj = CEO_script.activePowerUp;
         PlayerPrefs.SetInt("firstload",1);
     }
 

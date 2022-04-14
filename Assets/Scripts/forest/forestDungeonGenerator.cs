@@ -99,8 +99,11 @@ public class forestDungeonGenerator : MonoBehaviour
 
     private void NewRoute(int x, int y, int routeLength, Vector2Int previousPos)
     {
+        int spawnX=x, spawnY=y;     //initial tile position
+
         if (routeCount < maxRoutes)
         {
+            Vector3Int lastRoomPos = new Vector3Int(x,y,0);
             routeCount++;
             while (++routeLength < maxRouteLength)
             {
@@ -108,9 +111,14 @@ public class forestDungeonGenerator : MonoBehaviour
                 bool routeUsed = false;
                 int xOffset = x - previousPos.x; //0
                 int yOffset = y - previousPos.y; //3
-                int roomSize = 1; //Hallway size
-                if (Random.Range(1, 100) <= roomRate)
+                int roomSize = 1, currentRoomSize=1; //Hallway size
+                Vector3Int currentPos = new Vector3Int(x,y,0);
+                if (Random.Range(1, 100) <= roomRate && ((currentPos - lastRoomPos).magnitude > (int)3*1.414f*currentRoomSize))
+                {
                     roomSize = Random.Range(3, 6);
+                    currentRoomSize = roomSize;
+                    lastRoomPos = new Vector3Int(x,y,0);
+                }
                 previousPos = new Vector2Int(x, y);
 
                 //Go Straight
@@ -202,9 +210,11 @@ public class forestDungeonGenerator : MonoBehaviour
                     newProp.GetComponent<SpriteRenderer>().sprite = propSprites[Random.Range(0,12)];
                     newProp.transform.position = pitMap.GetCellCenterLocal(tilePos);
                 }
-                if(powerUpSpawned==false && radius>2 && Random.Range(0f,1f)<0.33f)
+
+                //spawning powerups
+                if(powerUpSpawned==false && radius>2 && Random.Range(0f,1f)<0.2f)
                 {
-                    spawnPowerups(x,y);
+                    spawnPowerups(x+Random.Range(-2,3),y+Random.Range(-2,3));
                     powerUpSpawned = true;
                 }
             }
