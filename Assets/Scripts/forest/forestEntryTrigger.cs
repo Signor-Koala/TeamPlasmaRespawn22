@@ -20,6 +20,7 @@ public class forestEntryTrigger : MonoBehaviour
 		CEO_script.firstTimeInSession=0;
 		player.GetComponent<Animator>().SetInteger("attackMode",0);
 		CEO_script.activePowerUp = null;
+		CEO_script.activePowerUp = null;
 	}
 
 	private void Update() {

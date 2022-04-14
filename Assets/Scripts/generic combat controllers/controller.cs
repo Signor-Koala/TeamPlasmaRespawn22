@@ -36,7 +36,7 @@ public class controller : MonoBehaviour
         anim = this.gameObject.GetComponent<Animator>();
         health = CEO_script.health;
         speed = CEO_script.speed;
-        //currenProj = CEO_script.activePowerUp;
+        currenProj = CEO_script.activePowerUp;
         PlayerPrefs.SetInt("firstload",1);
     }
 
@@ -46,9 +46,12 @@ public class controller : MonoBehaviour
         //Input
         float xaxis = Input.GetAxisRaw("Horizontal");
         float yaxis = Input.GetAxisRaw("Vertical");
-        anim.SetFloat("xInput",xaxis);
-        anim.SetFloat("yInput",yaxis);
 
+        if(xaxis !=0 || yaxis !=0)
+            anim.SetFloat("animationSpeed",1);
+        else
+            anim.SetFloat("animationSpeed",0.5f);
+        
         if(xaxis<0)
             this.gameObject.transform.localScale = new Vector3(-1,1,1);
         
@@ -60,6 +63,34 @@ public class controller : MonoBehaviour
         deviation = Vector2.Perpendicular(looking);
         deviation /= 10;
 
+        //sending input to the sprite animator
+        float facingX,facingY;
+        if(looking.normalized.x>1/Mathf.Sqrt(2))
+            facingX=-1;
+        else if(looking.normalized.x<-1/Mathf.Sqrt(2))
+            facingX=1;
+        else
+            facingX=0;
+
+        if(looking.normalized.y>1/Mathf.Sqrt(2))
+            facingY=-1;
+        else if(looking.normalized.y<-1/Mathf.Sqrt(2))
+            facingY=1;
+        else
+            facingY=0;
+
+        if(CEO_script.activePowerUp==null)
+        {
+            anim.SetFloat("xInput",xaxis);
+            anim.SetFloat("yInput",yaxis);
+        }
+        else
+        {
+            anim.SetFloat("xInput",facingX);
+            anim.SetFloat("yInput",facingY);
+        }
+
+        //firing weapon
         if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible) && currenProj !=null)
         {
             FireWeapon((rbd.position-looking), rot);
@@ -88,6 +119,7 @@ public class controller : MonoBehaviour
             }
             else if(!(CEO_script.currentGameState==CEO_script.gameState.bossBattleCleared && CEO_script.dangerLevel<=0)) // Normal movement
             {
+                //Motion
                 rbd.transform.position += (Vector3) direction * (speed * Time.deltaTime);
             }
         }
