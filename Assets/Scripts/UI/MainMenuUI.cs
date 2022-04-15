@@ -55,6 +55,23 @@ public class MainMenuUI : MonoBehaviour
         Application.Quit();
     }
 
+    public void hardResetConfirm() 
+    {
+        questionBox.Instance.showQuestion("Are you really sure? You will lose all of your progress!", ()=>{ hardReset(); }, ()=>{} );
+    }
+    public void hardReset()
+    {
+        PlayerPrefs.DeleteAll();
+        CEO_script.powerupSpawned = new int[4];
+        CEO_script.money = 0;
+        CEO_script.health = 100;
+        CEO_script.speed = 1f;
+        CEO_script.firstLoad = 1;
+        CEO_script.Highscore = 0;
+        CEO_script.musicLevel = 0.5f;
+        CEO_script.SFxLevel = 0.5f;
+    }
+
     IEnumerator sceneLoadDelay()
     {
         yield return new WaitForSeconds(2);

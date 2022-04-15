@@ -187,13 +187,12 @@ public class EnemyScript : MonoBehaviour
             else if (enemyType == 4)
             {
                 CEO_script.enemiesKilled[0]++;
-                CEO_script.money += 5;
             }
     }
 
     IEnumerator deSpawn()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
 

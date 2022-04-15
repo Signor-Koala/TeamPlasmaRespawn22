@@ -103,7 +103,7 @@ MonoBehaviour:
   damage: 20
   reload: 0.8
   agroDistance: 1.2
-  speed: 43
+  speed: 87
   attackDistance: 0.1
   enemyType: 1
   playerLayer:

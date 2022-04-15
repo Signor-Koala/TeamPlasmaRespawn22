@@ -102,7 +102,7 @@ MonoBehaviour:
   speed: 2
   plr: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
   boss: {fileID: 0}
-  reload: 2.5
+  reload: 3
   damage: 60
   enemyBullet: 0
   bossBullet: 0

@@ -8,8 +8,8 @@ public class enemySpawner : MonoBehaviour
     public Transform playerPos;
     public float spawnTriggerRadius=3f;
     [SerializeField] GameObject[] enemyList;
-    int[] enemyCount = {4,1,1};
-    int[] enemyCountScatter = {1,1,0};
+    int[] enemyCount = {5,1,1};
+    int[] enemyCountScatter = {2,1,0};
     public int enemyVariety;
     
     private void Start() {

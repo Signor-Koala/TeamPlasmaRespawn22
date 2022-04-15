@@ -125,7 +125,7 @@ public class forestDungeonGenerator : MonoBehaviour
                 int yOffset = y - previousPos.y; //3
                 int roomSize = 1, currentRoomSize=1; //Hallway size
                 Vector3Int currentPos = new Vector3Int(x,y,0);
-                if (Random.Range(1, 100) <= roomRate && ((currentPos - lastRoomPos).magnitude > 3*1.414f*(currentRoomSize+1)) && ((currentPos - spawnPos).magnitude > 3*1.414f*(7)) )
+                if (Random.Range(1, 100) <= roomRate && ((currentPos - lastRoomPos).magnitude > 3*1.414f*(currentRoomSize+2)) && ((currentPos - spawnPos).magnitude > 3*1.414f*(7)) )
                 {
                     roomSize = Random.Range(3, 6);
                     currentRoomSize = roomSize;

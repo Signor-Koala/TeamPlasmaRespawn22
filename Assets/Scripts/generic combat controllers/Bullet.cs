@@ -24,7 +24,6 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        plr = GameObject.Find("Player").GetComponent<Transform>();
         if(this.GetComponent<Animator>() != null)
             anim = this.GetComponent<Animator>();
 
@@ -37,7 +36,7 @@ public class Bullet : MonoBehaviour
         if(!bossBullet && !enemyBullet)
             speedVec = speed*(position-(Vector2)positionplr).normalized;
         else if(enemyBullet && !bossBullet)
-            speedVec = speed*((Vector2)positionplr - position).normalized;
+            speedVec = speed*(position - (Vector2)positionplr).normalized;
         else if(boss != null && bossBullet)
         {
             speedVec = speed*(boss.position+new Vector3(0,-0.2f,0) - transform.position).normalized;
