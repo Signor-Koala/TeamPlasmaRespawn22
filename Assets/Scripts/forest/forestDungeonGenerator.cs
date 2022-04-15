@@ -66,15 +66,26 @@ public class forestDungeonGenerator : MonoBehaviour
                 Vector3Int pos = new Vector3Int(xMap, yMap, 0);
                 Vector3Int posBelow = new Vector3Int(xMap, yMap - 1, 0);
                 Vector3Int posAbove = new Vector3Int(xMap, yMap + 1, 0);
+                Vector3Int posAbove2 = new Vector3Int(xMap, yMap + 2, 0);   //for tree spawning constraint
+                Vector3Int posAbove3 = new Vector3Int(xMap, yMap + 3, 0);
+                Vector3Int posAbove3L = new Vector3Int(xMap-1, yMap + 3, 0);
+                Vector3Int posAbove3R = new Vector3Int(xMap+1, yMap + 3, 0);
+
                 TileBase tile = groundMap.GetTile(pos);
                 TileBase tileBelow = groundMap.GetTile(posBelow);
                 TileBase tileAbove = groundMap.GetTile(posAbove);
+                TileBase tileAbove2 = groundMap.GetTile(posAbove2);
+                TileBase tileAbove3 = groundMap.GetTile(posAbove3);
+                TileBase tileAbove3L = groundMap.GetTile(posAbove3L);
+                TileBase tileAbove3R = groundMap.GetTile(posAbove3R);
+
                 if (tile == null)
                 {
                     pitMap.SetTile(pos, pitTile);   //setting grass tile
-                    if(Random.Range(0f,1f)<0.1f)
+
+                    if(Random.Range(0f,1f)<0.2f && !(tileAbove==groundTile || tileAbove2==groundTile || tileAbove3==groundTile || tileAbove3L==groundTile || tileAbove3R==groundTile))
                     {
-                        GameObject newTree = Instantiate(trees[Random.Range(0,3)]);
+                        GameObject newTree = Instantiate(trees[Random.Range(0,3)]);     //adding trees which doesn't overlap routes
                         newTree.transform.position = pitMap.GetCellCenterLocal(pos);
                     }
                     if(Random.Range(0f,1f)<0.05f)
@@ -100,6 +111,7 @@ public class forestDungeonGenerator : MonoBehaviour
     private void NewRoute(int x, int y, int routeLength, Vector2Int previousPos)
     {
         int spawnX=x, spawnY=y;     //initial tile position
+        Vector3Int spawnPos = new Vector3Int(x,y,0);
 
         if (routeCount < maxRoutes)
         {
@@ -113,7 +125,7 @@ public class forestDungeonGenerator : MonoBehaviour
                 int yOffset = y - previousPos.y; //3
                 int roomSize = 1, currentRoomSize=1; //Hallway size
                 Vector3Int currentPos = new Vector3Int(x,y,0);
-                if (Random.Range(1, 100) <= roomRate && ((currentPos - lastRoomPos).magnitude > (int)3*1.414f*currentRoomSize))
+                if (Random.Range(1, 100) <= roomRate && ((currentPos - lastRoomPos).magnitude > 3*1.414f*(currentRoomSize+1)) && ((currentPos - spawnPos).magnitude > 3*1.414f*(7)) )
                 {
                     roomSize = Random.Range(3, 6);
                     currentRoomSize = roomSize;

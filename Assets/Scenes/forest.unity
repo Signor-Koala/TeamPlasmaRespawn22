@@ -889,7 +889,7 @@ MonoBehaviour:
   deviationRate: 10
   roomRate: 10
   maxRouteLength: 200
-  maxRoutes: 10
+  maxRoutes: 7
   powerups:
   - {fileID: 4593926195378784476, guid: 7903c2d31d90013bcb9c3c9f1b3bfbdf, type: 3}
   - {fileID: 2486835680098447365, guid: a80cd2ee9fa78a74da61c410119a5545, type: 3}
