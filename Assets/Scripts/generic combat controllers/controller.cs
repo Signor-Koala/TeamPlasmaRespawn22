@@ -29,14 +29,21 @@ public class controller : MonoBehaviour
     private bool invincible = false;
     Animator anim;
     public GameObject[] projList;
+    ParticleSystem trail;
+    TrailRenderer trailRender;
 
     void Start()
     {
         rbd = GetComponent<Rigidbody2D>();
         anim = this.gameObject.GetComponent<Animator>();
+
+        trailRender = this.gameObject.GetComponent<TrailRenderer>();
+        trail = GetComponentInChildren<ParticleSystem>();
+        trailRender.enabled = false;
+
         health = CEO_script.health;
         speed = CEO_script.speed;
-        //currenProj = CEO_script.activePowerUp;
+        currenProj = CEO_script.activePowerUp;
         PlayerPrefs.SetInt("firstload",1);
     }
 
@@ -111,10 +118,14 @@ public class controller : MonoBehaviour
             if (invincible)
             {
                 rbd.velocity = (Vector3)dodgeDir * (5 * speed);
+                trailRender.enabled = true;
+                StartCoroutine(trailfadeDelay());
+
                 if (Time.time > lastRollTime + rollDuration)
                 {
                     rbd.velocity = Vector2.zero;
                     invincible = false;
+                    
                 }
             }
             else if(!(CEO_script.currentGameState==CEO_script.gameState.bossBattleCleared && CEO_script.dangerLevel<=0)) // Normal movement
@@ -130,6 +141,12 @@ public class controller : MonoBehaviour
                 anim.SetInteger("attackMode",i+1);
         }
 
+    }
+
+    IEnumerator trailfadeDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        trailRender.enabled = false;
     }
 
     void FireWeapon(Vector3 position, Quaternion rotation)

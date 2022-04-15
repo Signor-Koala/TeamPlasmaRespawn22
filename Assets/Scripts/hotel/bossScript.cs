@@ -157,6 +157,7 @@ public class bossScript : MonoBehaviour
         for (int i = 0; i < 16; i++)
         {
             GameObject newBossBullet = Instantiate(bossBullet);
+            newBossBullet.GetComponent<Bullet>().plr = this.transform;
             newBossBullet.transform.position = spawnPoint.position + new Vector3(0,-0.2f,0) + new Vector3(Mathf.Cos(Mathf.PI*i/8 + angleDev),Mathf.Sin(Mathf.PI*i/8 + angleDev))*0.125f;
         }
     }

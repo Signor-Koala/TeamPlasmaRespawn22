@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
             speedVec = speed*(position - (Vector2)positionplr).normalized;
         else if(boss != null && bossBullet)
         {
-            speedVec = speed*(boss.position+new Vector3(0,-0.2f,0) - transform.position).normalized;
+            speedVec = speed*(plr.position+new Vector3(0,-0.2f,0) - transform.position).normalized;
         }
         rb.velocity = speedVec;
         bulletLife = Time.time;
