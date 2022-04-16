@@ -129,6 +129,9 @@ public class controller : MonoBehaviour
                 trail.Play();
                 rbd.velocity = (Vector3)dodgeDir * (5 * speed);
                 //trailRender.enabled = true;
+
+                AudioManager.instance.Play("dashEffect");   //play dash sound
+
                 StartCoroutine(trailfadeDelay());
 
                 if (Time.time > lastRollTime + rollDuration)
@@ -202,11 +205,25 @@ public class controller : MonoBehaviour
 
     public void playShotSound()
     {
-        if(currenProj==projList[0] || currenProj==projList[1])
+        if(currenProj==projList[0])
             AudioManager.instance.Play("bullet");
+        else if(currenProj==projList[1])
+            AudioManager.instance.Play("machine_gun_shot");
+        else if(currenProj==projList[2])
+            AudioManager.instance.Play("Sniper");
         else if(currenProj==projList[3])
             AudioManager.instance.Play("shotGun");
+        else if(currenProj==projList[4])
+        {
+            AudioManager.instance.Play("rpg_fire");
+            StartCoroutine(playSound("rpg_load",1.5f));
+        }
     }   
+    IEnumerator playSound(string name, float delay)    //play sound with delay
+    {
+        yield return new WaitForSeconds(delay);
+        AudioManager.instance.Play(name);
+    }
 
     IEnumerator gameOverSequence()
     {

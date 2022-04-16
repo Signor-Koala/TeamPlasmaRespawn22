@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3317458262882821805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3317458262882821795}
+  - component: {fileID: 3317458262882821804}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3317458262882821795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317458262882821805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.13016117, y: 0.094469965, z: -28.760235}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3317458262882821804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317458262882821805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a466812aca5aae84f99fc745687b8c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
+  sounds:
+  - name: softDamage
+    clip: {fileID: 8300000, guid: 5f692309cb0514c48be2d7fd6ef529a3, type: 3}
+    volume: 1
+    volumeVariance: 0.204
+    pitch: 1
+    pitchVariance: 0.143
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: bullet
+    clip: {fileID: 8300000, guid: da189893304aefa4380a8731d5d86ee6, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: machine_gun_shot
+    clip: {fileID: 8300000, guid: 31758e8a8900f8041bf282b65afe75bc, type: 3}
+    volume: 1
+    volumeVariance: 0.303
+    pitch: 1
+    pitchVariance: 0.211
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Sniper
+    clip: {fileID: 8300000, guid: 8fe37a8f53f59d4459e1a59c0dc346b3, type: 3}
+    volume: 1
+    volumeVariance: 0.217
+    pitch: 1
+    pitchVariance: 0.108
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: shotGun
+    clip: {fileID: 8300000, guid: dc82d65c3dc9669428402427f2c58ddb, type: 3}
+    volume: 1
+    volumeVariance: 0.217
+    pitch: 1
+    pitchVariance: 0.054
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: rpg_load
+    clip: {fileID: 8300000, guid: f2988ae266dc9c048bd0e7a913c1da6b, type: 3}
+    volume: 1
+    volumeVariance: 0.217
+    pitch: 1
+    pitchVariance: 0.136
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: rpg_fire
+    clip: {fileID: 8300000, guid: f7633686e1fba1d43a258177ca2313dc, type: 3}
+    volume: 1
+    volumeVariance: 0.217
+    pitch: 1
+    pitchVariance: 0.115
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: enemy_gunfire
+    clip: {fileID: 8300000, guid: abc0bfd72e46b0249907c3d7be4d85d0, type: 3}
+    volume: 1
+    volumeVariance: 0.237
+    pitch: 1
+    pitchVariance: 0.224
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: dashEffect
+    clip: {fileID: 8300000, guid: 093c7acbb64e2904a91e17cd70fa40d2, type: 3}
+    volume: 1
+    volumeVariance: 0.217
+    pitch: 1
+    pitchVariance: 0.136
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
