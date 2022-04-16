@@ -66,8 +66,8 @@ public class controller : MonoBehaviour
         else
             anim.SetFloat("animationSpeed",0.5f);
         
-        if(xaxis<0)
-            this.gameObject.transform.localScale = new Vector3(-1,1,1);
+        //if(xaxis<0)
+            //this.gameObject.transform.localScale = new Vector3(-0.5f,0.5f,1);
         
         
         //Bullet positioning
@@ -126,8 +126,8 @@ public class controller : MonoBehaviour
 
             if (invincible)
             {
-                rbd.velocity = (Vector3)dodgeDir * (5 * speed);
                 trail.Play();
+                rbd.velocity = (Vector3)dodgeDir * (5 * speed);
                 //trailRender.enabled = true;
                 StartCoroutine(trailfadeDelay());
 
