@@ -44,7 +44,7 @@ public class controller : MonoBehaviour
         dashCollider.enabled = false;
 
         trailRender = this.gameObject.GetComponent<TrailRenderer>();
-        trail = GetComponentInChildren<ParticleSystem>();
+        trail = GetComponent<ParticleSystem>();
         trailRender.enabled = false;
         trail.Stop();
 

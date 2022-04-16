@@ -909,8 +909,8 @@ MonoBehaviour:
   wallMap: {fileID: 780528010}
   player: {fileID: 3589436838143684697}
   deviationRate: 10
-  roomRate: 15
-  maxRouteLength: 100
+  roomRate: 25
+  maxRouteLength: 200
   maxRoutes: 10
   door: {fileID: 6495808663835202772, guid: 7c60a014ba6c2a840b4d0c924f5a7622, type: 3}
   powerups:

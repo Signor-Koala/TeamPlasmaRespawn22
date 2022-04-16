@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class pepperCansDown : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed = 8f;
     public float bulletLifetime = 5f;
     
     

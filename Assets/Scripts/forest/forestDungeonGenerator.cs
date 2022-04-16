@@ -83,7 +83,7 @@ public class forestDungeonGenerator : MonoBehaviour
                 {
                     pitMap.SetTile(pos, pitTile);   //setting grass tile
 
-                    if(Random.Range(0f,1f)<0.2f && !(tileAbove==groundTile || tileAbove2==groundTile || tileAbove3==groundTile || tileAbove3L==groundTile || tileAbove3R==groundTile))
+                    if(Random.Range(0f,1f)<0.1f && !(tileAbove==groundTile || tileAbove2==groundTile || tileAbove3==groundTile || tileAbove3L==groundTile || tileAbove3R==groundTile))
                     {
                         GameObject newTree = Instantiate(trees[Random.Range(0,3)]);     //adding trees which doesn't overlap routes
                         newTree.transform.position = pitMap.GetCellCenterLocal(pos);
@@ -124,8 +124,19 @@ public class forestDungeonGenerator : MonoBehaviour
                 int xOffset = x - previousPos.x; //0
                 int yOffset = y - previousPos.y; //3
                 int roomSize = 1, currentRoomSize=1; //Hallway size
+
                 Vector3Int currentPos = new Vector3Int(x,y,0);
-                if (Random.Range(1, 100) <= roomRate && ((currentPos - lastRoomPos).magnitude > 3*1.414f*(currentRoomSize+2)) && ((currentPos - spawnPos).magnitude > 3*1.414f*(7)) )
+                Vector3Int posAbove = new Vector3Int(x, y + yOffset, 0);
+                Vector3Int posBelow = new Vector3Int(x, y - yOffset, 0);
+                Vector3Int posLeft = new Vector3Int(x-xOffset, y, 0);
+                Vector3Int posRight = new Vector3Int(x+xOffset, y, 0);
+
+                TileBase tileBelow = groundMap.GetTile(posBelow);
+                TileBase tileAbove = groundMap.GetTile(posAbove);
+                TileBase tileLeft = groundMap.GetTile(posLeft);
+                TileBase tileRight = groundMap.GetTile(posRight);
+
+                if (Random.Range(1, 100) <= roomRate && ((currentPos - lastRoomPos).magnitude > 3*1.414f*(6)) && ((currentPos - spawnPos).magnitude > 3*1.414f*(7)) )
                 {
                     roomSize = Random.Range(3, 6);
                     currentRoomSize = roomSize;
@@ -136,52 +147,117 @@ public class forestDungeonGenerator : MonoBehaviour
                 //Go Straight
                 if (Random.Range(1, 100) <= deviationRate)
                 {
-                    if (routeUsed)
+                    if(roomSize==1 && ((currentPos - lastRoomPos).magnitude > 3*1.414f*(6)))
                     {
-                        GenerateSquare(previousPos.x + xOffset, previousPos.y + yOffset, roomSize);
-                        NewRoute(previousPos.x + xOffset, previousPos.y + yOffset, Random.Range(routeLength, maxRouteLength), previousPos);
+                        if(tileLeft != groundTile && tileRight != groundTile)
+                        {
+                            if (routeUsed)
+                            {
+                                GenerateSquare(previousPos.x + xOffset, previousPos.y + yOffset, roomSize);
+                                NewRoute(previousPos.x + xOffset, previousPos.y + yOffset, Random.Range(routeLength, maxRouteLength), previousPos);
+                            }
+                            else
+                            {
+                                x = previousPos.x + xOffset;
+                                y = previousPos.y + yOffset;
+                                GenerateSquare(x, y, roomSize);
+                                routeUsed = true;
+                            }
+                        }
                     }
                     else
                     {
-                        x = previousPos.x + xOffset;
-                        y = previousPos.y + yOffset;
-                        GenerateSquare(x, y, roomSize);
-                        routeUsed = true;
+                        if (routeUsed)
+                        {
+                            GenerateSquare(previousPos.x + xOffset, previousPos.y + yOffset, roomSize);
+                            NewRoute(previousPos.x + xOffset, previousPos.y + yOffset, Random.Range(routeLength, maxRouteLength), previousPos);
+                        }
+                        else
+                        {
+                            x = previousPos.x + xOffset;
+                            y = previousPos.y + yOffset;
+                            GenerateSquare(x, y, roomSize);
+                            routeUsed = true;
+                        }
                     }
                 }
 
                 //Go left
                 if (Random.Range(1, 100) <= deviationRate)
                 {
-                    if (routeUsed)
+                    if(roomSize==1 && ((currentPos - lastRoomPos).magnitude > 3*1.414f*(6)))
                     {
-                        GenerateSquare(previousPos.x - yOffset, previousPos.y + xOffset, roomSize);
-                        NewRoute(previousPos.x - yOffset, previousPos.y + xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
+                        if(tileAbove != groundTile)
+                        {
+                            if (routeUsed)
+                            {
+                                GenerateSquare(previousPos.x - yOffset, previousPos.y + xOffset, roomSize);
+                                NewRoute(previousPos.x - yOffset, previousPos.y + xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
+                            }
+                            else
+                            {
+                                y = previousPos.y + xOffset;
+                                x = previousPos.x - yOffset;
+                                GenerateSquare(x, y, roomSize);
+                                
+                                routeUsed = true;
+                            }
+                        }
                     }
                     else
                     {
-                        y = previousPos.y + xOffset;
-                        x = previousPos.x - yOffset;
-                        GenerateSquare(x, y, roomSize);
-                        
-                        routeUsed = true;
+                        if (routeUsed)
+                        {
+                            GenerateSquare(previousPos.x - yOffset, previousPos.y + xOffset, roomSize);
+                            NewRoute(previousPos.x - yOffset, previousPos.y + xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
+                        }
+                        else
+                        {
+                            y = previousPos.y + xOffset;
+                            x = previousPos.x - yOffset;
+                            GenerateSquare(x, y, roomSize);
+                            
+                            routeUsed = true;
+                        }
                     }
                 }
                 //Go right
                 if (Random.Range(1, 100) <= deviationRate)
                 {
-                    if (routeUsed)
+                    if(roomSize==1 && ((currentPos - lastRoomPos).magnitude > 3*1.414f*(6)))
                     {
-                        GenerateSquare(previousPos.x + yOffset, previousPos.y - xOffset, roomSize);
-                        NewRoute(previousPos.x + yOffset, previousPos.y - xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
+                        if(tileAbove != groundTile)
+                        {
+                            if (routeUsed)
+                            {
+                                GenerateSquare(previousPos.x + yOffset, previousPos.y - xOffset, roomSize);
+                                NewRoute(previousPos.x + yOffset, previousPos.y - xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
+                            }
+                            else
+                            {
+                                y = previousPos.y - xOffset;
+                                x = previousPos.x + yOffset;
+                                GenerateSquare(x, y, roomSize);
+                                
+                                routeUsed = true;
+                            }
+                        }
                     }
                     else
                     {
-                        y = previousPos.y - xOffset;
-                        x = previousPos.x + yOffset;
-                        GenerateSquare(x, y, roomSize);
-                        
-                        routeUsed = true;
+                        if (routeUsed)
+                        {
+                            GenerateSquare(previousPos.x + yOffset, previousPos.y - xOffset, roomSize);
+                            NewRoute(previousPos.x + yOffset, previousPos.y - xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
+                        }
+                        else
+                        {
+                            y = previousPos.y - xOffset;
+                            x = previousPos.x + yOffset;
+                            GenerateSquare(x, y, roomSize);
+                            
+                            routeUsed = true;
+                        }
                     }
                 }
 

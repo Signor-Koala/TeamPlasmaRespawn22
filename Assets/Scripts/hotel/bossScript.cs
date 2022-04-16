@@ -42,7 +42,7 @@ public class bossScript : MonoBehaviour
         health = maxhealth;
         healthBar.initializeHealth(maxhealth);
         anim = this.GetComponent<Animator>();
-        //anim.SetBool("isAngry",true);         //for phase 2 testing
+        anim.SetBool("isAngry",true);         //for phase 2 testing
     }
 
     bool healthBarCorrection = false;
@@ -273,7 +273,7 @@ public class bossScript : MonoBehaviour
     public void firePepperShot()
     {
         GameObject newPepperShot = Instantiate(pepperBullet, pepperPoint.position, rot);
-        newPepperShot.GetComponent<Rigidbody2D>().velocity = new Vector3(0,3,0);
+        newPepperShot.GetComponent<Rigidbody2D>().velocity = new Vector3(0,6,0);
         newPepperShot.GetComponent<pepperBullet>().target = plr.transform.position;
         Instantiate(targetRing,plr.position,rot);
     }
