@@ -149,6 +149,9 @@ public class EnemyScript : MonoBehaviour
         if (!isAgro) isAgro = true;
 
         health -= dam;
+
+        AudioManager.instance.Play("softDamage");
+        
         if (health <= 0)
         {
             rbd.velocity = new Vector2(0, 0);

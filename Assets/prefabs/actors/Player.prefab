@@ -4830,6 +4830,7 @@ GameObject:
   - component: {fileID: 3341763367014513661}
   - component: {fileID: 8497743710989833298}
   - component: {fileID: 7870293961981437192}
+  - component: {fileID: 4671466208005300503}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -9887,6 +9888,14 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!81 &4671466208005300503
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589436837990088423}
+  m_Enabled: 1
 --- !u!1 &7530815647806037699
 GameObject:
   m_ObjectHideFlags: 0
@@ -9958,7 +9967,6 @@ GameObject:
   m_Component:
   - component: {fileID: 352664056432524700}
   - component: {fileID: 4579267007534034446}
-  - component: {fileID: 8119025017240311848}
   - component: {fileID: 1498389007109675766}
   m_Layer: 10
   m_Name: Camera
@@ -10024,14 +10032,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8119025017240311848
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8305078612559864090}
-  m_Enabled: 1
 --- !u!95 &1498389007109675766
 Animator:
   serializedVersion: 3

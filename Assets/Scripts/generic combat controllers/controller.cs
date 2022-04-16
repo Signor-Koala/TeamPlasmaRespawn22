@@ -164,9 +164,8 @@ public class controller : MonoBehaviour
     void FireWeapon(Vector3 position, Quaternion rotation)
     {
         GameObject bullet = Instantiate(currenProj, position, rotation);
-
-        
         bullet.GetComponent<Bullet>().plr = transform;
+        playShotSound();
         
         if (currenProj.name == "shotgun")
         {
@@ -186,6 +185,9 @@ public class controller : MonoBehaviour
         {
             health -= dam;
             Debug.Log("health:" + health);
+
+            AudioManager.instance.Play("softDamage");
+
             if (health <= 0)
             {
                 //dying animation
@@ -197,6 +199,14 @@ public class controller : MonoBehaviour
             }
         }
     }
+
+    public void playShotSound()
+    {
+        if(currenProj==projList[0] || currenProj==projList[1])
+            AudioManager.instance.Play("bullet");
+        else if(currenProj==projList[3])
+            AudioManager.instance.Play("shotGun");
+    }   
 
     IEnumerator gameOverSequence()
     {

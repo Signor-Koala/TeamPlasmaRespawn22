@@ -42,7 +42,7 @@ public class bossScript : MonoBehaviour
         health = maxhealth;
         healthBar.initializeHealth(maxhealth);
         anim = this.GetComponent<Animator>();
-        anim.SetBool("isAngry",true);         //for phase 2 testing
+        //anim.SetBool("isAngry",true);         //for phase 2 testing
     }
 
     bool healthBarCorrection = false;
