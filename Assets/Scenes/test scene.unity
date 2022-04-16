@@ -147,17 +147,33 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Autodestruct
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_SortingLayer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_SortingLayerID
       value: -1885392517
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.numCapVertices
       value: 25
@@ -168,11 +184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.atime1
-      value: 7325
+      value: 11565
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.atime2
-      value: 42405
+      value: 21588
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.atime3
@@ -180,19 +196,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime0
-      value: 0
+      value: 4433
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime1
-      value: 7132
+      value: 16962
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime2
-      value: 28334
+      value: 14649
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime3
-      value: 38550
+      value: 42791
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime4
@@ -208,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
@@ -216,15 +232,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.g
-      value: 1
+      value: 0.4811321
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.r
-      value: 0.98909426
+      value: 0.47547168
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key1.a
-      value: 1
+      value: 0.9490196
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key1.b
@@ -232,27 +248,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key1.g
-      value: 0.23480752
+      value: 0.13477089
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key1.r
-      value: 0.7411765
+      value: 0.4245283
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key2.a
-      value: 1
+      value: 0.84705883
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key2.b
-      value: 0.31132078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key2.g
-      value: 0.31132078
+      value: 0.23480752
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key2.r
-      value: 0.31132078
+      value: 0.7411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.colorGradient.key3.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.key3.b
@@ -296,23 +316,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.colorGradient.m_NumColorKeys
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.24271774
+      value: 0.46585983
       objectReference: {fileID: 0}
     - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
-      value: 0.087371826
+      value: 0.12396694
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].value
+      value: 0.0826416
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
+      value: -0.27566397
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
+      value: 0.19787228
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outSlope
+      value: -0.27566397
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341763367014513661, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outWeight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_RootOrder
@@ -320,11 +380,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.075
+      value: 1.795
       objectReference: {fileID: 0}
     - target: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.206
+      value: -0.752
       objectReference: {fileID: 0}
     - target: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
       propertyPath: m_LocalPosition.z

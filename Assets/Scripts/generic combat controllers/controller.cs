@@ -27,19 +27,26 @@ public class controller : MonoBehaviour
     private float lastRollTime = 0f;
     private Quaternion rot = Quaternion.Euler(0, 0, 0);
     private bool invincible = false;
-    Animator anim;
+    int dashDamage=30;
+    Collider2D dashCollider;
+    Animator anim, cameraAnim;
     public GameObject[] projList;
     ParticleSystem trail;
     TrailRenderer trailRender;
+
 
     void Start()
     {
         rbd = GetComponent<Rigidbody2D>();
         anim = this.gameObject.GetComponent<Animator>();
+        cameraAnim = FindObjectOfType<Camera>().GetComponent<Animator>();
+        dashCollider = GameObject.Find("dashDamager").GetComponent<CircleCollider2D>();
+        dashCollider.enabled = false;
 
         trailRender = this.gameObject.GetComponent<TrailRenderer>();
         trail = GetComponentInChildren<ParticleSystem>();
         trailRender.enabled = false;
+        trail.Stop();
 
         health = CEO_script.health;
         speed = CEO_script.speed;
@@ -113,19 +120,23 @@ public class controller : MonoBehaviour
                 invincible = true;
                 lastRollTime = Time.time;
                 dodgeDir = direction;
+                cameraAnim.SetTrigger("shake");
+                dashCollider.enabled=true;
             }
 
             if (invincible)
             {
                 rbd.velocity = (Vector3)dodgeDir * (5 * speed);
-                trailRender.enabled = true;
+                trail.Play();
+                //trailRender.enabled = true;
                 StartCoroutine(trailfadeDelay());
 
                 if (Time.time > lastRollTime + rollDuration)
                 {
                     rbd.velocity = Vector2.zero;
+                    trail.Stop();
                     invincible = false;
-                    
+                    dashCollider.enabled = false;
                 }
             }
             else if(!(CEO_script.currentGameState==CEO_script.gameState.bossBattleCleared && CEO_script.dangerLevel<=0)) // Normal movement
@@ -145,8 +156,9 @@ public class controller : MonoBehaviour
 
     IEnumerator trailfadeDelay()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
         trailRender.enabled = false;
+        
     }
 
     void FireWeapon(Vector3 position, Quaternion rotation)
@@ -192,7 +204,5 @@ public class controller : MonoBehaviour
         CEO_script.gameOver();
     }
 
-    
-   
-    
+     
 }
