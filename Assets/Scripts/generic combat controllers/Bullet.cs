@@ -58,6 +58,7 @@ public class Bullet : MonoBehaviour
         }
         else if (explosive)
         {
+            
             Collider2D[] hitenemy = Physics2D.OverlapCircleAll(this.transform.position, explosiveRange,enemyLayer);
         
             foreach (Collider2D enemy in hitenemy)
@@ -73,6 +74,7 @@ public class Bullet : MonoBehaviour
                     boss.TakeDamage(damage);
                 }
             }
+            AudioManager.instance.Play("explosion");
             anim.SetTrigger("explosion");
             rb.velocity = Vector2.zero;
             

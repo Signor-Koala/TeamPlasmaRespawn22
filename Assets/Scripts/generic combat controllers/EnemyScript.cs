@@ -124,7 +124,10 @@ public class EnemyScript : MonoBehaviour
             bullet1.GetComponent<Bullet>().plr = transform;
             GameObject bullet2 = Instantiate(currenProj, position - (Vector3) deviation, rotation);
             bullet2.GetComponent<Bullet>().plr = transform;
+            AudioManager.instance.Play("enemy_shotgun");
         }
+        else if(enemyType==2)
+            AudioManager.instance.Play("enemy_gunfire");
 
         reload = bullet.GetComponent<Bullet>().reload;
         lastAttack = Time.time;

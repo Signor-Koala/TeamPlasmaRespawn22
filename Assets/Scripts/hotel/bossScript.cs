@@ -86,6 +86,8 @@ public class bossScript : MonoBehaviour
     Vector3 popcornTarget;
     private void popcornMania()
     {
+        AudioManager.instance.Play("popcorn"+Random.Range(1,9).ToString());
+
         for (int i = 0; i < Random.Range(5,10); i++)
         {
             popcornTarget = plr.transform.position;
@@ -153,6 +155,8 @@ public class bossScript : MonoBehaviour
     
     public void bulletAttack()  //recieves trigger from animator
     {
+        AudioManager.instance.Play("smash_medium");
+
         float angleDev = Random.Range(0f,1f);
         for (int i = 0; i < 16; i++)
         {
@@ -175,6 +179,7 @@ public class bossScript : MonoBehaviour
     {
         if(!veryAngry)
         {
+            AudioManager.instance.Play("horde_summon");
             for (int i = 0; i < 8; i++)
             {
                 Instantiate(enemyMinion, spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*2*i/8),Mathf.Sin(Mathf.PI*2*i/8))*0.5f, rot);
@@ -191,13 +196,12 @@ public class bossScript : MonoBehaviour
         anim.SetTrigger("Smash");
     }
 
-    IEnumerator dashing()
-    {
-        yield return new WaitForSeconds(dashDuration);
-        rbd.velocity = Vector2.zero;
-        anim.SetTrigger("Smash");
-        isDashing=false;
-    }
+    //IEnumerator dashing()
+    //{
+        //yield return new WaitForSeconds(dashDuration);
+        //anim.SetTrigger("Smash");
+        //isDashing=false;
+    //}
     public void dashAgain()
     {
         if(Random.Range(0f,1f) < dashEncoreProbablilty)
@@ -207,6 +211,8 @@ public class bossScript : MonoBehaviour
     
     void Hit() // receives trigger from animator
     {
+        AudioManager.instance.Play("smash_big");
+
         Collider2D[] hitplayer = Physics2D.OverlapCircleAll(transform.position + new Vector3(0,-0.2f,0), attackRangeMelee, playerLayer);
         
         foreach (Collider2D player in hitplayer)
@@ -288,13 +294,23 @@ public class bossScript : MonoBehaviour
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player") && isDashing==true)
-        {
-            StopCoroutine(dashing());
-            isDashing=false;
-            rbd.velocity=Vector2.zero;
-            anim.SetTrigger("Smash");
-        }
+
+        //if(other.CompareTag("Player") && isDashing==true)
+        //{
+            //StopCoroutine(dashing());
+            //isDashing=false;
+            //rbd.velocity=Vector2.zero;
+            //anim.SetTrigger("Smash");
+        //}
+    }
+
+    public void caneSound()
+    {
+        AudioManager.instance.Play("cane_whoosh");
+    }
+    public void smokeScreenSound()
+    {
+        AudioManager.instance.Play("smoke_screen");
     }
     
 }

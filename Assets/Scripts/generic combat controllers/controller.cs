@@ -107,6 +107,11 @@ public class controller : MonoBehaviour
         //firing weapon
         if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible) && currenProj !=null)
         {
+            if(currenProj==projList[1] && Input.GetButtonDown("Fire1"))
+                AudioManager.instance.Play("machine_gun_loop");
+            else if(currenProj==projList[1] && Input.GetButtonUp("Fire1"))
+                AudioManager.instance.Play("machine_gun_shot");
+                
             FireWeapon((rbd.position-looking), rot);
         }
 
@@ -207,8 +212,6 @@ public class controller : MonoBehaviour
     {
         if(currenProj==projList[0])
             AudioManager.instance.Play("bullet");
-        else if(currenProj==projList[1])
-            AudioManager.instance.Play("machine_gun_shot");
         else if(currenProj==projList[2])
             AudioManager.instance.Play("Sniper");
         else if(currenProj==projList[3])

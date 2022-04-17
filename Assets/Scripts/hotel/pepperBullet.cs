@@ -47,6 +47,11 @@ public class pepperBullet : MonoBehaviour
         exploded=true;
     }
 
+    public void explosionSound()
+    {
+        AudioManager.instance.Play("pepper_release");
+    }
+
     public void destroy()
     {
         Destroy(gameObject);
