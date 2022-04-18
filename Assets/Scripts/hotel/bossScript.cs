@@ -43,6 +43,7 @@ public class bossScript : MonoBehaviour
         health = maxhealth;
         healthBar.initializeHealth(maxhealth);
         anim = this.GetComponent<Animator>();
+        GetComponent<ParticleSystem>().Stop();
         //anim.SetBool("isAngry",true);         //for phase 2 testing
     }
 
@@ -55,6 +56,7 @@ public class bossScript : MonoBehaviour
             healthBarCorrection = true;
         }
     }
+
 
     public void IdleStage1()
     {
@@ -145,11 +147,11 @@ public class bossScript : MonoBehaviour
     bool veryAngry=false;
     public void finalPush()
     {
-        stage2AttackUpperBound=5; //Fine, I'll do it by myself
+        //stage2AttackUpperBound=5; //Fine, I'll do it by myself...? or is it the more the merrier? :)
         stage2AttackLowerBound=2; //no time to be idle anymore :harold:
         bulletReloadProbability=0.75f;   //what's the point in saving bullets? :harold:
         pepperGunReloadProbability=0.9f;    //Rain fire protocol :harold:
-        dashEncoreProbablilty=0.9f;     //I'll smack you down!
+        dashEncoreProbablilty=0.75f;     //I'll smack you down!
         anim.SetBool("lastDitchEffort",true);
         veryAngry = true;
     }
@@ -249,12 +251,15 @@ public class bossScript : MonoBehaviour
             {
                 rbd.velocity = new Vector2(0, 0);
                 anim.SetTrigger("Die");
-                CEO_script.currentGameState=CEO_script.gameState.bossBattleCleared;
-                healthBar.gameObject.SetActive(false);
-                
-                this.enabled = false;
             }
         }
+    }
+
+    public void hasFainted()    //recieves trigger from the animator
+    {
+        CEO_script.currentGameState=CEO_script.gameState.bossBattleCleared;
+        healthBar.gameObject.SetActive(false);
+        this.enabled = false;
     }
 
     public void invincibility()
@@ -271,7 +276,7 @@ public class bossScript : MonoBehaviour
         {
             health+=1;
             healthBar.setHealth(health);
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(Time.deltaTime);
         }
         invincible=false;
         yield return null;
@@ -341,9 +346,17 @@ public class bossScript : MonoBehaviour
     {
         Play("thud");
     }
-    public void smokeScreenSound()
+    public void smokeScreen()
     {
         Play("smoke_screen");
+        GetComponent<ParticleSystem>().Play();
+        StartCoroutine(smokeScreenTimeout());
+    }
+    IEnumerator smokeScreenTimeout()
+    {
+        yield return new WaitForSeconds(1f);
+        GetComponent<ParticleSystem>().Stop();
+        yield return null;
     }
     public void platterOpenSound()
     {

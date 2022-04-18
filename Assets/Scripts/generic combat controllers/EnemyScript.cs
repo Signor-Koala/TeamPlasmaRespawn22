@@ -43,7 +43,7 @@ public class EnemyScript : MonoBehaviour
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
         Vector2 distance = this.transform.position - plr.position;
 

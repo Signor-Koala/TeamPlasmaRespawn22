@@ -100,7 +100,7 @@ MonoBehaviour:
   speed: 2
   plr: {fileID: 0}
   boss: {fileID: 0}
-  reload: 0.75
+  reload: 1
   damage: 15
   enemyBullet: 1
   bossBullet: 0

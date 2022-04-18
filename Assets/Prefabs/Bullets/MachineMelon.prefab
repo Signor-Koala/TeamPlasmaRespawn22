@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d231d1aea6638359895c77ec5ea9e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 7
   plr: {fileID: 0}
   boss: {fileID: 0}
   reload: 0.1

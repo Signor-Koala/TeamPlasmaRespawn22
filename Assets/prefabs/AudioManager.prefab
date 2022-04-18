@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a466812aca5aae84f99fc745687b8c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 0}
   sounds:
   - name: bullet
     clip: {fileID: 8300000, guid: da189893304aefa4380a8731d5d86ee6, type: 3}
@@ -57,9 +56,9 @@ MonoBehaviour:
   - name: machine_gun_shot
     clip: {fileID: 8300000, guid: 31758e8a8900f8041bf282b65afe75bc, type: 3}
     volume: 1
-    volumeVariance: 0.303
+    volumeVariance: 0
     pitch: 1
-    pitchVariance: 0.211
+    pitchVariance: 0
     loop: 0
     mixerGroup: {fileID: -3163538360325685414, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
     source: {fileID: 0}

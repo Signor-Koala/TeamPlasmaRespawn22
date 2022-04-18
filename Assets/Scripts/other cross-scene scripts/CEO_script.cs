@@ -21,8 +21,8 @@ public class CEO_script : MonoBehaviour
     public static gameState currentGameState;
     
     public static int money = 0;
-    public static int health = 100;
-    public static float speed = 1.0f;
+    public static int health = 100, healthLimit = 320;
+    public static float speed = 1.0f, speedLimit = 2f;
     public static int firstLoad,firstTimeInSession=1;
     public static int Highscore;
     public static float musicLevel, SFxLevel;

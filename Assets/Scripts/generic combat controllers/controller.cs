@@ -11,6 +11,7 @@ public class controller : MonoBehaviour
     public int health = 100;
     public bool died = false;
     public Vector2 looking;
+    bool firing=false;
     public float firepoint = 1f;
     public float reloadTime = 0.5f;
     public float rollDuration = 0.2f;
@@ -106,12 +107,7 @@ public class controller : MonoBehaviour
 
         //firing weapon
         if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible) && currenProj !=null)
-        {
-            if(currenProj==projList[1] && Input.GetButtonDown("Fire1"))
-                AudioManager.instance.Play("machine_gun_loop");
-            else if(currenProj==projList[1] && Input.GetButtonUp("Fire1"))
-                AudioManager.instance.Play("machine_gun_shot");
-                
+        {    
             FireWeapon((rbd.position-looking), rot);
         }
 
@@ -212,6 +208,11 @@ public class controller : MonoBehaviour
     {
         if(currenProj==projList[0])
             AudioManager.instance.Play("bullet");
+        else if(currenProj==projList[1] && !firing)
+        {
+            StartCoroutine(machineGunLoop());
+
+        }
         else if(currenProj==projList[2])
             AudioManager.instance.Play("Sniper");
         else if(currenProj==projList[3])
@@ -226,6 +227,18 @@ public class controller : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         AudioManager.instance.Play(name);
+    }
+    IEnumerator machineGunLoop()    //play sound with delay
+    {
+        firing=true;
+        while (Input.GetButton("Fire1"))
+        {
+            AudioManager.instance.Play("machine_gun_shot");
+            yield return new WaitForSeconds(0.1f);
+        }
+        firing=false;
+        yield return null;
+        
     }
 
     IEnumerator gameOverSequence()
