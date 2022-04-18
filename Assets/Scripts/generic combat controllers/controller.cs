@@ -15,6 +15,7 @@ public class controller : MonoBehaviour
     public float firepoint = 1f;
     public float reloadTime = 0.5f;
     public float rollDuration = 0.2f;
+    bool pointerBusy=false;
     public float rollReload = 1f;
 
     public GameObject currenProj;
@@ -106,7 +107,7 @@ public class controller : MonoBehaviour
         }
 
         //firing weapon
-        if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible) && currenProj !=null)
+        if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible) && currenProj !=null && !pointerBusy)
         {    
             FireWeapon((rbd.position-looking), rot);
         }
@@ -247,5 +248,13 @@ public class controller : MonoBehaviour
         CEO_script.gameOver();
     }
 
+    public void cursorOnButton()
+    {
+        pointerBusy=true;
+    }
+    public void cursorOffButton()
+    {
+        pointerBusy=false;
+    }
      
 }
