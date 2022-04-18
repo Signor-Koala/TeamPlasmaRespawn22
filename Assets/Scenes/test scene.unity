@@ -5686,7 +5686,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1001 &3317458263713474299
+--- !u!1001 &2083480838
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2

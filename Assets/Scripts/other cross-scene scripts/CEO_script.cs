@@ -16,7 +16,7 @@ public class CEO_script : MonoBehaviour
     {
         preForestLevel,forestLevel, forestLevelCleared,
         preHotelLevel,hotelLevel, hotelLevelCleared,
-        bossBattle, bossBattleCleared
+        bossBattle, bossBattleCleared, gameOver
     }
     public static gameState currentGameState;
     

@@ -125,6 +125,24 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 8481190518647460268, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
     source: {fileID: 0}
+  - name: playerDamage
+    clip: {fileID: 8300000, guid: 0b8c2ffb748218e4b839658cd670c38d, type: 3}
+    volume: 1
+    volumeVariance: 0.204
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 8481190518647460268, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: enemyDeath
+    clip: {fileID: 8300000, guid: a9f4e444d79f7ad4daf922220e0c71e4, type: 3}
+    volume: 1
+    volumeVariance: 0.204
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 8481190518647460268, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
   - name: dashEffect
     clip: {fileID: 8300000, guid: 093c7acbb64e2904a91e17cd70fa40d2, type: 3}
     volume: 1
@@ -226,6 +244,15 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: portal_open
     clip: {fileID: 8300000, guid: 3c75e51a99cdada4f9ba9bf53be5e1ad, type: 3}
+    volume: 1
+    volumeVariance: 0.204
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 8481190518647460268, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: playerDeath
+    clip: {fileID: 8300000, guid: 768b8f8c7ac8d7c41958b4ee1940122b, type: 3}
     volume: 1
     volumeVariance: 0.204
     pitch: 1

@@ -45,6 +45,9 @@ public class EnemyScript : MonoBehaviour
     
     void FixedUpdate()
     {
+        if(CEO_script.currentGameState==CEO_script.gameState.gameOver)
+            this.enabled=false;
+            
         Vector2 distance = this.transform.position - plr.position;
 
         if (!isAgro && distance.magnitude < agroDistance)
@@ -162,6 +165,7 @@ public class EnemyScript : MonoBehaviour
             //dying animation
             rbd.constraints = RigidbodyConstraints2D.None;
             rbd.constraints = RigidbodyConstraints2D.FreezePosition;
+            AudioManager.instance.Play("enemyDeath");
             enemyAnim.SetTrigger("death");
 
             addScore();

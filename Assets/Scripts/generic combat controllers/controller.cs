@@ -192,18 +192,25 @@ public class controller : MonoBehaviour
             CEO_script.health -= dam;
             Debug.Log("health:" + health);
 
-            AudioManager.instance.Play("softDamage");
+            AudioManager.instance.Play("playerDamage");
 
             if (health <= 0)
             {
+                CEO_script.currentGameState=CEO_script.gameState.gameOver;
                 //dying animation
                 anim.SetBool("isDead",true);
+                
                 //trigger game over
                 StartCoroutine(gameOverSequence());
 
                 this.enabled = false;
             }
         }
+    }
+
+    public void deathSound()
+    {
+        AudioManager.instance.Play("playerDeath");
     }
 
     public void playShotSound()

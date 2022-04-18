@@ -55,6 +55,9 @@ public class bossScript : MonoBehaviour
             healthBar.setHealth(health);
             healthBarCorrection = true;
         }
+
+        if(CEO_script.currentGameState==CEO_script.gameState.gameOver)
+            this.enabled=false;
     }
 
 
@@ -258,6 +261,7 @@ public class bossScript : MonoBehaviour
     public void hasFainted()    //recieves trigger from the animator
     {
         CEO_script.currentGameState=CEO_script.gameState.bossBattleCleared;
+        Play("boss_thud");
         healthBar.gameObject.SetActive(false);
         this.enabled = false;
     }
