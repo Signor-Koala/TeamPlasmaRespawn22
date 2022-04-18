@@ -215,3 +215,21 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 8481190518647460268, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
     source: {fileID: 0}
+  - name: portal_crack
+    clip: {fileID: 8300000, guid: 434228a408ddad94096145fb3118a825, type: 3}
+    volume: 1
+    volumeVariance: 0.204
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 8481190518647460268, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: portal_open
+    clip: {fileID: 8300000, guid: 3c75e51a99cdada4f9ba9bf53be5e1ad, type: 3}
+    volume: 1
+    volumeVariance: 0.204
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 8481190518647460268, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}

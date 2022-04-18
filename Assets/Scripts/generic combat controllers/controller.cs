@@ -94,7 +94,7 @@ public class controller : MonoBehaviour
         else
             facingY=0;
 
-        if(CEO_script.activePowerUp==null)
+        if(CEO_script.activePowerUp==null && CEO_script.currentGameState==CEO_script.gameState.preForestLevel)
         {
             anim.SetFloat("xInput",xaxis);
             anim.SetFloat("yInput",yaxis);
@@ -188,6 +188,7 @@ public class controller : MonoBehaviour
         if (!invincible)
         {
             health -= dam;
+            CEO_script.health -= dam;
             Debug.Log("health:" + health);
 
             AudioManager.instance.Play("softDamage");
@@ -211,7 +212,6 @@ public class controller : MonoBehaviour
         else if(currenProj==projList[1] && !firing)
         {
             StartCoroutine(machineGunLoop());
-
         }
         else if(currenProj==projList[2])
             AudioManager.instance.Play("Sniper");

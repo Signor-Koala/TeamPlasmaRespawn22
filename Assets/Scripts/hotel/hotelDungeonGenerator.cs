@@ -42,6 +42,7 @@ public class hotelDungeonGenerator : MonoBehaviour
     
     private void Start()
     {
+        CEO_script.currentGameState=CEO_script.gameState.hotelLevel;
         int x = 0;
         int y = 0;
         int routeLength = 0;

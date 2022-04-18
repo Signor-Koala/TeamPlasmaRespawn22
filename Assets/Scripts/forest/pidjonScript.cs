@@ -31,6 +31,7 @@ public class pidjonScript : MonoBehaviour
             portalController.isActivated=true;
             portalFlag=true;
 			portalController.activatePortal();
+            AudioManager.instance.Play("portal_open");
             StartCoroutine("teleporter");
         }
         if(dialogueManager.currentDialogueState==DialogueManager.dialogueState.dialogueStarted && dialogueStarted==true)
