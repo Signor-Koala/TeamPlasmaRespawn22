@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class bossScript : MonoBehaviour
 {
@@ -155,7 +156,7 @@ public class bossScript : MonoBehaviour
     
     public void bulletAttack()  //recieves trigger from animator
     {
-        AudioManager.instance.Play("smash_medium");
+        Play("smash_medium");
 
         float angleDev = Random.Range(0f,1f);
         for (int i = 0; i < 16; i++)
@@ -179,7 +180,7 @@ public class bossScript : MonoBehaviour
     {
         if(!veryAngry)
         {
-            AudioManager.instance.Play("horde_summon");
+            Play("horde_summon");
             for (int i = 0; i < 8; i++)
             {
                 Instantiate(enemyMinion, spawnPoint.position + new Vector3(Mathf.Cos(Mathf.PI*2*i/8),Mathf.Sin(Mathf.PI*2*i/8))*0.5f, rot);
@@ -211,16 +212,16 @@ public class bossScript : MonoBehaviour
     
     void Hit() // receives trigger from animator
     {
-        AudioManager.instance.Play("smash_big");
+        Play("smash_big");
 
         Collider2D[] hitplayer = Physics2D.OverlapCircleAll(transform.position + new Vector3(0,-0.2f,0), attackRangeMelee, playerLayer);
         
         foreach (Collider2D player in hitplayer)
         {
-            controller play = player.GetComponent<controller>();
-            if (play != null)
+            controller plyr = player.GetComponent<controller>();
+            if (plyr != null)
             {
-                play.TakeDamage(damage);
+                plyr.TakeDamage(damage);
             }
         }
     }
@@ -304,13 +305,53 @@ public class bossScript : MonoBehaviour
         //}
     }
 
+	public Sound[] sounds;
+
+    private void Awake() {
+
+        foreach (Sound s in sounds)
+		{
+			s.source = gameObject.AddComponent<AudioSource>();
+			s.source.clip = s.clip;
+			s.source.loop = s.loop;
+
+			s.source.outputAudioMixerGroup = s.mixerGroup;
+		}
+    }
+    public void Play(string sound)
+	{
+		Sound s = System.Array.Find(sounds, item => item.name == sound);
+		if (s == null)
+		{
+			Debug.LogWarning("Sound: " + name + " not found!");
+			return;
+		}
+
+		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+
+		s.source.Play();
+	}
+
     public void caneSound()
     {
-        AudioManager.instance.Play("cane_whoosh");
+        Play("cane_whoosh");
+    }
+    public void thudSound()
+    {
+        Play("thud");
     }
     public void smokeScreenSound()
     {
-        AudioManager.instance.Play("smoke_screen");
+        Play("smoke_screen");
+    }
+    public void platterOpenSound()
+    {
+        Play("platterOpen"+Random.Range(1,4).ToString());
+    }
+    public void platterCloseSound()
+    {
+        Play("platterClose"+Random.Range(1,4).ToString());
     }
     
 }

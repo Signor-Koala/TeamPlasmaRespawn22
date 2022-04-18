@@ -7,8 +7,6 @@ public class AudioManager : MonoBehaviour
 
 	public static AudioManager instance;
 
-	public AudioMixerGroup mixerGroup;
-
 	public Sound[] sounds;
 
 	void Awake()
@@ -29,7 +27,7 @@ public class AudioManager : MonoBehaviour
 			s.source.clip = s.clip;
 			s.source.loop = s.loop;
 
-			s.source.outputAudioMixerGroup = mixerGroup;
+			s.source.outputAudioMixerGroup = s.mixerGroup;
 		}
 	}
 

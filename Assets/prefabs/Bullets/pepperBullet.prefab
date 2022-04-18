@@ -142,6 +142,17 @@ MonoBehaviour:
   dps: 20
   lifeDur: 1
   target: {x: 0, y: 0, z: 0}
+  mixerGroup: {fileID: 0}
+  sounds:
+  - name: pepper_release
+    clip: {fileID: 8300000, guid: 67f7358f8a523c14f857ba1b5dcfdec0, type: 3}
+    volume: 1
+    volumeVariance: 0.25
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!95 &8032778417753785070
 Animator:
   serializedVersion: 3

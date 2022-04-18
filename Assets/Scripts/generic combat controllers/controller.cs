@@ -50,7 +50,7 @@ public class controller : MonoBehaviour
 
         health = CEO_script.health;
         speed = CEO_script.speed;
-        currenProj = CEO_script.activePowerUp;
+        //currenProj = CEO_script.activePowerUp;    //for level testing
         PlayerPrefs.SetInt("firstload",1);
     }
 
