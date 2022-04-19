@@ -6,6 +6,7 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     public GameObject projectile;
+    public int projectileSerial;
     
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -14,7 +15,7 @@ public class PowerUp : MonoBehaviour
         {
             player.currenProj = projectile;
             CEO_script.activePowerUp = projectile;
-            
+            AudioManager.instance.Play("powerUp"+projectileSerial.ToString());
             Destroy(gameObject);
         }
         if(col.CompareTag("Tree"))

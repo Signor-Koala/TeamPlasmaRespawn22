@@ -13,6 +13,11 @@ public class gameOverUI : MonoBehaviour
 
     public void returnToMenu()
     {
+        AudioManager.instance.Play("buttonClick1");
         UnityEngine.SceneManagement.SceneManager.LoadScene("main_menu");
+    }
+    public void playButtonHover()
+    {
+        AudioManager.instance.Play("buttonHover1");
     }
 }

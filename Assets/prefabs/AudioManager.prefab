@@ -85,7 +85,7 @@ MonoBehaviour:
     volume: 1
     volumeVariance: 0.217
     pitch: 1
-    pitchVariance: 0.136
+    pitchVariance: 0
     loop: 0
     mixerGroup: {fileID: -3163538360325685414, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
     source: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
     mixerGroup: {fileID: 8481190518647460268, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
     source: {fileID: 0}
   - name: playerDamage
-    clip: {fileID: 8300000, guid: 0b8c2ffb748218e4b839658cd670c38d, type: 3}
+    clip: {fileID: 8300000, guid: e4ed359d143217148962aefdb046462f, type: 3}
     volume: 1
     volumeVariance: 0.204
     pitch: 1
@@ -259,4 +259,112 @@ MonoBehaviour:
     pitchVariance: 0.1
     loop: 0
     mixerGroup: {fileID: 8481190518647460268, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: powerUp1
+    clip: {fileID: 8300000, guid: 3ba8577d00ad1d14d95a6981fd1d8bd1, type: 3}
+    volume: 1
+    volumeVariance: 0.204
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3163538360325685414, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: powerUp2
+    clip: {fileID: 8300000, guid: 99aeaa0ed5746c64181c61cddd42e1c7, type: 3}
+    volume: 1
+    volumeVariance: 0.204
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3163538360325685414, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: powerUp3
+    clip: {fileID: 8300000, guid: 19e53510b19ee7e41b5ad690fa62e004, type: 3}
+    volume: 1
+    volumeVariance: 0.204
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3163538360325685414, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: powerUp4
+    clip: {fileID: 8300000, guid: 19358eaeaa4af4a41a23a3b3d9bc5389, type: 3}
+    volume: 1
+    volumeVariance: 0.204
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3163538360325685414, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: powerUp5
+    clip: {fileID: 8300000, guid: f2b27d843d9f524438c9ada501574a4e, type: 3}
+    volume: 1
+    volumeVariance: 0.204
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3163538360325685414, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: ambient_forest
+    clip: {fileID: 8300000, guid: 42614d77bb549844391d81158574bb6f, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: -1505099920454418226, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: buttonClick
+    clip: {fileID: 8300000, guid: e221c10eb5f35f14893ffcd31920400e, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: buttonHover
+    clip: {fileID: 8300000, guid: 6ca8763709563eb4f869b15c99ced3e2, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: upgrade
+    clip: {fileID: 8300000, guid: 374a51cc3e124704499b3949aa97db81, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: buttonClick1
+    clip: {fileID: 8300000, guid: 1a46055a193d76a4e90efb2b5a2a2cec, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: buttonClick1_error
+    clip: {fileID: 8300000, guid: 6ec0aab8a6d6792468ff6f2386f6d349, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: buttonHover1
+    clip: {fileID: 8300000, guid: 5ab40eee9d99ba44b9aa08a5d7f32672, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
     source: {fileID: 0}

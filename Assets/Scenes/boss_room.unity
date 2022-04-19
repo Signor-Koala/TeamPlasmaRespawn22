@@ -412,6 +412,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3589436837076311158}
+        m_TargetAssemblyTypeName: controller, Assembly-CSharp
+        m_MethodName: cursorOffButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &122436635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +482,18 @@ MonoBehaviour:
         - m_Target: {fileID: 3589436837076311158}
           m_TargetAssemblyTypeName: controller, Assembly-CSharp
           m_MethodName: cursorOnButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4248083953780111393}
+          m_TargetAssemblyTypeName: vitaminatorUI, Assembly-CSharp
+          m_MethodName: playButtonHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1822,7 +1846,7 @@ Transform:
   - {fileID: 1232302536}
   - {fileID: 1465980431}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &322960154
 GameObject:
@@ -3806,7 +3830,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815929532
 GameObject:
@@ -40041,6 +40065,7 @@ GameObject:
   - component: {fileID: 1716475832}
   - component: {fileID: 1716475831}
   - component: {fileID: 1716475830}
+  - component: {fileID: 1716475833}
   m_Layer: 5
   m_Name: backButton
   m_TagString: Untagged
@@ -40065,7 +40090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 343.7, y: -201.14}
+  m_AnchoredPosition: {x: -1, y: -201.14}
   m_SizeDelta: {x: 112.59, y: 47.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716475830
@@ -40162,6 +40187,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716475828}
   m_CullTransparentMesh: 1
+--- !u!114 &1716475833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716475828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1812173647123555389}
+          m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
+          m_MethodName: playButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1731748446
 GameObject:
   m_ObjectHideFlags: 0
@@ -46368,6 +46426,7 @@ GameObject:
   - component: {fileID: 137860255458960659}
   - component: {fileID: 137860255458960668}
   - component: {fileID: 137860255458960669}
+  - component: {fileID: 137860255458960672}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -46375,6 +46434,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &137860255458960672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137860255458960671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1812173647123555389}
+          m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
+          m_MethodName: playButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &137860256361553220
 GameObject:
   m_ObjectHideFlags: 0
@@ -46687,6 +46779,7 @@ GameObject:
   - component: {fileID: 967270124842171832}
   - component: {fileID: 506716372535665862}
   - component: {fileID: 2140845451295495785}
+  - component: {fileID: 818147733055966576}
   m_Layer: 5
   m_Name: QuitConfirmButton
   m_TagString: Untagged
@@ -46694,6 +46787,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &818147733055966576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818147733055966575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1812173647123555389}
+          m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
+          m_MethodName: playButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &839110707703741183
 GameObject:
   m_ObjectHideFlags: 0
@@ -47748,6 +47874,7 @@ GameObject:
   - component: {fileID: 3379661175210813264}
   - component: {fileID: 3379661175210813279}
   - component: {fileID: 3379661175210813278}
+  - component: {fileID: 3379661175210813280}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -47861,6 +47988,39 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3379661175210813280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3379661175210813276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1812173647123555389}
+          m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
+          m_MethodName: playButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &3379661176186806023
 GameObject:
   m_ObjectHideFlags: 0
@@ -48081,7 +48241,7 @@ Transform:
   - {fileID: 279971672}
   - {fileID: 1735907186}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3589436837076311157
 GameObject:
@@ -53455,6 +53615,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3589436837076311158}
+        m_TargetAssemblyTypeName: controller, Assembly-CSharp
+        m_MethodName: cursorOffButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4362612033308822052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53475,6 +53647,18 @@ MonoBehaviour:
         - m_Target: {fileID: 3589436837076311158}
           m_TargetAssemblyTypeName: controller, Assembly-CSharp
           m_MethodName: cursorOnButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1812173647123555389}
+          m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
+          m_MethodName: playButtonHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -53571,7 +53755,7 @@ RectTransform:
   - {fileID: 1646620770}
   - {fileID: 4479712491808939353}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -53894,6 +54078,7 @@ GameObject:
   - component: {fileID: 1105786194088156511}
   - component: {fileID: 8345846602553752012}
   - component: {fileID: 6721677956464053036}
+  - component: {fileID: 4552627953521604842}
   m_Layer: 5
   m_Name: SpeedButton
   m_TagString: Untagged
@@ -53901,6 +54086,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4552627953521604842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552627953521604841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1812173647123555389}
+          m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
+          m_MethodName: playButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!222 &4578066864072153955
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -54415,6 +54633,7 @@ GameObject:
   - component: {fileID: 1409863178006065811}
   - component: {fileID: 6205418951602269245}
   - component: {fileID: 7499763168459349796}
+  - component: {fileID: 6282396416382432257}
   m_Layer: 5
   m_Name: HealthButton
   m_TagString: Untagged
@@ -54422,6 +54641,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6282396416382432257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282396416382432256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1812173647123555389}
+          m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
+          m_MethodName: playButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!224 &6306185150728661302
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55446,6 +55698,15 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 4663758200146311082, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
     source: {fileID: 0}
+  - name: bossDamage
+    clip: {fileID: 8300000, guid: 0b8c2ffb748218e4b839658cd670c38d, type: 3}
+    volume: 1
+    volumeVariance: 0.174
+    pitch: 1
+    pitchVariance: 0.114
+    loop: 0
+    mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
   - name: boss_thud
     clip: {fileID: 8300000, guid: 9f07416df863f964ba971119ab1bde1e, type: 3}
     volume: 1
@@ -55493,7 +55754,7 @@ Transform:
   - {fileID: 253916549}
   - {fileID: 29431005}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8212303600210143413
 SpriteRenderer:
@@ -60642,6 +60903,7 @@ GameObject:
   - component: {fileID: 4578066864072153955}
   - component: {fileID: 6391669659934588125}
   - component: {fileID: 5807062837802241490}
+  - component: {fileID: 8918389808070362187}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -60649,6 +60911,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8918389808070362187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918389808070362186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1812173647123555389}
+          m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
+          m_MethodName: playButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &8978486872432444734
 GameObject:
   m_ObjectHideFlags: 0

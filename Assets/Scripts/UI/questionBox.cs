@@ -26,12 +26,18 @@ public class questionBox : MonoBehaviour
 
     public void yesButtonClick()
     {
+        AudioManager.instance.Play("buttonClick");
         Action1();
         gameObject.SetActive(false);
     }
     public void noButtonClick()
     {
+        AudioManager.instance.Play("buttonClick");
         Action0();
         gameObject.SetActive(false);
+    }
+    public void playButtonHover()
+    {
+        AudioManager.instance.Play("buttonHover");
     }
 }

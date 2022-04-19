@@ -25,6 +25,7 @@ public class peashooterTrigger : MonoBehaviour
             CEO_script.activePowerUp = peaPowerUp.projectile;
             CEO_script.firstLoad=0;
             Destroy(peaPowerUp.gameObject);
+            AudioManager.instance.Play("powerUp1");
             eventFlag=true;
         }
     }

@@ -16,10 +16,12 @@ public class MainMenuUI : MonoBehaviour
         blindingAnim = GameObject.Find("White Screen").GetComponent<Animator>();
         activePortal.SetActive(false);
         inactivePortal.SetActive(true);
+        AudioManager.instance.Play("ambient_forest");
     }
 
     public void newRun()
     {
+        AudioManager.instance.Stop("ambient_forest");
         MainUI.SetActive(false);
         inactivePortal.SetActive(false);
         activePortal.SetActive(true);
@@ -36,23 +38,27 @@ public class MainMenuUI : MonoBehaviour
     }
     public void HighScores()
     {
+        AudioManager.instance.Play("buttonClick");
         MainUI.SetActive(false);
         HighScoreUI.SetActive(true);
         highscoreText.text = "Highscore - " + CEO_script.Highscore.ToString();
     }
     public void Options()
     {
+        AudioManager.instance.Play("buttonClick");
         MainUI.SetActive(false);
         OptionsUI.SetActive(true);
     }
     public void back()
     {
+        AudioManager.instance.Play("buttonClick");
         MainUI.SetActive(true);
         HighScoreUI.SetActive(false);
         OptionsUI.SetActive(false);
     }
     public void quit()
     {
+        AudioManager.instance.Play("buttonClick");
         CEO_script.quitGame();
         Debug.Log("Quitting Application...");
         Application.Quit();
@@ -60,6 +66,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void hardResetConfirm() 
     {
+        AudioManager.instance.Play("buttonClick");
         questionBox.Instance.showQuestion("Are you really sure? You will lose all of your progress!", ()=>{ hardReset(); }, ()=>{} );
     }
     public void hardReset()
@@ -95,5 +102,9 @@ public class MainMenuUI : MonoBehaviour
     public void playButtonCrack()
     {
         AudioManager.instance.Play("portal_crack");
+    }
+    public void playButtonHover()
+    {
+        AudioManager.instance.Play("buttonHover1");
     }
 }

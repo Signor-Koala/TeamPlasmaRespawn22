@@ -154,7 +154,9 @@ public class controller : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             if(currenProj !=null && currenProj==projList[i])
+            {
                 anim.SetInteger("attackMode",i+1);
+            }
         }
 
     }

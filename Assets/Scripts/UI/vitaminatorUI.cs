@@ -21,6 +21,7 @@ public class vitaminatorUI : MonoBehaviour
     
     public void showUI()
     {
+        AudioManager.instance.Play("buttonClick1");
         UI.SetActive(true);
         healthContainer.SetActive(true);
         VTbutton.SetActive(false);
@@ -28,9 +29,14 @@ public class vitaminatorUI : MonoBehaviour
     }
     public void hideUI()
     {
+        AudioManager.instance.Play("buttonClick1");
         UI.SetActive(false);
         healthContainer.SetActive(true);
         VTbutton.SetActive(true);
         Time.timeScale = 1;
+    }
+    public void playButtonHover()
+    {
+        AudioManager.instance.Play("buttonHover1");
     }
 }

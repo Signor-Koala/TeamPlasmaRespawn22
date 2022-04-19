@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 3687813881070744910, guid: 1a0a566b886c34448b7e6159d761fb96, type: 3}
+  projectileSerial: 4
 --- !u!50 &2408279111123454726
 Rigidbody2D:
   serializedVersion: 4

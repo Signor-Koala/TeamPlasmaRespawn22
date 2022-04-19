@@ -14,6 +14,7 @@ public class pauseMenu : MonoBehaviour
 
     public void pauseGame()
     {
+        AudioManager.instance.Play("buttonClick1");
         pauseMenuUI.SetActive(true);
         pauseButton.SetActive(false);
         VEamt.text = CEO_script.money.ToString();
@@ -21,6 +22,7 @@ public class pauseMenu : MonoBehaviour
     }
     public void resumeGame()
     {
+        AudioManager.instance.Play("buttonClick1");
         pauseMenuUI.SetActive(false);
         pauseButton.SetActive(true);
         Time.timeScale = 1;
@@ -28,18 +30,26 @@ public class pauseMenu : MonoBehaviour
 
     public void endRun()
     {
+        AudioManager.instance.Play("buttonClick1");
         Debug.Log("confirmation");
         endConfirmUI.SetActive(true);
     }
 
     public void confirmEnd()
     {
+        AudioManager.instance.Play("buttonClick1");
         Debug.Log("Exiting...");
         UnityEngine.SceneManagement.SceneManager.LoadScene("main_menu");
     }
     public void notConfirmEnd()
     {
+        AudioManager.instance.Play("buttonClick1");
         endConfirmUI.SetActive(false);
     }
-
+    public void playButtonHover()
+    {
+        AudioManager.instance.Play("buttonHover1");
+    }
 }
+
+

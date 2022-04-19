@@ -18,6 +18,8 @@ public class UpgradeScript : MonoBehaviour
     {
         if (CEO_script.money >= healthPrice && playerScript.health < CEO_script.healthLimit)
         {
+            AudioManager.instance.Play("buttonClick1");
+            AudioManager.instance.Play("upgrade");
             PlayerPrefs.SetInt("money",CEO_script.money - healthPrice);
             CEO_script.money -= healthPrice;
             PlayerPrefs.SetInt("health", CEO_script.health + healthAmount);
@@ -25,10 +27,12 @@ public class UpgradeScript : MonoBehaviour
             playerScript.health += healthAmount;
         }
         else if(CEO_script.money < healthPrice) {
+            AudioManager.instance.Play("buttonClick1_error");
             Debug.Log("Not Enough Vital Extract!");
         }
         else if(healthAmount >= CEO_script.healthLimit)
         {
+            AudioManager.instance.Play("buttonClick1_error");
             Debug.Log("Max Health Reached!");
         }
     }
@@ -37,6 +41,8 @@ public class UpgradeScript : MonoBehaviour
     {
         if (CEO_script.money >= speedPrice && playerScript.speed < CEO_script.speedLimit)
         {
+            AudioManager.instance.Play("buttonClick1");
+            AudioManager.instance.Play("upgrade");
             PlayerPrefs.SetInt("money",CEO_script.money - speedPrice);
             CEO_script.money -= speedPrice;
             PlayerPrefs.SetFloat("speed", CEO_script.speed + speedAmount);
@@ -44,10 +50,12 @@ public class UpgradeScript : MonoBehaviour
             playerScript.speed += speedAmount;
         }
         else if(CEO_script.money < speedPrice) {
+            AudioManager.instance.Play("buttonClick1_error");
             Debug.Log("Not Enough Vital Extract!");
         }
         else if(CEO_script.speed >= CEO_script.speedLimit)
         {
+            AudioManager.instance.Play("buttonClick1_error");
             Debug.Log("Max Speed Reached!");
         }
     }

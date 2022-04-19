@@ -350,6 +350,10 @@ public class bossScript : MonoBehaviour
     {
         Play("thud");
     }
+    public void damageSound()
+    {
+        Play("bossDamage");
+    }
     public void smokeScreen()
     {
         Play("smoke_screen");
