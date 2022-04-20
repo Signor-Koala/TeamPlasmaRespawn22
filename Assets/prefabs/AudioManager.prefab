@@ -235,7 +235,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: portal_crack
     clip: {fileID: 8300000, guid: 434228a408ddad94096145fb3118a825, type: 3}
-    volume: 1
+    volume: 0.466
     volumeVariance: 0.204
     pitch: 1
     pitchVariance: 0.1
@@ -360,11 +360,38 @@ MonoBehaviour:
     mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
     source: {fileID: 0}
   - name: buttonHover1
-    clip: {fileID: 8300000, guid: 5ab40eee9d99ba44b9aa08a5d7f32672, type: 3}
+    clip: {fileID: 8300000, guid: 0dec5fda776752743b32346473625050, type: 3}
     volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: dialogue_next
+    clip: {fileID: 8300000, guid: 3a75d5b5afc5eaf4ab9bdfd18e8e7c8b, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: bossEyesFlash
+    clip: {fileID: 8300000, guid: 3fe30cf56467db24e9bda36df289359f, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.259
+    loop: 0
+    mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: typing
+    clip: {fileID: 8300000, guid: 3dad75d2abc2a13449ed3f0481338f35, type: 3}
+    volume: 0.374
+    volumeVariance: 0.207
+    pitch: 1
+    pitchVariance: 0.202
     loop: 0
     mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
     source: {fileID: 0}

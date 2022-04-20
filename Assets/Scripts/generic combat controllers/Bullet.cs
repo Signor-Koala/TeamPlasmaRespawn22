@@ -96,8 +96,18 @@ public class Bullet : MonoBehaviour
 
         if(col.CompareTag("OutLands") || col.CompareTag("Tree"))
         {
-            Destroy(gameObject);
+            if(!explosive)
+                Destroy(gameObject);
+            else{
+                anim.SetTrigger("explosion");
+                StartCoroutine(destroyDelay(2));
+            }
         }
+    }
+    IEnumerator destroyDelay(float t) 
+    {
+        yield return new WaitForSeconds(t);
+        destroy();
     }
 
     public void destroy() 

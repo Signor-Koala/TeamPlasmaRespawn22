@@ -41,7 +41,7 @@ public class MainMenuUI : MonoBehaviour
         AudioManager.instance.Play("buttonClick");
         MainUI.SetActive(false);
         HighScoreUI.SetActive(true);
-        highscoreText.text = "Highscore - " + CEO_script.Highscore.ToString();
+        highscoreText.text = "Highscore - " + PlayerPrefs.GetInt("Highscore").ToString();
     }
     public void Options()
     {

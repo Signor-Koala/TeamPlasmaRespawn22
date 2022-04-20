@@ -235,6 +235,63 @@ Transform:
   m_Father: {fileID: 223276792}
   m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &59125297
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.13016117
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.094469965
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -28.760235
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317458262882821805, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
 --- !u!1 &108318385
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +469,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3589436837076311158}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: controller, Assembly-CSharp
         m_MethodName: cursorOffButton
         m_Mode: 1
@@ -479,7 +536,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3589436837076311158}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: controller, Assembly-CSharp
           m_MethodName: cursorOnButton
           m_Mode: 1
@@ -507,7 +564,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3589436837076311158}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: controller, Assembly-CSharp
           m_MethodName: cursorOffButton
           m_Mode: 1
@@ -1274,7 +1331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253916548}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.46, y: -0.484, z: 0}
+  m_LocalPosition: {x: -0.474, y: -0.575, z: 0}
   m_LocalScale: {x: 7.152929, y: 4.6394815, z: 3.7402723}
   m_Children: []
   m_Father: {fileID: 8212303600210143412}
@@ -5796,7 +5853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d7fc2aec62c48439698598c035bf4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3589436837076311157}
+  player: {fileID: 0}
   portal: {fileID: 5180832053639248410, guid: 7cec908c71be88449882fc09f43e0164, type: 3}
   endScreen: {fileID: 1646620769}
   whiteScreen: {fileID: 1575081359631301819}
@@ -45397,63 +45454,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873647267}
   m_CullTransparentMesh: 1
---- !u!1001 &1894214550
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.13016117
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.094469965
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -28.760235
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317458262882821795, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317458262882821805, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
-      propertyPath: m_Name
-      value: AudioManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bbd029e83de4cb948a4b148c0c2d5cb3, type: 3}
 --- !u!1 &1926432677
 GameObject:
   m_ObjectHideFlags: 0
@@ -48241,7 +48241,7 @@ Transform:
   - {fileID: 279971672}
   - {fileID: 1735907186}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3589436837076311157
 GameObject:
@@ -53615,7 +53615,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3589436837076311158}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: controller, Assembly-CSharp
         m_MethodName: cursorOffButton
         m_Mode: 1
@@ -53644,7 +53644,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3589436837076311158}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: controller, Assembly-CSharp
           m_MethodName: cursorOnButton
           m_Mode: 1
@@ -53672,7 +53672,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3589436837076311158}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: controller, Assembly-CSharp
           m_MethodName: cursorOffButton
           m_Mode: 1
@@ -55754,7 +55754,7 @@ Transform:
   - {fileID: 253916549}
   - {fileID: 29431005}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8212303600210143413
 SpriteRenderer:
@@ -60647,7 +60647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c136da68e74618249a4ccfcbd84c6405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3589436837076311157}
+  player: {fileID: 0}
   boss: {fileID: 8212303600210143411}
 --- !u!95 &8305078611823535965
 Animator:

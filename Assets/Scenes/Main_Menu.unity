@@ -792,7 +792,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FRUTCTOMANIA
+  m_text: FRUCTOMANIA
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b33073cff8c286419caa51d26571a86, type: 2}
   m_sharedMaterial: {fileID: -1673711442459980174, guid: 1b33073cff8c286419caa51d26571a86, type: 2}

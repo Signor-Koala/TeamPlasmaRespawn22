@@ -52,7 +52,7 @@ public class controller : MonoBehaviour
 
         health = CEO_script.health;
         speed = CEO_script.speed;
-        //currenProj = CEO_script.activePowerUp;    //for level testing
+        currenProj = CEO_script.activePowerUp;    //for level testing
         PlayerPrefs.SetInt("firstload",1);
     }
 
@@ -130,7 +130,7 @@ public class controller : MonoBehaviour
             {
                 trail.Play();
                 rbd.velocity = (Vector3)dodgeDir * (5 * speed);
-                //trailRender.enabled = true;
+                //trailRender.enabled = true;   //trailRender, yes or no? hmmm...
 
                 AudioManager.instance.Play("dashEffect");   //play dash sound
 

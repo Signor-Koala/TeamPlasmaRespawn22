@@ -8,6 +8,7 @@ public class bossScript : MonoBehaviour
     public int maxhealth = 1500;
     public int health = 1500;
     public int damage = 20;
+    float attackSpeed=1;
     public float speed = 40f;
     public float attackRangeMelee = 0.5f;
     public float attackRangePepper = 3f;
@@ -150,7 +151,7 @@ public class bossScript : MonoBehaviour
     bool veryAngry=false;
     public void finalPush()
     {
-        //stage2AttackUpperBound=5; //Fine, I'll do it by myself...? or is it the more the merrier? :)
+        stage2AttackUpperBound=5; //Fine, I'll do it by myself.
         stage2AttackLowerBound=2; //no time to be idle anymore :harold:
         bulletReloadProbability=0.75f;   //what's the point in saving bullets? :harold:
         pepperGunReloadProbability=0.9f;    //Rain fire protocol :harold:
@@ -169,6 +170,7 @@ public class bossScript : MonoBehaviour
             GameObject newBossBullet = Instantiate(bossBullet);
             newBossBullet.GetComponent<Bullet>().plr = this.transform;
             newBossBullet.transform.position = spawnPoint.position + new Vector3(0,-0.2f,0) + new Vector3(Mathf.Cos(Mathf.PI*i/8 + angleDev),Mathf.Sin(Mathf.PI*i/8 + angleDev))*0.125f;
+            newBossBullet.GetComponent<Rigidbody2D>().velocity *= attackSpeed;
         }
     }
 
@@ -252,7 +254,8 @@ public class bossScript : MonoBehaviour
             }
             if (health <= 0)
             {
-                rbd.velocity = new Vector2(0, 0);
+                anim.SetFloat("attackSpeed",0.5f);
+                attackSpeed=0.5f;
                 anim.SetTrigger("Die");
             }
         }
@@ -278,7 +281,7 @@ public class bossScript : MonoBehaviour
     {
         while(health<0.75*maxhealth)
         {
-            health+=1;
+            health+=5;
             healthBar.setHealth(health);
             yield return new WaitForSeconds(Time.deltaTime);
         }
@@ -373,6 +376,10 @@ public class bossScript : MonoBehaviour
     public void platterCloseSound()
     {
         Play("platterClose"+Random.Range(1,4).ToString());
+    }
+    public void eyeFlashSound()
+    {
+        AudioManager.instance.Play("bossEyesFlash");
     }
     
 }

@@ -33,7 +33,7 @@ public class forestManager : MonoBehaviour
             lastNotifyTime = Time.time;
             Debug.Log("Danger Level = " + CEO_script.dangerLevel);
         }
-        if(Time.time - lastRerollTime > 10f && CEO_script.dangerLevel==0 && pidjonHasArrived==false)
+        if(Time.time - lastRerollTime > 30f && CEO_script.dangerLevel==0 && pidjonHasArrived==false)    //probability of pidjon appearing
         {
             lastRerollTime = Time.time;
             if(Random.Range(0,100)<=CEO_script.totalKillScore)

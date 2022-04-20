@@ -52,6 +52,7 @@ public class DialogueManager : MonoBehaviour {
 
 	public void DisplayNextSentence ()
 	{
+		AudioManager.instance.Play("dialogue_next");
 		sentenceNumber++;
 
 		if (sentences.Count == 0)
@@ -76,6 +77,7 @@ public class DialogueManager : MonoBehaviour {
 			dialogueText.text += letter;
 			yield return null;
 		}
+		yield return null;
 	}
 
 	void EndDialogue()

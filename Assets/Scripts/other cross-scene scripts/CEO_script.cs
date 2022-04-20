@@ -61,6 +61,10 @@ public class CEO_script : MonoBehaviour
     public static void gameOver()
     {
         PlayerPrefs.SetInt("money",money);
+        if(totalKillScore>Highscore)
+            Highscore=totalKillScore;
+        PlayerPrefs.SetInt("Highscore",Highscore);
+
         UnityEngine.SceneManagement.SceneManager.LoadScene("game_over");
         //other things
     }
