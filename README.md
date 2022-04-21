@@ -45,5 +45,6 @@ https://wenrexa.itch.io/nesia01
 
 
 ## Project status
-This project was made for the Respawn 2022 GameJam is therefore not planned to be developed further.
+This project was made for the Respawn 2022 GameJam and is currently planned to be brought upto to the original vision for the game.
+
 
