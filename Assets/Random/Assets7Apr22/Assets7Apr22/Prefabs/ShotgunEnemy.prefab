@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2129470939
-  m_SortingLayer: 0
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 0.7528505, b: 0, a: 1}
@@ -104,10 +104,10 @@ MonoBehaviour:
   speed: 130
   attackDistance: 0.1
   enemyType: 3
-  currenProj: {fileID: 799508058272611101, guid: 2af50a1d1cb73e09e8f46a3fe947653e, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
+  currenProj: {fileID: 799508058272611101, guid: 2af50a1d1cb73e09e8f46a3fe947653e, type: 3}
   attackPoint: {fileID: 0}
 --- !u!50 &1199193955490662927
 Rigidbody2D:

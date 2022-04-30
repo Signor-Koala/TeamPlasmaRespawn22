@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Game
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 377.59998
     height: 722.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -72,7 +72,7 @@ MonoBehaviour:
     y: 0
     width: 1536
     height: 772.8
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -146,10 +146,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 722.8
-  m_MinSize: {x: 708, y: 492}
-  m_MaxSize: {x: 18003, y: 14042}
+  m_MinSize: {x: 709, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 37
+  controlID: 148
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 342}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 38
+  controlID: 62
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 98
+  controlID: 120
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -539,7 +539,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -547,23 +547,23 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 21
+      y: 0
       width: 805.4
-      height: 443.6
-    m_Scale: {x: 0.51342595, y: 0.51342595}
-    m_Translation: {x: 402.7, y: 221.8}
+      height: 464.6
+    m_Scale: {x: 0.524349, y: 0.524349}
+    m_Translation: {x: 402.7, y: 232.3}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -784.33905
-      y: -432
-      width: 1568.6781
-      height: 864
+      x: -768
+      y: -443.02557
+      width: 1536
+      height: 886.05115
     m_MinimalGUI: 1
-  m_defaultScale: 0.51342595
+  m_defaultScale: 0.524349
   m_LastWindowPixelSize: {x: 1006.75, y: 580.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -606,9 +606,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.41095945, y: 0.9274165, z: -5.6651297}
+    m_Target: {x: -1.1162657, y: 0.11070319, z: -6.3508606}
     speed: 2
-    m_Value: {x: 0.41095945, y: 0.9274165, z: -5.6651297}
+    m_Value: {x: -1.2448086, y: 0.108221665, z: -6.328864}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -659,9 +659,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.0113902
+    m_Target: 5.835107
     speed: 2
-    m_Value: 1.0113902
+    m_Value: 6.1100597
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -762,14 +762,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.22688796
+    - e00: 0.18139459
       e01: 0
       e02: 0
-      e03: 17.26889
+      e03: 29.603699
       e10: 0
-      e11: 0.22688796
+      e11: 0.18139459
       e12: 0
-      e13: 111.9483
+      e13: 142.87737
       e20: 0
       e21: 0
       e22: 1
@@ -1083,9 +1083,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c4310100
-      m_LastClickedID: 78276
-      m_ExpandedIDs: 8402fcff0425fcff98e5feffb4eefeff3ef3feff12f5feff56b8ffff28f8ffff5efbffff3a440000564500004a560000c4310100
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 5efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1147,7 +1147,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/prefabs/Bullets
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
@@ -1186,7 +1186,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 240}
+    scrollPos: {x: 0, y: 600}
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: ffffffff00000000b6450000bc450000fc4500005a46000068460000244a0000264a0000284a00002a4a00002c4a00002e4a0000304a0000324a0000344a0000364a0000384a00003a4a00003c4a00003e4a0000404a0000424a0000444a0000464a0000484a00004a4a00004c4a00004e4a0000504a0000524a0000544a0000564a0000584a00005a4a00005c4a00005e4a0000604a0000624a0000644a0000664a0000684a00006a4a00006c4a00006e4a0000704a0000724a0000744a0000764a0000784a00007a4a00007c4a00007e4a0000804a0000824a0000844a0000864a0000884a00008a4a00008c4a00008e4a0000904a0000924a0000944a0000964a0000984a00009a4a00009c4a00009e4a0000a04a0000

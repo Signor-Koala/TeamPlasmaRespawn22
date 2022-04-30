@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 
 public class controller : MonoBehaviour
@@ -44,6 +45,7 @@ public class controller : MonoBehaviour
         cameraAnim = FindObjectOfType<Camera>().GetComponent<Animator>();
         dashCollider = GameObject.Find("dashDamager").GetComponent<CircleCollider2D>();
         dashCollider.enabled = false;
+        gameObject.GetComponentInChildren<Light2D>().intensity=0.5f;
 
         trailRender = this.gameObject.GetComponent<TrailRenderer>();
         trail = GetComponent<ParticleSystem>();
@@ -130,6 +132,7 @@ public class controller : MonoBehaviour
             {
                 trail.Play();
                 rbd.velocity = (Vector3)dodgeDir * (5 * speed);
+                gameObject.GetComponentInChildren<Light2D>().intensity=2;
                 //trailRender.enabled = true;   //trailRender, yes or no? hmmm...
 
                 AudioManager.instance.Play("dashEffect");   //play dash sound
@@ -140,6 +143,7 @@ public class controller : MonoBehaviour
                 {
                     rbd.velocity = Vector2.zero;
                     trail.Stop();
+                    gameObject.GetComponentInChildren<Light2D>().intensity=0.5f;
                     invincible = false;
                     dashCollider.enabled = false;
                 }

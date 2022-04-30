@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,10 +108,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   enemyMinion: {fileID: 9147751423019982069, guid: aaaa0c4dfe46ad7c2bf4e92b6e3bde52, type: 3}
-  projectile: {fileID: 0}
-  clouds: {fileID: 0}
+  enemies: []
+  targetRing: {fileID: 0}
   spawnPoint: {fileID: 1715193334408365981}
   pepperPoint: {fileID: 0}
+  PlayerObject: {fileID: 0}
+  plr: {fileID: 0}
+  bossBullet: {fileID: 0}
+  popcorn: {fileID: 0}
+  pepperBullet: {fileID: 0}
+  healthBar: {fileID: 0}
+  phase2LastAttackTime:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  sounds: []
 --- !u!95 &1715193334408365982
 Animator:
   serializedVersion: 3

@@ -101,6 +101,9 @@ TextureImporter:
   - first:
       213: 7705022296292488815
     second: sofa_
+  - first:
+      213: 8653787656773880323
+    second: chimney_lit
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -912,7 +915,7 @@ TextureImporter:
         width: 22
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -933,7 +936,7 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -941,6 +944,27 @@ TextureImporter:
       bones: []
       spriteID: f667afc94fcbdea60800000000000000
       internalID: 7705022296292488815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chimney_lit
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 119
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30acaab260e681870800000000000000
+      internalID: 8653787656773880323
       vertices: []
       indices: 
       edges: []

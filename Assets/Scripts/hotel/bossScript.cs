@@ -5,8 +5,8 @@ using UnityEngine.Audio;
 
 public class bossScript : MonoBehaviour
 {
-    public int maxhealth = 1500;
-    public int health = 1500;
+    public int maxhealth = 3000;
+    public int health = 3000;
     public int damage = 20;
     float attackSpeed=1;
     public float speed = 40f;
@@ -46,6 +46,7 @@ public class bossScript : MonoBehaviour
         anim = this.GetComponent<Animator>();
         GetComponent<ParticleSystem>().Stop();
         //anim.SetBool("isAngry",true);         //for phase 2 testing
+        AudioManager.instance.Play("boss_phase_1");
     }
 
     bool healthBarCorrection = false;
@@ -256,6 +257,7 @@ public class bossScript : MonoBehaviour
             {
                 anim.SetFloat("attackSpeed",0.5f);
                 attackSpeed=0.5f;
+                AudioManager.instance.Stop("boss_phase_2");
                 anim.SetTrigger("Die");
             }
         }
@@ -275,6 +277,8 @@ public class bossScript : MonoBehaviour
     }
     public void heal()
     {
+        AudioManager.instance.Stop("boss_phase_1");
+        AudioManager.instance.Play("boss_phase_2");
         StartCoroutine(regeneration());
     }
     IEnumerator regeneration()
