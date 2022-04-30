@@ -395,3 +395,12 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: -3531078494999580328, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
     source: {fileID: 0}
+  - name: game_over
+    clip: {fileID: 8300000, guid: 0b286d3fc5146f845bc7d0a7dd178bf9, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: -354679998002534724, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}

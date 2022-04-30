@@ -36,6 +36,7 @@ public class controller : MonoBehaviour
     public GameObject[] projList;
     ParticleSystem trail;
     TrailRenderer trailRender;
+    
 
 
     void Start()
@@ -261,6 +262,10 @@ public class controller : MonoBehaviour
 
     IEnumerator gameOverSequence()
     {
+        
+        AudioManager.instance.Stop("boss_phase_1");
+        AudioManager.instance.Stop("boss_phase_2");
+        
         yield return new WaitForSeconds(2);
         CEO_script.gameOver();
     }
