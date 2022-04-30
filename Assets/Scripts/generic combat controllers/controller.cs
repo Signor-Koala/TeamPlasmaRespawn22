@@ -132,7 +132,8 @@ public class controller : MonoBehaviour
             {
                 trail.Play();
                 rbd.velocity = (Vector3)dodgeDir * (5 * speed);
-                gameObject.GetComponentInChildren<Light2D>().intensity=2;
+                if(gameObject.GetComponentInChildren<Light2D>().intensity<1)
+                    gameObject.GetComponentInChildren<Light2D>().intensity+=0.05f;
                 //trailRender.enabled = true;   //trailRender, yes or no? hmmm...
 
                 AudioManager.instance.Play("dashEffect");   //play dash sound
@@ -143,7 +144,6 @@ public class controller : MonoBehaviour
                 {
                     rbd.velocity = Vector2.zero;
                     trail.Stop();
-                    gameObject.GetComponentInChildren<Light2D>().intensity=0.5f;
                     invincible = false;
                     dashCollider.enabled = false;
                 }
@@ -153,6 +153,9 @@ public class controller : MonoBehaviour
                 //Motion
                 rbd.transform.position += (Vector3) direction * (speed * Time.deltaTime);
             }
+
+            if(gameObject.GetComponentInChildren<Light2D>().intensity>0.5f)   //dash glow fade off
+                    gameObject.GetComponentInChildren<Light2D>().intensity-=0.05f;
         }
 
         for (int i = 0; i < 5; i++)
@@ -199,6 +202,7 @@ public class controller : MonoBehaviour
             Debug.Log("health:" + health);
 
             AudioManager.instance.Play("playerDamage");
+            cameraAnim.SetTrigger("shake");
 
             if (health <= 0)
             {

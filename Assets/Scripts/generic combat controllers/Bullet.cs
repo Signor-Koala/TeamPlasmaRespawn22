@@ -19,11 +19,12 @@ public class Bullet : MonoBehaviour
 
     private Vector2 speedVec;
     private Rigidbody2D rb;
-    Animator anim;
+    Animator anim,cameraAnim;
     private float bulletLife = 0;
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        cameraAnim = FindObjectOfType<Camera>().GetComponent<Animator>();
         if(this.GetComponent<Animator>() != null)
             anim = this.GetComponent<Animator>();
 
@@ -76,6 +77,7 @@ public class Bullet : MonoBehaviour
             }
             AudioManager.instance.Play("explosion");
             anim.SetTrigger("explosion");
+            cameraAnim.SetTrigger("shake");
             rb.velocity = Vector2.zero;
             
         }
