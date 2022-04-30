@@ -65,7 +65,6 @@ public class CEO_script : MonoBehaviour
             Highscore=totalKillScore;
         PlayerPrefs.SetInt("Highscore",Highscore);
 
-        AudioManager.instance.Play("game_over");
         UnityEngine.SceneManagement.SceneManager.LoadScene("game_over");
         //other things
     }

@@ -48146,7 +48146,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.4
+  m_Intensity: 0.5
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 000000003fa4af3ddb25ed7e7b319f8f
   m_LightCookieSprite: {fileID: 0}
@@ -55683,7 +55683,7 @@ Canvas:
   m_GameObject: {fileID: 4479712490471228166}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 4579267008000419919}
   m_PlaneDistance: 100
   m_PixelPerfect: 0

@@ -9,6 +9,7 @@ public class gameOverUI : MonoBehaviour
     {
         int currentScore = CEO_script.totalKillScore + CEO_script.money;
         score.text = "Score - " + currentScore.ToString();
+        AudioManager.instance.Play("game_over");
     }
 
     public void returnToMenu()
