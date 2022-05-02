@@ -34,7 +34,6 @@ public class forestEntryTrigger : MonoBehaviour
 		}
 		if(dialogueManager.currentDialogueState==DialogueManager.dialogueState.dialogueStarted)
 		{
-			AudioManager.instance.FadeOut("pre_forest_theme",1f);
 			if(Input.GetKeyDown("z"))
 				dialogueManager.DisplayNextSentence();	
 		}
@@ -53,6 +52,7 @@ public class forestEntryTrigger : MonoBehaviour
 
 	IEnumerator teleporter()
 	{
+		AudioManager.instance.FadeOut("pre_forest_theme",0.5f);
 		yield return new WaitForSeconds(2);
 		dialogueManager.DisplayNextSentence();
 		Debug.Log("Entering the forest");

@@ -21,7 +21,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void newRun()
     {
-        AudioManager.instance.FadeOut("main_menu_theme",0.5f);
+        AudioManager.instance.FadeOut("main_menu_theme",0.25f);
         MainUI.SetActive(false);
         inactivePortal.SetActive(false);
         activePortal.SetActive(true);

@@ -35,12 +35,14 @@ public class forestManager : MonoBehaviour
 
         if(CEO_script.dangerLevel>0 && inDanger==false)
         {
+            Debug.Log("transitioning to danger music");
             AudioManager.instance.FadeIn("forest_danger_theme",1f);
             AudioManager.instance.FadeOut("forest_normal_theme",1f);
             inDanger=true;
         }
-        else if(CEO_script.dangerLevel==0 && inDanger==true)
+        else if(CEO_script.dangerLevel<=0 && inDanger==true)
         {
+            Debug.Log("transitioning to danger music");
             AudioManager.instance.FadeOut("forest_danger_theme",1f);
             AudioManager.instance.FadeIn("forest_normal_theme",1f);
             inDanger=false;
