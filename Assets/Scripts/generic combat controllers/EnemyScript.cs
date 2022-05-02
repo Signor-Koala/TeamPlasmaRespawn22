@@ -153,7 +153,13 @@ public class EnemyScript : MonoBehaviour
     
     public void TakeDamage(int dam)
     {
-        if (!isAgro) isAgro = true;
+        if (!isAgro)
+        {
+            isAgro = true;
+            CEO_script.lastDangerLevel=CEO_script.dangerLevel;
+            CEO_script.dangerLevel++;
+        } 
+            
 
         health -= dam;
 

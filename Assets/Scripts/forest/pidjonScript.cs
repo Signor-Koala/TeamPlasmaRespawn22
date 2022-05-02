@@ -46,6 +46,10 @@ public class pidjonScript : MonoBehaviour
         whiteScreen.SetActive(true);
         whiteScreen.GetComponent<Animator>().SetTrigger("portalTrigger");
 		yield return new WaitForSeconds(2);
+
+        AudioManager.instance.Stop("forest_normal_theme");
+        AudioManager.instance.Stop("forest_danger_theme");
+
 		dialogueManager.DisplayNextSentence();
         CEO_script.health = GameObject.Find("Player").GetComponent<controller>().health;
         CEO_script.speed = GameObject.Find("Player").GetComponent<controller>().speed;
@@ -57,6 +61,8 @@ public class pidjonScript : MonoBehaviour
         if(other.CompareTag("Player") && forestManager.pidjonHasArrived)
         {
             Debug.Log("Letsa Gooo!");
+            AudioManager.instance.FadeOut("forest_normal_theme",0.5f);
+            AudioManager.instance.FadeOut("forest_danger_theme",0.5f);
             dialogueStarted=true;
             dialogueManager.StartDialogue(dialogue);
         }

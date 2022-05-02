@@ -98,12 +98,12 @@ public class AudioManager : MonoBehaviour
 		while (s.source.volume<finalVol && finalVol-initVol>0)
 		{
 			s.source.volume += Time.deltaTime/dur;
-			yield return new WaitForSecondsRealtime(Time.deltaTime/dur);
+			yield return new WaitForSecondsRealtime(Time.deltaTime);
 		}
 		while (s.source.volume>finalVol && finalVol-initVol<0)
 		{
-			s.source.volume -= Time.deltaTime;
-			yield return new WaitForSecondsRealtime(Time.deltaTime/dur);
+			s.source.volume -= Time.deltaTime/dur;
+			yield return new WaitForSecondsRealtime(Time.deltaTime);
 		}
 		yield return null;
 	}

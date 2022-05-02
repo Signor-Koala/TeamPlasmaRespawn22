@@ -17,6 +17,8 @@ public class exitDoorScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player"))
         {
+            AudioManager.instance.FadeOut("hotel_normal_theme",0.5f);
+            AudioManager.instance.FadeOut("hotel_danger_theme",0.5f);
             Debug.Log("Entering Boss room...");
             CEO_script.health = other.gameObject.GetComponent<controller>().health;
             CEO_script.speed = GameObject.Find("Player").GetComponent<controller>().speed;

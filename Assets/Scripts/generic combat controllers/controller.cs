@@ -265,6 +265,10 @@ public class controller : MonoBehaviour
         
         AudioManager.instance.Stop("boss_phase_1");
         AudioManager.instance.Stop("boss_phase_2");
+        AudioManager.instance.Stop("forest_normal_theme");
+        AudioManager.instance.Stop("forest_danger_theme");
+        AudioManager.instance.Stop("hotel_normal_theme");
+        AudioManager.instance.Stop("hotel_danger_theme");
         
         yield return new WaitForSeconds(2);
         CEO_script.gameOver();
