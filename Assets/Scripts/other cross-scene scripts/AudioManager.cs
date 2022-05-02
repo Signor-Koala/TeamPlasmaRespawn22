@@ -1,5 +1,6 @@
 using UnityEngine.Audio;
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -56,5 +57,56 @@ public class AudioManager : MonoBehaviour
 		}
 		s.source.Stop();
 	}
+
+	public void setVolume(string sound, float vol)
+	{
+		Sound s = Array.Find(sounds, item => item.name == sound);
+		if (s == null)
+		{
+			Debug.LogWarning("Sound: " + name + " not found!");
+			return;
+		}
+		s.source.volume=vol;
+	}
+
+	public void FadeIn(string sound, float dur)
+	{
+		Sound s = Array.Find(sounds, item => item.name == sound);
+		if (s == null)
+		{
+			Debug.LogWarning("Sound: " + name + " not found!");
+			return;
+		}
+		s.source.pitch = s.pitch;
+		StartCoroutine(transition(s,0,s.volume, dur));
+	}
+	public void FadeOut(string sound, float dur)
+	{
+		Sound s = Array.Find(sounds, item => item.name == sound);
+		if (s == null)
+		{
+			Debug.LogWarning("Sound: " + name + " not found!");
+			return;
+		}
+		s.source.pitch = s.pitch;
+		StartCoroutine(transition(s,s.volume,0, dur));
+	}
+
+	IEnumerator transition(Sound s, float initVol, float finalVol, float dur)
+	{
+		s.source.volume = initVol;
+		while (s.source.volume<finalVol && finalVol-initVol>0)
+		{
+			s.source.volume += Time.deltaTime/dur;
+			yield return new WaitForSecondsRealtime(Time.deltaTime/dur);
+		}
+		while (s.source.volume>finalVol && finalVol-initVol<0)
+		{
+			s.source.volume -= Time.deltaTime;
+			yield return new WaitForSecondsRealtime(Time.deltaTime/dur);
+		}
+		yield return null;
+	}
+
 
 }

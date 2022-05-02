@@ -16,12 +16,12 @@ public class MainMenuUI : MonoBehaviour
         blindingAnim = GameObject.Find("White Screen").GetComponent<Animator>();
         activePortal.SetActive(false);
         inactivePortal.SetActive(true);
-        AudioManager.instance.Play("ambient_forest");
+        AudioManager.instance.Play("main_menu_theme");
     }
 
     public void newRun()
     {
-        AudioManager.instance.Stop("ambient_forest");
+        AudioManager.instance.FadeOut("main_menu_theme",0.5f);
         MainUI.SetActive(false);
         inactivePortal.SetActive(false);
         activePortal.SetActive(true);
@@ -85,6 +85,7 @@ public class MainMenuUI : MonoBehaviour
     IEnumerator sceneLoadDelay()
     {
         yield return new WaitForSeconds(2);
+        AudioManager.instance.Stop("main_menu_theme");
         if(CEO_script.firstTimeInSession==1)
         {
             CEO_script.health=100;

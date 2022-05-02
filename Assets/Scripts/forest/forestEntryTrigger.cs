@@ -20,7 +20,8 @@ public class forestEntryTrigger : MonoBehaviour
 		CEO_script.firstTimeInSession=0;
 		player.GetComponent<Animator>().SetInteger("attackMode",0);
 		CEO_script.activePowerUp = null;
-		CEO_script.activePowerUp = null;
+		
+		AudioManager.instance.Play("pre_forest_theme");
 	}
 
 	private void Update() {
@@ -33,6 +34,7 @@ public class forestEntryTrigger : MonoBehaviour
 		}
 		if(dialogueManager.currentDialogueState==DialogueManager.dialogueState.dialogueStarted)
 		{
+			AudioManager.instance.FadeOut("pre_forest_theme",1f);
 			if(Input.GetKeyDown("z"))
 				dialogueManager.DisplayNextSentence();	
 		}
@@ -54,6 +56,7 @@ public class forestEntryTrigger : MonoBehaviour
 		yield return new WaitForSeconds(2);
 		dialogueManager.DisplayNextSentence();
 		Debug.Log("Entering the forest");
+		AudioManager.instance.Stop("pre_forest_theme");
 		PlayerPrefs.SetInt("firstload",0);
 		CEO_script.firstLoad=0;
 		titleUI.SetActive(true);

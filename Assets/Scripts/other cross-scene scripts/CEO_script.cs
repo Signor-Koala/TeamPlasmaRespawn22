@@ -11,7 +11,7 @@ public class CEO_script : MonoBehaviour
     public static GameObject activePowerUp;
     public static int[] enemiesKilled = new int[3];
     public static int totalKillScore=0;
-    public static int dangerLevel=0;
+    public static int dangerLevel=0, lastDangerLevel=0;
     public enum gameState
     {
         preForestLevel,forestLevel, forestLevelCleared,
@@ -49,6 +49,7 @@ public class CEO_script : MonoBehaviour
         Highscore = PlayerPrefs.GetInt("Highscore",0);
         musicLevel = PlayerPrefs.GetFloat("musicLevel", 0.5f);
         SFxLevel = PlayerPrefs.GetFloat("SFxLevel", 0.5f);
+        lastDangerLevel=0;
         if(firstLoad==1)
             Highscore=0;
     }

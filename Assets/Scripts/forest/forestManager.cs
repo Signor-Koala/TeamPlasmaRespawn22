@@ -15,7 +15,7 @@ public class forestManager : MonoBehaviour
     Animator pidjonAnim;
     public Dialogue dialogue;
 	DialogueManager dialogueManager;
-    bool PidjonCame = false;
+    bool PidjonCame = false, inDanger=false;
     void Start()
     {
         CEO_script.currentGameState = CEO_script.gameState.forestLevel; 
@@ -24,9 +24,27 @@ public class forestManager : MonoBehaviour
         pidjonAnim = GameObject.Find("Pidjon").GetComponent<Animator>();
         pidjon.SetActive(false);
         dialogueManager = FindObjectOfType<DialogueManager>();
+        inDanger=false;
+
+        AudioManager.instance.Play("forest_normal_theme");
+        AudioManager.instance.Play("forest_danger_theme");
+        AudioManager.instance.setVolume("forest_danger_theme",0);
     }
 
     private void Update() {
+
+        if(CEO_script.dangerLevel>0 && inDanger==false)
+        {
+            AudioManager.instance.FadeIn("forest_danger_theme",1f);
+            AudioManager.instance.FadeOut("forest_normal_theme",1f);
+            inDanger=true;
+        }
+        else if(CEO_script.dangerLevel==0 && inDanger==true)
+        {
+            AudioManager.instance.FadeOut("forest_danger_theme",1f);
+            AudioManager.instance.FadeIn("forest_normal_theme",1f);
+            inDanger=false;
+        }
         
         if(Time.time - lastNotifyTime > 2f)
         {
