@@ -40,7 +40,7 @@ public class forestEntryTrigger : MonoBehaviour
 		else if(titleUI.activeSelf)
 		{
 			if(Input.GetKeyDown("z"))
-				UnityEngine.SceneManagement.SceneManager.LoadScene("forest");
+				CEO_script.loadLevel("forest");
 		}
 		
 	}

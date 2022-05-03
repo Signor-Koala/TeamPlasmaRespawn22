@@ -59,7 +59,7 @@ public class pidjonScript : MonoBehaviour
         CEO_script.health = GameObject.Find("Player").GetComponent<controller>().health;
         CEO_script.speed = GameObject.Find("Player").GetComponent<controller>().speed;
 		Debug.Log("Exiting the forest");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("hotel");
+        CEO_script.loadLevel("hotel");
 	}
     
     private void OnTriggerEnter2D(Collider2D other) {

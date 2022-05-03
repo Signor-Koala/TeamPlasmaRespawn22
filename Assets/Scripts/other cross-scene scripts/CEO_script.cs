@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 
 public class CEO_script : MonoBehaviour 
@@ -9,6 +10,7 @@ public class CEO_script : MonoBehaviour
     public static GameObject[] powerups;
     public static int[] powerupSpawned;
     public static GameObject activePowerUp;
+    public AudioMixer mixer;
     public static int[] enemiesKilled = new int[3];
     public static int totalKillScore=0;
     public static int dangerLevel=0, lastDangerLevel=0;
@@ -26,6 +28,7 @@ public class CEO_script : MonoBehaviour
     public static int firstLoad,firstTimeInSession=1;
     public static int Highscore;
     public static float musicLevel, SFxLevel;
+    public static string nextLevel="Main_menu";
     private void Awake()
     { 
         if (instance != null)
@@ -52,6 +55,9 @@ public class CEO_script : MonoBehaviour
         lastDangerLevel=0;
         if(firstLoad==1)
             Highscore=0;
+        
+        mixer.SetFloat("musicLevel",musicLevel);
+        mixer.SetFloat("sfxLevel",SFxLevel);
     }
 
     public static void transition(int newhealth)
@@ -77,9 +83,17 @@ public class CEO_script : MonoBehaviour
             dangerLevel=0;
     }
 
+    public static void loadLevel(string levelName)
+    {
+        nextLevel = levelName;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("loading_scene");
+    }
+
     public static void quitGame()
     {
         PlayerPrefs.SetInt("HighScore",Highscore);
         PlayerPrefs.SetInt("money",money);
+        PlayerPrefs.SetFloat("musicLevel", musicLevel);
+        PlayerPrefs.SetFloat("SFxLevel", SFxLevel);
     }
 }

@@ -83,7 +83,7 @@ public class forestDungeonGenerator : MonoBehaviour
                 {
                     pitMap.SetTile(pos, pitTile);   //setting grass tile
 
-                    if(Random.Range(0f,1f)<0.1f && !(tileAbove==groundTile || tileAbove2==groundTile || tileAbove3==groundTile || tileAbove3L==groundTile || tileAbove3R==groundTile))
+                    if(Random.Range(0f,1f)<0.2f && !(tileAbove==groundTile || tileAbove2==groundTile || tileAbove3==groundTile || tileAbove3L==groundTile || tileAbove3R==groundTile))
                     {
                         GameObject newTree = Instantiate(trees[Random.Range(0,3)]);     //adding trees which doesn't overlap routes
                         newTree.transform.position = pitMap.GetCellCenterLocal(pos);

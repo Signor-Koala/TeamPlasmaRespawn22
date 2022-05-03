@@ -91,13 +91,13 @@ public class MainMenuUI : MonoBehaviour
         {
             CEO_script.health=100;
             CEO_script.speed=1;
-            UnityEngine.SceneManagement.SceneManager.LoadScene("forest_start");
+            CEO_script.loadLevel("forest_start");
         }
         else if(CEO_script.firstTimeInSession==0)
         {
             CEO_script.health=100;
             CEO_script.speed=1;
-            UnityEngine.SceneManagement.SceneManager.LoadScene("forest");
+            CEO_script.loadLevel("forest");
         }
     }
 

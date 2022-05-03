@@ -156,6 +156,7 @@ public class EnemyScript : MonoBehaviour
         if (!isAgro)
         {
             isAgro = true;
+            enemyAnim.SetBool("isAggro",true);
             CEO_script.lastDangerLevel=CEO_script.dangerLevel;
             CEO_script.dangerLevel++;
         } 

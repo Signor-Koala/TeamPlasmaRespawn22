@@ -31,6 +31,6 @@ public class exitDoorScript : MonoBehaviour
         blackScreen.SetActive(true);
         fadeAnim.SetTrigger("fadeTrigger");
         yield return new WaitForSeconds(1f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("boss_room");
+        CEO_script.loadLevel("boss_room");
     }
 }
