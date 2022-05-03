@@ -47,8 +47,8 @@ public class CEO_script : MonoBehaviour
         speed = PlayerPrefs.GetFloat("speed", 1.0f);
         firstLoad = PlayerPrefs.GetInt("firstload",1);
         Highscore = PlayerPrefs.GetInt("Highscore",0);
-        musicLevel = PlayerPrefs.GetFloat("musicLevel", 0.5f);
-        SFxLevel = PlayerPrefs.GetFloat("SFxLevel", 0.5f);
+        musicLevel = PlayerPrefs.GetFloat("musicLevel", 1f);
+        SFxLevel = PlayerPrefs.GetFloat("SFxLevel", 1f);
         lastDangerLevel=0;
         if(firstLoad==1)
             Highscore=0;

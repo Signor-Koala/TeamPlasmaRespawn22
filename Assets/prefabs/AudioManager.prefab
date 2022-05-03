@@ -424,7 +424,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: forest_normal_theme
     clip: {fileID: 8300000, guid: adc9a6e401fdbf741b1a5157167a56dc, type: 3}
-    volume: 0.704
+    volume: 0.558
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -433,7 +433,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: forest_danger_theme
     clip: {fileID: 8300000, guid: 04766baab88a498428d4c9cdfe2b108d, type: 3}
-    volume: 0.709
+    volume: 0.584
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: hotel_normal_theme
     clip: {fileID: 8300000, guid: cd7d5c4e042b0aa4384690c2e506122d, type: 3}
-    volume: 0.709
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -451,7 +451,25 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: hotel_danger_theme
     clip: {fileID: 8300000, guid: aa87791551ab5d444a531dfb2834c96a, type: 3}
-    volume: 0.714
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: -354679998002534724, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: hello_pidjon
+    clip: {fileID: 8300000, guid: 67cfc3881964b234191197402400c89f, type: 3}
+    volume: 0.74
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: -354679998002534724, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: pidjon_da_god
+    clip: {fileID: 8300000, guid: 034ca68135265f448b139bb343d27989, type: 3}
+    volume: 0.74
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0

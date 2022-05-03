@@ -77,8 +77,10 @@ public class AudioManager : MonoBehaviour
 			Debug.LogWarning("Sound: " + name + " not found!");
 			return;
 		}
+		if(s.source.volume>0)
+			return;
 		s.source.pitch = s.pitch;
-		StartCoroutine(transition(s,0,s.volume, dur));
+		StartCoroutine(transition(s,s.source.volume,s.volume, dur));
 	}
 	public void FadeOut(string sound, float dur)
 	{
@@ -88,8 +90,10 @@ public class AudioManager : MonoBehaviour
 			Debug.LogWarning("Sound: " + name + " not found!");
 			return;
 		}
+		if(s.source.volume<s.volume)
+			return;
 		s.source.pitch = s.pitch;
-		StartCoroutine(transition(s,s.volume,0, dur));
+		StartCoroutine(transition(s,s.source.volume,0, dur));
 	}
 
 	IEnumerator transition(Sound s, float initVol, float finalVol, float dur)

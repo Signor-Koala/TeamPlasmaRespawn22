@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class forestManager : MonoBehaviour
 {
     float lastRerollTime=0;
-    float lastNotifyTime=0;
+    float lastNotifyTime=0,lastDangerTime=0;
     public static Vector3 spawnPoint;
     public GameObject pidjon;
     public GameObject player;
@@ -33,16 +33,16 @@ public class forestManager : MonoBehaviour
 
     private void Update() {
 
-        if(CEO_script.dangerLevel>0 && inDanger==false)
+        if(CEO_script.dangerLevel>0 && Time.time - lastDangerTime > 0.33f && PidjonCame==false)
         {
-            Debug.Log("transitioning to danger music");
+            lastDangerTime=Time.time;
             AudioManager.instance.FadeIn("forest_danger_theme",1f);
             AudioManager.instance.FadeOut("forest_normal_theme",1f);
             inDanger=true;
         }
-        else if(CEO_script.dangerLevel<=0 && inDanger==true)
+        else if(CEO_script.dangerLevel<=0 && Time.time - lastDangerTime > 0.33f && PidjonCame==false)
         {
-            Debug.Log("transitioning to danger music");
+            lastDangerTime=Time.time;
             AudioManager.instance.FadeOut("forest_danger_theme",1f);
             AudioManager.instance.FadeIn("forest_normal_theme",1f);
             inDanger=false;
@@ -59,10 +59,12 @@ public class forestManager : MonoBehaviour
             if(Random.Range(0,100)<=CEO_script.totalKillScore)
             {
                 Debug.Log("HELLO PIDJON!");
+                AudioManager.instance.FadeIn("hello_pidjon",1f);
                 dialogueManager.StartDialogue(dialogue);
                 pidjon.SetActive(true);
-                
                 PidjonCame=true;
+                AudioManager.instance.FadeOut("forest_danger_theme",1f);
+                AudioManager.instance.FadeOut("forest_normal_theme",1f);
                 
                 pidjonAnim.SetBool("isFlying",true);
                 pidjon.transform.position = player.transform.position + new Vector3(-2f,0.5f,0);
@@ -90,6 +92,7 @@ public class forestManager : MonoBehaviour
         pidjonAnim.SetBool("isFlying",false);
         pidjonHasArrived = true;
         PidjonCame=false;
+        AudioManager.instance.FadeOut("hello_pidjon",1f);
         pidjonRB.constraints = RigidbodyConstraints2D.FreezePositionX;
         pidjonRB.constraints = RigidbodyConstraints2D.FreezePositionY;
     }

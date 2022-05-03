@@ -5,6 +5,7 @@ using UnityEngine;
 public class hotelmanager : MonoBehaviour
 {
     bool inDanger;
+    float lastDangerTime=0;
     void Start()
     {
         inDanger=false;
@@ -17,16 +18,18 @@ public class hotelmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(CEO_script.dangerLevel>0 && inDanger==false)
+        if(CEO_script.dangerLevel>0 && Time.time - lastDangerTime > 0.33f)
         {
             AudioManager.instance.FadeIn("hotel_danger_theme",1f);
             AudioManager.instance.FadeOut("hotel_normal_theme",1f);
+            lastDangerTime=Time.time;
             inDanger=true;
         }
-        else if(CEO_script.dangerLevel==0 && inDanger==true)
+        else if(CEO_script.dangerLevel==0 && Time.time - lastDangerTime > 0.33f)
         {
             AudioManager.instance.FadeOut("hotel_danger_theme",1f);
             AudioManager.instance.FadeIn("hotel_normal_theme",1f);
+            lastDangerTime=Time.time;
             inDanger=false;
         }
     }

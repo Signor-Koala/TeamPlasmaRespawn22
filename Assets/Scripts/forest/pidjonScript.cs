@@ -34,6 +34,11 @@ public class pidjonScript : MonoBehaviour
             AudioManager.instance.Play("portal_open");
             StartCoroutine("teleporter");
         }
+        else if(dialogueStarted==true && dialogueManager.sentenceNumber==2 && portalFlag==false)
+        {
+            AudioManager.instance.Stop("hello_pidjon");
+            AudioManager.instance.Play("pidjon_da_god");
+        }
         if(dialogueManager.currentDialogueState==DialogueManager.dialogueState.dialogueStarted && dialogueStarted==true)
 		{
 			if(Input.GetKeyDown("z"))
@@ -45,12 +50,12 @@ public class pidjonScript : MonoBehaviour
 	{
         whiteScreen.SetActive(true);
         whiteScreen.GetComponent<Animator>().SetTrigger("portalTrigger");
+        AudioManager.instance.FadeOut("pidjon_da_god",2);
 		yield return new WaitForSeconds(2);
 
         AudioManager.instance.Stop("forest_normal_theme");
         AudioManager.instance.Stop("forest_danger_theme");
 
-		dialogueManager.DisplayNextSentence();
         CEO_script.health = GameObject.Find("Player").GetComponent<controller>().health;
         CEO_script.speed = GameObject.Find("Player").GetComponent<controller>().speed;
 		Debug.Log("Exiting the forest");
@@ -63,6 +68,7 @@ public class pidjonScript : MonoBehaviour
             Debug.Log("Letsa Gooo!");
             AudioManager.instance.FadeOut("forest_normal_theme",0.5f);
             AudioManager.instance.FadeOut("forest_danger_theme",0.5f);
+            AudioManager.instance.FadeIn("hello_pidjon",1f);
             dialogueStarted=true;
             dialogueManager.StartDialogue(dialogue);
         }

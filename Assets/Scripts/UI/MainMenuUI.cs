@@ -5,7 +5,7 @@ using UnityEngine;
 public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] GameObject inactivePortal, activePortal,MainUI,HighScoreUI,OptionsUI;
-    Animator blindingAnim;
+    Animator blindingAnim,portalAnim;
     [SerializeField] TMPro.TextMeshProUGUI highscoreText;
     void Start()
     {
@@ -14,6 +14,7 @@ public class MainMenuUI : MonoBehaviour
         HighScoreUI.SetActive(false);
         OptionsUI.SetActive(false);
         blindingAnim = GameObject.Find("White Screen").GetComponent<Animator>();
+        portalAnim = GameObject.Find("portal_inactive").GetComponent<Animator>();
         activePortal.SetActive(false);
         inactivePortal.SetActive(true);
         AudioManager.instance.Play("main_menu_theme");
@@ -102,7 +103,12 @@ public class MainMenuUI : MonoBehaviour
 
     public void playButtonCrack()
     {
+        portalAnim.SetFloat("Blend",1);
         AudioManager.instance.Play("portal_crack");
+    }
+    public void playButtonOut()
+    {
+        portalAnim.SetFloat("Blend",0);
     }
     public void playButtonHover()
     {
