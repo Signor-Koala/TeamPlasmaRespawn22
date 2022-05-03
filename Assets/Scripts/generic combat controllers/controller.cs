@@ -138,8 +138,10 @@ public class controller : MonoBehaviour
         direction = new Vector2(xaxis, yaxis);
 	if (!invincible && stamina < staminacap)
 
+        if(stamina<=0)
+            stamina=0;
         if(Time.time > lastRollTime + rollReload)
-	        stamina++;
+	        stamina+=2;
 
         if (direction.x != 0 || direction.y != 0)
         {
@@ -150,13 +152,16 @@ public class controller : MonoBehaviour
                 lastRollTime = Time.time;
                 dodgeDir = direction;
                 dashCollider.enabled=true;
-		        stamina -= dashUsage;
+                if(stamina>=dashUsage)
+		            stamina -= dashUsage;
+                else if(stamina<dashUsage)
+                    stamina=0;
             }
 
             if (invincible)
             {
                 trail.Play();
-                rbd.velocity = (Vector3)dodgeDir * (5 * speed);
+                rbd.velocity = (Vector3)dodgeDir * ((3+(3*stamina/staminacap)) * speed);
                 if(gameObject.GetComponentInChildren<Light2D>().intensity<1)
                     gameObject.GetComponentInChildren<Light2D>().intensity+=0.05f;
                 //trailRender.enabled = true;   //trailRender, yes or no? hmmm...

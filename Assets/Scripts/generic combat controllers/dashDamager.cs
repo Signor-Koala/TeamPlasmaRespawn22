@@ -12,7 +12,7 @@ public class dashDamager : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col) {        //Damaging enemies while dashing
         
-	    dashDamageCurrent = dashDamage *(int)((float)GetComponentInParent<controller>().stamina / GetComponentInParent<controller>().staminacap);
+	    dashDamageCurrent = (int)(dashDamage *((float)GetComponentInParent<controller>().stamina / GetComponentInParent<controller>().staminacap));
         EnemyScript enemy = col.GetComponent<EnemyScript>();
             if (enemy != null) 
             {
@@ -23,6 +23,8 @@ public class dashDamager : MonoBehaviour
             {
                 boss.TakeDamage(dashDamageCurrent);
             }
+
+            Debug.LogWarning(dashDamageCurrent);
 
     }
 }

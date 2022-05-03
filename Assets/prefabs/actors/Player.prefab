@@ -5018,7 +5018,7 @@ MonoBehaviour:
   firepoint: 0.1
   reloadTime: 0.5
   rollDuration: 0.18
-  rollReload: 1.25
+  rollReload: 1
   inaccuracyFloat: 1
   recoilplr: 1
   ammocapacity: 300
@@ -5026,7 +5026,7 @@ MonoBehaviour:
   ammoRate: 3
   staminacap: 600
   stamina: 600
-  dashUsage: 120
+  dashUsage: 60
   currenProj: {fileID: 0}
   maincam: {fileID: 0}
   projList:
