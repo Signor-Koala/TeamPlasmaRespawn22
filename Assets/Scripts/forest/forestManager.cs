@@ -28,19 +28,21 @@ public class forestManager : MonoBehaviour
 
         AudioManager.instance.Play("forest_normal_theme");
         AudioManager.instance.Play("forest_danger_theme");
+        AudioManager.instance.Play("hello_pidjon");
+        AudioManager.instance.setVolume("hello_pidjon",0);
         AudioManager.instance.setVolume("forest_danger_theme",0);
     }
 
     private void Update() {
 
-        if(CEO_script.dangerLevel>0 && Time.time - lastDangerTime > 0.33f && PidjonCame==false)
+        if(CEO_script.dangerLevel>0 && Time.time - lastDangerTime > 0.33f && PidjonCame==false && CEO_script.currentGameState!=CEO_script.gameState.withDaPidgon)
         {
             lastDangerTime=Time.time;
             AudioManager.instance.FadeIn("forest_danger_theme",1f);
             AudioManager.instance.FadeOut("forest_normal_theme",1f);
             inDanger=true;
         }
-        else if(CEO_script.dangerLevel<=0 && Time.time - lastDangerTime > 0.33f && PidjonCame==false)
+        else if(CEO_script.dangerLevel<=0 && Time.time - lastDangerTime > 0.33f && PidjonCame==false && CEO_script.currentGameState!=CEO_script.gameState.withDaPidgon)
         {
             lastDangerTime=Time.time;
             AudioManager.instance.FadeOut("forest_danger_theme",1f);
@@ -56,15 +58,15 @@ public class forestManager : MonoBehaviour
         if(Time.time - lastRerollTime > 30f && CEO_script.dangerLevel==0 && pidjonHasArrived==false)    //probability of pidjon appearing
         {
             lastRerollTime = Time.time;
-            if(Random.Range(0,100)<=CEO_script.totalKillScore)
+            if(Random.Range(0,100)<=CEO_script.totalKillScore+100)
             {
                 Debug.Log("HELLO PIDJON!");
-                AudioManager.instance.FadeIn("hello_pidjon",1f);
                 dialogueManager.StartDialogue(dialogue);
                 pidjon.SetActive(true);
                 PidjonCame=true;
                 AudioManager.instance.FadeOut("forest_danger_theme",1f);
                 AudioManager.instance.FadeOut("forest_normal_theme",1f);
+                AudioManager.instance.FadeIn("hello_pidjon",1f);
                 
                 pidjonAnim.SetBool("isFlying",true);
                 pidjon.transform.position = player.transform.position + new Vector3(-2f,0.5f,0);

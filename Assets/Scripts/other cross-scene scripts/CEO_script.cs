@@ -16,7 +16,7 @@ public class CEO_script : MonoBehaviour
     public static int dangerLevel=0, lastDangerLevel=0;
     public enum gameState
     {
-        preForestLevel,forestLevel, forestLevelCleared,
+        preForestLevel,forestLevel, forestLevelCleared,withDaPidgon,
         preHotelLevel,hotelLevel, hotelLevelCleared,
         bossBattle, bossBattleCleared, gameOver
     }

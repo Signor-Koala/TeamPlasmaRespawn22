@@ -10,6 +10,8 @@ public class gameOverUI : MonoBehaviour
         int currentScore = CEO_script.totalKillScore + CEO_script.money;
         score.text = "Score - " + currentScore.ToString();
         AudioManager.instance.Play("game_over");
+        if(currentScore>CEO_script.Highscore)
+            CEO_script.Highscore = currentScore;
     }
 
     public void returnToMenu()

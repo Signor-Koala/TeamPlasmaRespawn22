@@ -55,8 +55,8 @@ public class bossLevelManager : MonoBehaviour
         int runScore = CEO_script.totalKillScore + CEO_script.money;
         scoreText.text = "Score: " + runScore.ToString();
 
-        if(runScore>CEO_script.Highscore)
-            CEO_script.Highscore = runScore;
+        if(runScore+CEO_script.money>CEO_script.Highscore)
+            CEO_script.Highscore = runScore+CEO_script.money;
             
         yield return new WaitForSeconds(5);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Menu");

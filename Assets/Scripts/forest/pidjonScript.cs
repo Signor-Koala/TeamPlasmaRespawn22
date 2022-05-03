@@ -10,6 +10,7 @@ public class pidjonScript : MonoBehaviour
     public forestManager forestManager;
     bool dialogueStarted = false;
     bool dialogueFinished = false;
+    bool revelation = false;
     bool portalFlag=false;
     [SerializeField] GameObject portal;
     GameObject whiteScreen;
@@ -34,10 +35,11 @@ public class pidjonScript : MonoBehaviour
             AudioManager.instance.Play("portal_open");
             StartCoroutine("teleporter");
         }
-        else if(dialogueStarted==true && dialogueManager.sentenceNumber==2 && portalFlag==false)
+        else if(dialogueStarted==true && dialogueManager.sentenceNumber==2 && portalFlag==false && !revelation)
         {
             AudioManager.instance.Stop("hello_pidjon");
             AudioManager.instance.Play("pidjon_da_god");
+            revelation=true;
         }
         if(dialogueManager.currentDialogueState==DialogueManager.dialogueState.dialogueStarted && dialogueStarted==true)
 		{
@@ -65,10 +67,11 @@ public class pidjonScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player") && forestManager.pidjonHasArrived)
         {
+            CEO_script.currentGameState=CEO_script.gameState.withDaPidgon;
             Debug.Log("Letsa Gooo!");
             AudioManager.instance.FadeOut("forest_normal_theme",0.5f);
             AudioManager.instance.FadeOut("forest_danger_theme",0.5f);
-            AudioManager.instance.FadeIn("hello_pidjon",1f);
+            AudioManager.instance.FadeIn("hello_pidjon",0.5f);
             dialogueStarted=true;
             dialogueManager.StartDialogue(dialogue);
         }

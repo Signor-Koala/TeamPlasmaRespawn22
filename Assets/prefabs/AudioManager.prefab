@@ -460,7 +460,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: hello_pidjon
     clip: {fileID: 8300000, guid: 67cfc3881964b234191197402400c89f, type: 3}
-    volume: 0.74
+    volume: 0.984
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
