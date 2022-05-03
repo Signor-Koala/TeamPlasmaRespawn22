@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     public float attackDistance = 3f;
     public int enemyType = 0; // (0,1,2,3,4) -> (Invalid,Melee,Ranged,shotgunRanged,MeleeBoss)
     public LayerMask playerLayer;
+    public float runuptime = 0.33f;
 
     public GameObject currenProj;
     public Transform attackPoint;
@@ -23,6 +24,7 @@ public class EnemyScript : MonoBehaviour
     private Quaternion rot = Quaternion.Euler(0, 0, 0);
     private Vector2 deviation;
     bool aggroTriggered=false;
+    private float acceleration = 0f;
     Animator enemyAnim;
     
     
@@ -82,7 +84,14 @@ public class EnemyScript : MonoBehaviour
         var positionplr = plr.position;
         var position = rbd.transform.position;
         destination = (positionplr - position) / (positionplr - position).magnitude;
-        rbd.velocity = destination * (speed * Time.deltaTime);
+	    if (rbd.velocity.magnitude<speed || Vector2.Dot(rbd.velocity,(Vector2)destination)<0)
+        {
+	        acceleration= speed/runuptime;
+            rbd.velocity += (Vector2)destination*acceleration*Time.fixedDeltaTime;
+        }
+        else
+            rbd.velocity = destination * (speed);
+
         if ((distance.magnitude < attackDistance) && (Time.time > reload + lastAttack))
         {
             lastAttack = Time.time;
@@ -151,8 +160,9 @@ public class EnemyScript : MonoBehaviour
         }
     }
     
-    public void TakeDamage(int dam)
+    public void TakeDamage(int dam, Vector2 recoil)
     {
+	    this.rbd.velocity += recoil*1/15;
         if (!isAgro)
         {
             isAgro = true;
@@ -227,4 +237,5 @@ public class EnemyScript : MonoBehaviour
             }
         }
     }
+
 }

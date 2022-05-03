@@ -42,6 +42,7 @@ public class Bullet : MonoBehaviour
         {
             speedVec = speed*(plr.position+new Vector3(0,-0.2f,0) - transform.position).normalized;
         }
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, -1*speedVec);
         rb.velocity = speedVec;
         bulletLife = Time.time;
     }
@@ -67,7 +68,7 @@ public class Bullet : MonoBehaviour
                 EnemyScript enem = enemy.GetComponent<EnemyScript>();
                 if (enem != null)
                 {
-                    enem.TakeDamage(damage);
+                    enem.TakeDamage(damage,rb.velocity);
                 }
                 bossScript boss = enemy.GetComponent<bossScript>();
                 if (boss != null)
@@ -86,7 +87,7 @@ public class Bullet : MonoBehaviour
             EnemyScript enemy = col.GetComponent<EnemyScript>();
             if (enemy != null) 
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage,rb.velocity);
             }
             bossScript boss = col.GetComponent<bossScript>();
             if (boss != null)

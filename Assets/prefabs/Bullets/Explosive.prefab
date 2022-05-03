@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1405491376409824922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.04809, y: 0.04133, z: 0}
-  m_LocalScale: {x: 0.67886126, y: 0.64660084, z: 8.711636}
+  m_LocalScale: {x: 1.8340282, y: 1.7468728, z: 23.535568}
   m_Children:
   - {fileID: 5618941010639839351}
   m_Father: {fileID: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   speed: 3
   plr: {fileID: 3589436837990088416, guid: 3c5675f71b95fab26b2350d327cb604d, type: 3}
   boss: {fileID: 0}
-  reload: 3
+  reload: 1
   damage: 100
   enemyBullet: 0
   bossBullet: 0

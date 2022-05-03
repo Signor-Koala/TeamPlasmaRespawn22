@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +17,13 @@ public class controller : MonoBehaviour
     public float rollDuration = 0.2f;
     bool pointerBusy=false;
     public float rollReload = 1f;
+    public float inaccuracyFloat = 1f;
+    public float recoilplr = 1f;
+    public int ammocapacity = 300, ammo=300,ammoRate=3;              //ammo
+    
+    public int staminacap = 600;                //stamina
+    public int stamina = 600;
+    public int dashUsage = 60;
 
     public GameObject currenProj;
     public Camera maincam;
@@ -25,6 +31,7 @@ public class controller : MonoBehaviour
     private Vector2 direction = new Vector2(0, -1);
     private Vector2 dodgeDir = new Vector2(0, 0);
     private Vector2 deviation;
+    private Vector2 inaccuracy;
     private Rigidbody2D rbd;
     private float lastFireTime = 0f;
     private float lastRollTime = 0f;
@@ -32,7 +39,7 @@ public class controller : MonoBehaviour
     private bool invincible = false;
     int dashDamage=30;
     Collider2D dashCollider;
-    Animator anim, cameraAnim;
+    Animator anim;
     public GameObject[] projList;
     ParticleSystem trail;
     TrailRenderer trailRender;
@@ -41,9 +48,9 @@ public class controller : MonoBehaviour
 
     void Start()
     {
+        gameObject.GetComponent<Collider2D>().enabled=true;
         rbd = GetComponent<Rigidbody2D>();
         anim = this.gameObject.GetComponent<Animator>();
-        cameraAnim = FindObjectOfType<Camera>().GetComponent<Animator>();
         dashCollider = GameObject.Find("dashDamager").GetComponent<CircleCollider2D>();
         dashCollider.enabled = false;
         gameObject.GetComponentInChildren<Light2D>().intensity=0.5f;
@@ -62,6 +69,7 @@ public class controller : MonoBehaviour
     
     void FixedUpdate()
     {
+        Debug.Log("stamina "+ stamina);
         //Input
         float xaxis = Input.GetAxisRaw("Horizontal");
         float yaxis = Input.GetAxisRaw("Vertical");
@@ -81,6 +89,13 @@ public class controller : MonoBehaviour
         
         deviation = Vector2.Perpendicular(looking);
         deviation /= 10;
+
+	//inaccuracy for player gun, idk how to exactly implenet it for the enmy bullets, since
+	//the logic for it has changed
+	inaccuracy = deviation;
+	inaccuracy = UnityEngine.Random.Range(-1.0f,1.0f)*inaccuracyFloat*inaccuracy;
+
+
 
         //sending input to the sprite animator
         float facingX,facingY;
@@ -110,12 +125,21 @@ public class controller : MonoBehaviour
         }
 
         //firing weapon
-        if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible) && currenProj !=null && !pointerBusy)
+        if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible) && currenProj !=null && !pointerBusy && ammo > 0)
         {    
-            FireWeapon((rbd.position-looking), rot);
+            FireWeapon((rbd.position-looking)+inaccuracy, rot);
+	        ammo-=ammoRate;
+	        rbd.velocity = recoilplr*looking; //recoil for player
         }
+	if (!Input.GetButton("Fire1") && ammo < ammocapacity)
+	    ammo++;
+
 
         direction = new Vector2(xaxis, yaxis);
+	if (!invincible && stamina < staminacap)
+
+        if(Time.time > lastRollTime + rollReload)
+	        stamina++;
 
         if (direction.x != 0 || direction.y != 0)
         {
@@ -125,8 +149,8 @@ public class controller : MonoBehaviour
                 invincible = true;
                 lastRollTime = Time.time;
                 dodgeDir = direction;
-                cameraAnim.SetTrigger("shake");
                 dashCollider.enabled=true;
+		        stamina -= dashUsage;
             }
 
             if (invincible)
@@ -138,6 +162,7 @@ public class controller : MonoBehaviour
                 //trailRender.enabled = true;   //trailRender, yes or no? hmmm...
 
                 AudioManager.instance.Play("dashEffect");   //play dash sound
+                cameraShake.instance.shakeCamera(1f,rollDuration);
 
                 StartCoroutine(trailfadeDelay());
 
@@ -203,13 +228,14 @@ public class controller : MonoBehaviour
             Debug.Log("health:" + health);
 
             AudioManager.instance.Play("playerDamage");
-            cameraAnim.SetTrigger("shake");
+            cameraShake.instance.shakeCamera(0.5f,0.2f);
 
             if (health <= 0)
             {
                 CEO_script.currentGameState=CEO_script.gameState.gameOver;
                 //dying animation
                 anim.SetBool("isDead",true);
+                gameObject.GetComponent<Collider2D>().enabled = false;
                 
                 //trigger game over
                 StartCoroutine(gameOverSequence());
@@ -226,6 +252,7 @@ public class controller : MonoBehaviour
 
     public void playShotSound()
     {
+        cameraShake.instance.shakeCamera(0.5f,0.2f);
         if(currenProj==projList[0])
             AudioManager.instance.Play("bullet");
         else if(currenProj==projList[1] && !firing)
@@ -239,7 +266,8 @@ public class controller : MonoBehaviour
         else if(currenProj==projList[4])
         {
             AudioManager.instance.Play("rpg_fire");
-            StartCoroutine(playSound("rpg_load",1.5f));
+            if(ammo<=0)
+                StartCoroutine(playSound("rpg_load",1.5f));
         }
     }   
     IEnumerator playSound(string name, float delay)    //play sound with delay
@@ -250,10 +278,11 @@ public class controller : MonoBehaviour
     IEnumerator machineGunLoop()    //play sound with delay
     {
         firing=true;
-        while (Input.GetButton("Fire1"))
+        while (Input.GetButton("Fire1") && ammo>0)
         {
             AudioManager.instance.Play("machine_gun_shot");
-            yield return new WaitForSeconds(0.1f);
+            cameraShake.instance.shakeCamera(0.3f,0.05f);
+            yield return new WaitForSeconds(0.0833f);
         }
         firing=false;
         yield return null;

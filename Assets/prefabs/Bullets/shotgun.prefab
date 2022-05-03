@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3687813881070744910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.001275, y: 0.000039, z: 0}
-  m_LocalScale: {x: 0.22467595, y: 0.21894181, z: 1}
+  m_LocalScale: {x: 0.5843562, y: 0.48402596, z: 2.6008842}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
   speed: 6
   plr: {fileID: 0}
   boss: {fileID: 0}
-  reload: 1
-  damage: 30
+  reload: 0.33
+  damage: 20
   enemyBullet: 0
   bossBullet: 0
   explosive: 0
