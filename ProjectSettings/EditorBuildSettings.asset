@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/game_over.unity
     guid: b893604ec3d43c84d9425560dd1d75df
+  - enabled: 1
+    path: Assets/Scenes/end_credits.unity
+    guid: 54ef442e6182422468639dbe85889eab
   m_configObjects: {}

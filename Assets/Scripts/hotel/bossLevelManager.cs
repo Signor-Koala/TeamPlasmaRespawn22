@@ -59,7 +59,7 @@ public class bossLevelManager : MonoBehaviour
             CEO_script.Highscore = runScore+CEO_script.money;
             
         yield return new WaitForSeconds(5);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Menu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("end_credits");
         Debug.Log("The End");
     }
 }

@@ -21,10 +21,10 @@ public class loadingScript : MonoBehaviour
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelName);
         loadOperation.allowSceneActivation=false;
 
-        while (!loadOperation.isDone || Time.time -startTime < 2f )
+        while (!loadOperation.isDone || Time.time -startTime < 1.5f )
         {
             float progress = Mathf.Clamp01(loadOperation.progress/0.9f);
-            loadSlider.value=(Time.time - startTime + progress)/3f;
+            loadSlider.value=(Time.time - startTime + progress)/2.5f;
             if(loadSlider.value>=1 && loadOperation.progress>=0.9f)
                 loadOperation.allowSceneActivation=true;
             yield return null;

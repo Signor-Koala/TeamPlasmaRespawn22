@@ -141,7 +141,7 @@ public class controller : MonoBehaviour
 
         if(stamina<=0)
             stamina=0;
-        if(Time.time > lastRollTime + rollReload)
+        if(Time.time > lastRollTime + rollReload && stamina<staminacap)
 	        stamina+=2;
 
         if (direction.x != 0 || direction.y != 0)
@@ -165,7 +165,7 @@ public class controller : MonoBehaviour
                 newEmission.rateOverDistance = 100 * stamina/staminacap;
 
                 trail.Play();
-                rbd.velocity = (Vector3)dodgeDir * ((3+(2*stamina/staminacap)) * speed);
+                rbd.velocity = (Vector3)dodgeDir * ((3+2*stamina/staminacap) * speed);
                 if(gameObject.GetComponentInChildren<Light2D>().intensity<1)
                     gameObject.GetComponentInChildren<Light2D>().intensity+=0.05f;
                 //trailRender.enabled = true;   //trailRender, yes or no? hmmm...
