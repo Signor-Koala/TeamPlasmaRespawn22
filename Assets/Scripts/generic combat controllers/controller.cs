@@ -165,7 +165,7 @@ public class controller : MonoBehaviour
                 newEmission.rateOverDistance = 100 * stamina/staminacap;
 
                 trail.Play();
-                rbd.velocity = (Vector3)dodgeDir * ((3+2*stamina/staminacap) * speed);
+                rbd.velocity = (Vector3)dodgeDir * ((4+1*stamina/staminacap) * speed);
                 if(gameObject.GetComponentInChildren<Light2D>().intensity<1)
                     gameObject.GetComponentInChildren<Light2D>().intensity+=0.05f;
                 //trailRender.enabled = true;   //trailRender, yes or no? hmmm...

@@ -103,12 +103,13 @@ MonoBehaviour:
   damage: 20
   reload: 0.8
   agroDistance: 1.2
-  speed: 30
+  speed: 1
   attackDistance: 0.2
   enemyType: 4
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
+  runuptime: 0.5
   currenProj: {fileID: 0}
   attackPoint: {fileID: 9147751423845414945}
 --- !u!50 &9147751423019982065

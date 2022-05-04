@@ -690,6 +690,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.033333335
+    functionName: camTransit
+    data: toBoss
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 2.1166666
     functionName: smokeScreen
     data: 
@@ -700,6 +707,13 @@ AnimationClip:
   - time: 2.3
     functionName: heal
     data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.9166667
+    functionName: camTransit
+    data: toMain
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

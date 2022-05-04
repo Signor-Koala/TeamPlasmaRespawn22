@@ -50,8 +50,8 @@ public class CEO_script : MonoBehaviour
         speed = PlayerPrefs.GetFloat("speed", 1.0f);
         firstLoad = PlayerPrefs.GetInt("firstload",1);
         Highscore = PlayerPrefs.GetInt("Highscore",0);
-        musicLevel = PlayerPrefs.GetFloat("musicLevel", 1f);
-        SFxLevel = PlayerPrefs.GetFloat("SFxLevel", 1f);
+        musicLevel = PlayerPrefs.GetFloat("musicLevel", 0.75f);
+        SFxLevel = PlayerPrefs.GetFloat("SFxLevel", 0.75f);
         lastDangerLevel=0;
         if(firstLoad==1)
             Highscore=0;
@@ -81,6 +81,12 @@ public class CEO_script : MonoBehaviour
         
         if(dangerLevel<0)
             dangerLevel=0;
+    }
+
+    public void setVolume()
+    {
+        mixer.SetFloat("musicLevel",musicLevel);
+        mixer.SetFloat("sfxLevel",SFxLevel);
     }
 
     public static void loadLevel(string levelName)

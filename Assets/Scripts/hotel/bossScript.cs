@@ -29,9 +29,9 @@ public class bossScript : MonoBehaviour
     private Quaternion rot = Quaternion.Euler(0, 0, 0);
     private Rigidbody2D rbd;
     
-    private bool isAttacking = false,isAngry = false, isDashing = false, invincible=false;
+    public bool isAttacking = false,isAngry = false, isDashing = false, invincible=false;
     private int nextAttack = 0;
-    private Animator anim;
+    private Animator anim, stateDrivenCamAnim;
     [SerializeField] GameObject bossBullet, popcorn, pepperBullet;
     public healthBar healthBar;
     public float[] phase2LastAttackTime = new float[6];
@@ -44,6 +44,7 @@ public class bossScript : MonoBehaviour
         health = maxhealth;
         healthBar.initializeHealth(maxhealth);
         anim = this.GetComponent<Animator>();
+        stateDrivenCamAnim = GameObject.Find("stateDrivenCamera").GetComponent<Animator>();
         GetComponent<ParticleSystem>().Stop();
         //anim.SetBool("isAngry",true);         //for phase 2 testing
         AudioManager.instance.Play("boss_phase_1");
@@ -112,6 +113,9 @@ public class bossScript : MonoBehaviour
     public void IdleStage2()    //decides the next action
     {
         nextAttack = Random.Range(stage2AttackLowerBound,stage2AttackUpperBound);
+        if((transform.position - plr.transform.position).magnitude>2f)            //punishes the player if he stays away :trollface:
+            nextAttack = 3;
+
         switch (nextAttack)
         {
             case 1:
@@ -122,7 +126,7 @@ public class bossScript : MonoBehaviour
                 anim.SetTrigger("bulletAttack");
                 break;
             case 3:
-                if(Time.time - phase2LastAttackTime[2]>4)
+                if(Time.time - phase2LastAttackTime[2]>4 || veryAngry)
                 {
                     Debug.Log("Dash-n-Smash!");
                     anim.SetTrigger("DashAttack");
@@ -130,7 +134,7 @@ public class bossScript : MonoBehaviour
                 }
                 break;
             case 4:
-                if(Time.time - phase2LastAttackTime[4]>10)
+                if(Time.time - phase2LastAttackTime[4]>10 || veryAngry)
                 {
                     Debug.Log("Pepper Blasts");
                     anim.SetTrigger("pepperAttack");
@@ -139,7 +143,7 @@ public class bossScript : MonoBehaviour
                 }
                 break;
             case 5:
-                if(Time.time - phase2LastAttackTime[5]>20)
+                if(Time.time - phase2LastAttackTime[5]>( veryAngry? 10 : 20) )
                 {
                     Debug.Log("MeleeMania!");
                     anim.SetTrigger("spawnHorde");
@@ -154,9 +158,9 @@ public class bossScript : MonoBehaviour
     {
         stage2AttackUpperBound=5; //Fine, I'll do it by myself.
         stage2AttackLowerBound=2; //no time to be idle anymore :harold:
-        bulletReloadProbability=0.75f;   //what's the point in saving bullets? :harold:
-        pepperGunReloadProbability=0.9f;    //Rain fire protocol :harold:
-        dashEncoreProbablilty=0.75f;     //I'll smack you down!
+        bulletReloadProbability=0.5f;   //what's the point in saving bullets? :harold:
+        pepperGunReloadProbability=0.5f;    //Rain fire protocol :harold:
+        dashEncoreProbablilty=0f;     //I'll smack you down!
         anim.SetBool("lastDitchEffort",true);
         veryAngry = true;
     }
@@ -175,7 +179,7 @@ public class bossScript : MonoBehaviour
         }
     }
 
-    float bulletReloadProbability=0.4f;
+    float bulletReloadProbability=0.33f;
     public void bulletReload()
     {
         if(Random.Range(0f,1f)<bulletReloadProbability)
@@ -355,7 +359,7 @@ public class bossScript : MonoBehaviour
     }
     public void thudSound()
     {
-        Play("thud");
+        Play("boss_thud");
     }
     public void damageSound()
     {
@@ -384,6 +388,20 @@ public class bossScript : MonoBehaviour
     public void eyeFlashSound()
     {
         AudioManager.instance.Play("bossEyesFlash");
+    }
+
+    public void camTransit(string toState)
+    {
+        GameObject.Find("bossLevelManager").GetComponent<bossLevelManager>().transitSequence(toState);
+    }
+
+    public void fastToPlayer()
+    {
+        GameObject.Find("bossLevelManager").GetComponent<bossLevelManager>().fastTransit();
+    }
+    public void stopMusic()
+    {
+        AudioManager.instance.FadeOut("boss_phase_2",1);
     }
     
 }

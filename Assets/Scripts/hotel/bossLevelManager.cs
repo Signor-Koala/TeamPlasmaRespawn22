@@ -6,17 +6,27 @@ public class bossLevelManager : MonoBehaviour
 {
     [SerializeField] GameObject player, portal, endScreen, whiteScreen;
     public TMPro.TextMeshProUGUI scoreText;
-    Animator whiteScreenAnim;
+    Animator whiteScreenAnim, stateDrivenCamAnim;
     bool endingTriggered = false;
     
     void Start()
     {
+        stateDrivenCamAnim = GameObject.Find("stateDrivenCamera").GetComponent<Animator>();
         CEO_script.currentGameState=CEO_script.gameState.bossBattle;
         player = GameObject.Find("Player");
         whiteScreen = GameObject.Find("White Screen");
         whiteScreenAnim = GameObject.Find("White Screen").GetComponent<Animator>();
         endScreen.SetActive(false);
         whiteScreen.SetActive(false);
+    }
+    
+    public void fastTransit()
+    {
+        stateDrivenCamAnim.Play("playerCam");
+    }
+    public void transitSequence(string toState)
+    {
+        stateDrivenCamAnim.SetTrigger(toState);
     }
 
     // Update is called once per frame
@@ -40,8 +50,10 @@ public class bossLevelManager : MonoBehaviour
         newPortal.transform.position = player.transform.position;
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+        stateDrivenCamAnim.SetTrigger("toPlayer");
 
         yield return new WaitForSeconds(4);
+        AudioManager.instance.Stop("boss_phase_2");
 
         newPortal.GetComponent<portalScript>().activatePortal();
         AudioManager.instance.Play("portal_open");
