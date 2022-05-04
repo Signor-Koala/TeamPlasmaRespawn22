@@ -29,9 +29,8 @@ Transform:
   m_GameObject: {fileID: 8221547130648313157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.002342, y: -0, z: 0}
-  m_LocalScale: {x: 1.2729573, y: 1.28547, z: 5.244669}
-  m_Children:
-  - {fileID: 5327510602469470579}
+  m_LocalScale: {x: 0.90735126, y: 0.9162702, z: 3.7383478}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98,13 +97,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d231d1aea6638359895c77ec5ea9e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 7
   plr: {fileID: 0}
   boss: {fileID: 0}
-  muzzleFlashLight: {fileID: 494111324601513684}
+  muzzleFlashLight: {fileID: 5030604083546825327, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
   reload: 0.0833
   damage: 5
   enemyBullet: 0
+  rotating: 0
   bossBullet: 0
   explosive: 0
   explosiveRange: 4
@@ -115,6 +115,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   bulletLifetime: 7.5
+  knockBackVal: 0.25
+  recoilVal: 2
 --- !u!50 &-7038269027445449491
 Rigidbody2D:
   serializedVersion: 4
@@ -152,70 +154,3 @@ CircleCollider2D:
   m_Offset: {x: 0.00067414966, y: -0.0040654335}
   serializedVersion: 2
   m_Radius: 0.047763452
---- !u!1001 &4830995032958751931
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 3321223967212267346}
-    m_Modifications:
-    - target: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5030604083546825327, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-      propertyPath: m_Name
-      value: flash
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
---- !u!1 &494111324601513684 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5030604083546825327, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-  m_PrefabInstance: {fileID: 4830995032958751931}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5327510602469470579 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 784816872825497032, guid: cd11685ba95e94b46aa7abea8011f477, type: 3}
-  m_PrefabInstance: {fileID: 4830995032958751931}
-  m_PrefabAsset: {fileID: 0}

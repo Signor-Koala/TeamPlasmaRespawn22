@@ -129,6 +129,7 @@ public class controller : MonoBehaviour
         {    
             FireWeapon((rbd.position-looking)+inaccuracy, rot);
 	        ammo-=ammoRate;
+            recoilplr=currenProj.GetComponent<Bullet>().recoilVal;
 	        rbd.velocity = recoilplr*looking; //recoil for player
         }
 	if (!Input.GetButton("Fire1") && ammo < ammocapacity)
@@ -160,14 +161,17 @@ public class controller : MonoBehaviour
 
             if (invincible)
             {
+                var newEmission = trail.emission;
+                newEmission.rateOverDistance = 100 * stamina/staminacap;
+
                 trail.Play();
-                rbd.velocity = (Vector3)dodgeDir * ((3+(3*stamina/staminacap)) * speed);
+                rbd.velocity = (Vector3)dodgeDir * ((3+(2*stamina/staminacap)) * speed);
                 if(gameObject.GetComponentInChildren<Light2D>().intensity<1)
                     gameObject.GetComponentInChildren<Light2D>().intensity+=0.05f;
                 //trailRender.enabled = true;   //trailRender, yes or no? hmmm...
 
                 AudioManager.instance.Play("dashEffect");   //play dash sound
-                cameraShake.instance.shakeCamera(1f,rollDuration);
+                cameraShake.instance.shakeCamera(1f*stamina/staminacap,rollDuration);
 
                 StartCoroutine(trailfadeDelay());
 
@@ -257,7 +261,7 @@ public class controller : MonoBehaviour
 
     public void playShotSound()
     {
-        cameraShake.instance.shakeCamera(0.5f,0.2f);
+        cameraShake.instance.shakeCamera(0.5f,0.05f);
         if(currenProj==projList[0])
             AudioManager.instance.Play("bullet");
         else if(currenProj==projList[1] && !firing)
@@ -281,19 +285,19 @@ public class controller : MonoBehaviour
         yield return new WaitForSeconds(delay);
         AudioManager.instance.Play(name);
     }
-    IEnumerator machineGunLoop()    //play sound with delay
-    {
-        firing=true;
-        while (Input.GetButton("Fire1") && ammo>0)
-        {
-            AudioManager.instance.Play("machine_gun_shot");
-            cameraShake.instance.shakeCamera(0.3f,0.05f);
-            yield return new WaitForSeconds(0.0833f);
-        }
-        firing=false;
-        yield return null;
+    // IEnumerator machineGunLoop()    //play sound with delay
+    // {
+    //     firing=true;
+    //     while (Input.GetButton("Fire1") && ammo>0)
+    //     {
+    //         AudioManager.instance.Play("machine_gun_shot");
+    //         cameraShake.instance.shakeCamera(0.3f,0.05f);
+    //         yield return new WaitForSeconds(0.0833f);
+    //     }
+    //     firing=false;
+    //     yield return null;
         
-    }
+    // }
 
     IEnumerator gameOverSequence()
     {

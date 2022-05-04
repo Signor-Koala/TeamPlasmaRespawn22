@@ -129,7 +129,6 @@ public class EnemyScript : MonoBehaviour
     void FireWeapon(Vector3 position, Quaternion rotation)
     {
         GameObject bullet = Instantiate(currenProj, position, rotation);
-        bullet.GetComponent<Rigidbody2D>().angularVelocity = 360;
         bullet.GetComponent<Bullet>().plr = this.transform;
         if (enemyType == 3)
         {
