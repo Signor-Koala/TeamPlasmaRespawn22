@@ -43,6 +43,7 @@ public class controller : MonoBehaviour
     public GameObject[] projList;
     ParticleSystem trail;
     TrailRenderer trailRender;
+    healthBar ammoBar,staminaBar;
     
 
 
@@ -62,6 +63,12 @@ public class controller : MonoBehaviour
 
         health = CEO_script.health;
         speed = CEO_script.speed;
+
+        ammoBar=GameObject.Find("AmmoBar").GetComponent<healthBar>();               //initializing stamina and ammo bars.
+        staminaBar=GameObject.Find("StaminaBar").GetComponent<healthBar>();
+        ammoBar.initializeHealth(ammocapacity);
+        staminaBar.initializeHealth(staminacap);
+
         currenProj = CEO_script.activePowerUp;    //for level testing
         PlayerPrefs.SetInt("firstload",1);
     }
@@ -69,7 +76,8 @@ public class controller : MonoBehaviour
     
     void FixedUpdate()
     {
-        Debug.Log("stamina "+ stamina);
+        ammoBar.setHealth(ammo);
+        staminaBar.setHealth(stamina);
         //Input
         float xaxis = Input.GetAxisRaw("Horizontal");
         float yaxis = Input.GetAxisRaw("Vertical");
@@ -165,7 +173,7 @@ public class controller : MonoBehaviour
                 newEmission.rateOverDistance = 100 * stamina/staminacap;
 
                 trail.Play();
-                rbd.velocity = (Vector3)dodgeDir * ((4+1*stamina/staminacap) * speed);
+                rbd.velocity = (Vector3)dodgeDir * (5 * speed);
                 if(gameObject.GetComponentInChildren<Light2D>().intensity<1)
                     gameObject.GetComponentInChildren<Light2D>().intensity+=0.05f;
                 //trailRender.enabled = true;   //trailRender, yes or no? hmmm...

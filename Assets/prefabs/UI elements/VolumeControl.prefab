@@ -378,6 +378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+  slider: {fileID: 8786503872470140946}
+  currentSliderType: 1
 --- !u!1 &8786503872583669640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+  slider: {fileID: 8786503873964190573}
+  currentSliderType: 0
 --- !u!1 &8786503873973094627
 GameObject:
   m_ObjectHideFlags: 0

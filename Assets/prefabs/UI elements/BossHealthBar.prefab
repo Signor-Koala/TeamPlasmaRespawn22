@@ -316,16 +316,16 @@ MonoBehaviour:
   gradient:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0.050836317, b: 0, a: 1}
-    key2: {r: 0.96787477, g: 1, b: 0, a: 0}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0.12127423, g: 1, b: 0, a: 0}
     key3: {r: 0.12127423, g: 1, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 6554
-    ctime2: 32768
+    ctime1: 65535
+    ctime2: 65535
     ctime3: 65535
     ctime4: 0
     ctime5: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 4
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   fill: {fileID: 1856818145947632637}
 --- !u!1 &1856818147094742291
