@@ -42,6 +42,24 @@ https://www.vhv.rs/viewpic/hRxhxR_smoke-sprite-sheet-transparent-hd-png-download
 
 https://wenrexa.itch.io/nesia01
 
+https://wallpapersafari.com/w/CZALxN
+
+https://www.nicepng.com/ourpic/u2e6r5a9w7q8i1t4_attached-are-various-explosion-sprites-created-with-8/
+
+https://freesound.org/people/Sunejackie/sounds/542398/
+
+https://soundbible.com/1467-Grenade-Explosion.html
+
+https://freesound.org/people/Bertsz/sounds/500912/
+
+https://soundbible.com/1902-Fire-Burning.html
+
+https://freesound.org/people/patobottos/sounds/369017/
+
+https://freesound.org/people/InspectorJ/sounds/485076/
+
+https://freesound.org/people/timgormly/sounds/152721/
+
 
 
 ## Project status
