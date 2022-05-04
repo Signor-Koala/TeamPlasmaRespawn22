@@ -420,6 +420,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1324694714195706820, guid: f6b315a51694c5d45b9322f7e72f2a18, type: 3}
   m_PrefabInstance: {fileID: 155841453}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &155841455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2809011937168291404, guid: f6b315a51694c5d45b9322f7e72f2a18, type: 3}
+  m_PrefabInstance: {fileID: 155841453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &198737818
 GameObject:
   m_ObjectHideFlags: 0
@@ -6123,7 +6128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 1498568444194328301}
-  healthContainer: {fileID: 0}
+  healthContainer: {fileID: 155841455}
   VTbutton: {fileID: 351029119292272376}
   currentVE: {fileID: 351029118282293321}
   healthCost: {fileID: 351029119848596731}
