@@ -262,7 +262,8 @@ public class controller : MonoBehaviour
             AudioManager.instance.Play("bullet");
         else if(currenProj==projList[1] && !firing)
         {
-            StartCoroutine(machineGunLoop());
+            //StartCoroutine(machineGunLoop());
+            AudioManager.instance.Play("machine_gun_shot");
         }
         else if(currenProj==projList[2])
             AudioManager.instance.Play("Sniper");

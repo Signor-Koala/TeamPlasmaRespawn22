@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 5f;
     public Transform plr,boss;
+    public GameObject muzzleFlashLight;
     public float reload = 0.5f;
     public int damage = 20;
     public bool enemyBullet = false;
@@ -23,6 +24,9 @@ public class Bullet : MonoBehaviour
     private float bulletLife = 0;
     void Start()
     {
+        muzzleFlashLight.SetActive(true);
+        StartCoroutine(muzzleFlash());
+
         rb = this.GetComponent<Rigidbody2D>();
         cameraAnim = FindObjectOfType<Camera>().GetComponent<Animator>();
         if(this.GetComponent<Animator>() != null)
@@ -45,6 +49,12 @@ public class Bullet : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(Vector3.forward, -1*speedVec);
         rb.velocity = speedVec;
         bulletLife = Time.time;
+    }
+
+    IEnumerator muzzleFlash()
+    {
+        yield return new WaitForSecondsRealtime(Time.deltaTime);
+        muzzleFlashLight.SetActive(false);
     }
     
     private void OnTriggerEnter2D(Collider2D col)

@@ -162,7 +162,7 @@ public class EnemyScript : MonoBehaviour
     
     public void TakeDamage(int dam, Vector2 recoil)
     {
-	    this.rbd.velocity += recoil*1/15;
+	    this.rbd.velocity += recoil*1/30;
         if (!isAgro)
         {
             isAgro = true;
