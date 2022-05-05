@@ -424,7 +424,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: forest_normal_theme
     clip: {fileID: 8300000, guid: adc9a6e401fdbf741b1a5157167a56dc, type: 3}
-    volume: 0.558
+    volume: 0.704
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -433,7 +433,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: forest_danger_theme
     clip: {fileID: 8300000, guid: 04766baab88a498428d4c9cdfe2b108d, type: 3}
-    volume: 0.584
+    volume: 0.704
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: hotel_normal_theme
     clip: {fileID: 8300000, guid: cd7d5c4e042b0aa4384690c2e506122d, type: 3}
-    volume: 1
+    volume: 0.703
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -451,7 +451,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: hotel_danger_theme
     clip: {fileID: 8300000, guid: aa87791551ab5d444a531dfb2834c96a, type: 3}
-    volume: 1
+    volume: 0.704
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -492,5 +492,14 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 1
+    mixerGroup: {fileID: -354679998002534724, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
+    source: {fileID: 0}
+  - name: end_credits
+    clip: {fileID: 8300000, guid: c88827cadeeb46840aa78a1127d71b1c, type: 3}
+    volume: 0.709
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
     mixerGroup: {fileID: -354679998002534724, guid: 9e86336ea6b28f548af7eb30b0c8510b, type: 2}
     source: {fileID: 0}

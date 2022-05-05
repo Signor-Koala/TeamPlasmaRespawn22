@@ -54,6 +54,7 @@ public class bossLevelManager : MonoBehaviour
 
         yield return new WaitForSeconds(4);
         AudioManager.instance.Stop("boss_phase_2");
+        AudioManager.instance.Stop("boss_phase_1");
 
         newPortal.GetComponent<portalScript>().activatePortal();
         AudioManager.instance.Play("portal_open");
@@ -63,15 +64,18 @@ public class bossLevelManager : MonoBehaviour
 
         yield return new WaitForSeconds(2);
         endScreen.SetActive(true);
+        AudioManager.instance.Play("end_credits");
 
         int runScore = CEO_script.totalKillScore + CEO_script.money;
         scoreText.text = "Score: " + runScore.ToString();
 
         if(runScore+CEO_script.money>CEO_script.Highscore)
             CEO_script.Highscore = runScore+CEO_script.money;
-            
-        yield return new WaitForSeconds(5);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("end_credits");
+        
+        AsyncOperation creditsLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("end_credits");
+        creditsLoad.allowSceneActivation=false;
+        yield return new WaitForSeconds(12);
+        creditsLoad.allowSceneActivation=true;
         Debug.Log("The End");
     }
 }
