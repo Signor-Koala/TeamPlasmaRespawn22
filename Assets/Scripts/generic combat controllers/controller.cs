@@ -44,6 +44,7 @@ public class controller : MonoBehaviour
     ParticleSystem trail;
     TrailRenderer trailRender;
     healthBar ammoBar,staminaBar;
+    Light2D dashLight;
     
 
 
@@ -57,19 +58,20 @@ public class controller : MonoBehaviour
         gameObject.GetComponentInChildren<Light2D>().intensity=0.5f;
 
         trailRender = this.gameObject.GetComponent<TrailRenderer>();
+        dashLight = gameObject.GetComponentInChildren<Light2D>();
         trail = GetComponent<ParticleSystem>();
         trailRender.enabled = false;
         trail.Stop();
 
         health = CEO_script.health;
         speed = CEO_script.speed;
-
+        
         ammoBar=GameObject.Find("AmmoBar").GetComponent<healthBar>();               //initializing stamina and ammo bars.
         staminaBar=GameObject.Find("StaminaBar").GetComponent<healthBar>();
         ammoBar.initializeHealth(ammocapacity);
         staminaBar.initializeHealth(staminacap);
 
-        currenProj = CEO_script.activePowerUp;    //for level testing
+        currenProj = CEO_script.activePowerUp;    //for level testing//
         PlayerPrefs.SetInt("firstload",1);
     }
 
@@ -174,8 +176,8 @@ public class controller : MonoBehaviour
 
                 trail.Play();
                 rbd.velocity = (Vector3)dodgeDir * (5 * speed);
-                if(gameObject.GetComponentInChildren<Light2D>().intensity<1)
-                    gameObject.GetComponentInChildren<Light2D>().intensity+=0.05f;
+                if(dashLight.intensity<1)
+                    dashLight.intensity+=0.05f;
                 //trailRender.enabled = true;   //trailRender, yes or no? hmmm...
 
                 AudioManager.instance.Play("dashEffect");   //play dash sound
@@ -197,8 +199,8 @@ public class controller : MonoBehaviour
                 rbd.transform.position += (Vector3) direction * (speed * Time.deltaTime);
             }
 
-            if(gameObject.GetComponentInChildren<Light2D>().intensity>0.5f)   //dash glow fade off
-                    gameObject.GetComponentInChildren<Light2D>().intensity-=0.05f;
+            if(dashLight.intensity>0.5f)   //dash glow fade off
+                dashLight.intensity-=0.05f;
         }
 
         for (int i = 0; i < 5; i++)
