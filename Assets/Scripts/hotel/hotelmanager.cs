@@ -9,6 +9,7 @@ public class hotelmanager : MonoBehaviour
     void Start()
     {
         inDanger=false;
+        CEO_script.dangerLevel=0;
         
         AudioManager.instance.Play("hotel_normal_theme");
         AudioManager.instance.Play("hotel_danger_theme");

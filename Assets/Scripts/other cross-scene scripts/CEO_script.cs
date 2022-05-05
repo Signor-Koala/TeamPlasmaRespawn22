@@ -60,6 +60,8 @@ public class CEO_script : MonoBehaviour
         mixer.SetFloat("sfxLevel",SFxLevel);
     }
 
+    
+
     public static void transition(int newhealth)
     {
         health = newhealth;
@@ -79,6 +81,7 @@ public class CEO_script : MonoBehaviour
 
     private void Update() {
         
+        //Debug.Log(1/Time.deltaTime);
         if(dangerLevel<0)
             dangerLevel=0;
     }

@@ -19,7 +19,8 @@ public class forestManager : MonoBehaviour
     void Start()
     {
         CEO_script.currentGameState = CEO_script.gameState.forestLevel; 
-        player.GetComponent<controller>().currenProj = player.GetComponent<controller>().projList[0];
+        CEO_script.dangerLevel=0;
+        CEO_script.activePowerUp = player.GetComponent<controller>().projList[0];
         pidjonRB = GameObject.Find("Pidjon").GetComponent<Rigidbody2D>();
         pidjonAnim = GameObject.Find("Pidjon").GetComponent<Animator>();
         pidjon.SetActive(false);
