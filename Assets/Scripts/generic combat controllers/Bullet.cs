@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour
         if(!bossBullet && !enemyBullet)
             speedVec = speed*(position-(Vector2)positionplr).normalized;
         else if(enemyBullet && !bossBullet)
-            speedVec = speed*(position - (Vector2)positionplr).normalized;
+            speedVec = speed*((position - (Vector2)positionplr).normalized+Vector2.Perpendicular(position - (Vector2)positionplr).normalized*UnityEngine.Random.Range(-0.1f,0.1f)).normalized;
         else if(boss != null && bossBullet)
         {
             speedVec = speed*(plr.position+new Vector3(0,-0.2f,0) - transform.position).normalized;

@@ -14,6 +14,7 @@ public class CEO_script : MonoBehaviour
     public static int[] enemiesKilled = new int[3];
     public static int totalKillScore=0;
     public static int dangerLevel=0, lastDangerLevel=0;
+    public static int postProcessing;
     public enum gameState
     {
         preForestLevel,forestLevel, forestLevelCleared,withDaPidgon,
@@ -52,6 +53,7 @@ public class CEO_script : MonoBehaviour
         Highscore = PlayerPrefs.GetInt("Highscore",0);
         musicLevel = PlayerPrefs.GetFloat("musicLevel", 0.75f);
         SFxLevel = PlayerPrefs.GetFloat("SFxLevel", 0.75f);
+        postProcessing = PlayerPrefs.GetInt("postProcessing",1);
         lastDangerLevel=0;
         if(firstLoad==1)
             Highscore=0;
@@ -86,12 +88,7 @@ public class CEO_script : MonoBehaviour
             dangerLevel=0;
     }
 
-    public void setVolume()
-    {
-        mixer.SetFloat("musicLevel",musicLevel);
-        mixer.SetFloat("sfxLevel",SFxLevel);
-    }
-
+    
     public static void loadLevel(string levelName)
     {
         nextLevel = levelName;
@@ -104,5 +101,6 @@ public class CEO_script : MonoBehaviour
         PlayerPrefs.SetInt("money",money);
         PlayerPrefs.SetFloat("musicLevel", musicLevel);
         PlayerPrefs.SetFloat("SFxLevel", SFxLevel);
+        PlayerPrefs.SetInt("postProcessing",postProcessing);
     }
 }

@@ -22,6 +22,7 @@ public class forestEntryTrigger : MonoBehaviour
 		CEO_script.activePowerUp = null;
 		
 		AudioManager.instance.Play("pre_forest_theme");
+
 	}
 
 	private void Update() {

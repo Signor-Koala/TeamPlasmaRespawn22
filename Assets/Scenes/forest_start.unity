@@ -4690,7 +4690,7 @@ MonoBehaviour:
     - There is a peculiar object lying on the ground...
     - '!'
     - the object fused with your body!
-    - left-click to fire, right-click to dash
+    - left click to fire, right click to dash
   player: {fileID: 608362920}
   peaPowerUp: {fileID: 2124937094}
 --- !u!61 &958920146
@@ -5262,7 +5262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -5561,8 +5561,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0.105
-  m_LookaheadSmoothing: 1
+  m_LookaheadTime: 0.345
+  m_LookaheadSmoothing: 1.5
   m_LookaheadIgnoreY: 0
   m_XDamping: 1
   m_YDamping: 1
@@ -6251,6 +6251,10 @@ PrefabInstance:
     - target: {fileID: 6711973192078659932, guid: acea22ea960bab944a1e4f9e31422f91, type: 3}
       propertyPath: m_Name
       value: VolumeControl
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711973192078659932, guid: acea22ea960bab944a1e4f9e31422f91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8786503872432683855, guid: acea22ea960bab944a1e4f9e31422f91, type: 3}
       propertyPath: m_AnchorMax.x

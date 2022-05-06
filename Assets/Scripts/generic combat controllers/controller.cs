@@ -7,6 +7,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class controller : MonoBehaviour
 {
+    float xaxis,yaxis;
     public float speed = 1.0f;
     public int health = 100;
     public bool died = false;
@@ -45,7 +46,6 @@ public class controller : MonoBehaviour
     TrailRenderer trailRender;
     healthBar ammoBar,staminaBar;
     Light2D dashLight;
-    
 
 
     void Start()
@@ -65,6 +65,7 @@ public class controller : MonoBehaviour
 
         health = CEO_script.health;
         speed = CEO_script.speed;
+        invincible=false;
         
         ammoBar=GameObject.Find("AmmoBar").GetComponent<healthBar>();               //initializing stamina and ammo bars.
         staminaBar=GameObject.Find("StaminaBar").GetComponent<healthBar>();
@@ -78,20 +79,14 @@ public class controller : MonoBehaviour
     
     void FixedUpdate()
     {
-        ammoBar.setHealth(ammo);
-        staminaBar.setHealth(stamina);
         //Input
-        float xaxis = Input.GetAxisRaw("Horizontal");
-        float yaxis = Input.GetAxisRaw("Vertical");
+        xaxis = Input.GetAxisRaw("Horizontal");
+        yaxis = Input.GetAxisRaw("Vertical");
 
         if(xaxis !=0 || yaxis !=0)
             anim.SetFloat("animationSpeed",1);
         else
             anim.SetFloat("animationSpeed",0.5f);
-        
-        //if(xaxis<0)
-            //this.gameObject.transform.localScale = new Vector3(-0.5f,0.5f,1);
-        
         
         //Bullet positioning
         looking = rbd.position - (Vector2)maincam.ScreenToWorldPoint(Input.mousePosition);
@@ -100,10 +95,10 @@ public class controller : MonoBehaviour
         deviation = Vector2.Perpendicular(looking);
         deviation /= 10;
 
-	//inaccuracy for player gun, idk how to exactly implenet it for the enmy bullets, since
-	//the logic for it has changed
-	inaccuracy = deviation;
-	inaccuracy = UnityEngine.Random.Range(-1.0f,1.0f)*inaccuracyFloat*inaccuracy;
+	    //inaccuracy for player gun, idk how to exactly implenet it for the enmy bullets, since
+	    //the logic for it has changed
+	    inaccuracy = deviation;
+	    inaccuracy = UnityEngine.Random.Range(-1.0f,1.0f)*inaccuracyFloat*inaccuracy;
 
 
 
@@ -138,21 +133,13 @@ public class controller : MonoBehaviour
         if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible) && currenProj !=null && !pointerBusy && ammo > 0)
         {    
             FireWeapon((rbd.position-looking)+inaccuracy, rot);
-	        ammo-=ammoRate;
             recoilplr=currenProj.GetComponent<Bullet>().recoilVal;
 	        rbd.velocity = recoilplr*looking; //recoil for player
         }
-	if (!Input.GetButton("Fire1") && ammo < ammocapacity)
-	    ammo++;
+	
 
 
         direction = new Vector2(xaxis, yaxis);
-	if (!invincible && stamina < staminacap)
-
-        if(stamina<=0)
-            stamina=0;
-        if(Time.time > lastRollTime + rollReload && stamina<staminacap)
-	        stamina+=2;
 
         if (direction.x != 0 || direction.y != 0)
         {
@@ -168,49 +155,73 @@ public class controller : MonoBehaviour
                 else if(stamina<dashUsage)
                     stamina=0;
             }
-
-            if (invincible)
-            {
-                var newEmission = trail.emission;
-                newEmission.rateOverDistance = 100 * stamina/staminacap;
-
-                trail.Play();
-                rbd.velocity = (Vector3)dodgeDir * (5 * speed);
-                if(dashLight.intensity<1)
-                    dashLight.intensity+=0.05f;
-                //trailRender.enabled = true;   //trailRender, yes or no? hmmm...
-
-                AudioManager.instance.Play("dashEffect");   //play dash sound
-                cameraShake.instance.shakeCamera(1f*stamina/staminacap,rollDuration);
-
-                StartCoroutine(trailfadeDelay());
-
-                if (Time.time > lastRollTime + rollDuration)
-                {
-                    rbd.velocity = Vector2.zero;
-                    trail.Stop();
-                    invincible = false;
-                    dashCollider.enabled = false;
-                }
-            }
-            else if(!(CEO_script.currentGameState==CEO_script.gameState.bossBattleCleared && CEO_script.dangerLevel<=0)) // Normal movement
-            {
-                //Motion
-                rbd.transform.position += (Vector3) direction * (speed * Time.deltaTime);
-            }
-
-            if(dashLight.intensity>0.5f)   //dash glow fade off
-                dashLight.intensity-=0.05f;
         }
 
-        for (int i = 0; i < 5; i++)
+        if (invincible)
         {
-            if(currenProj !=null && currenProj==projList[i])
+            rbd.velocity = (Vector3)dodgeDir * (5 * speed);
+                
+            //trailRender.enabled = true;   //trailRender, yes or no? hmmm...
+
+            if (Time.time > lastRollTime + rollDuration)
+            {
+                rbd.velocity = Vector2.zero;
+                trail.Stop();
+                invincible = false;
+                dashCollider.enabled = false;
+            }
+        }
+        else if(CEO_script.currentGameState!=CEO_script.gameState.bossBattleCleared || CEO_script.dangerLevel>0) // Normal movement
+        {
+            //Motion
+            rbd.transform.position += (Vector3) direction * (speed * Time.fixedDeltaTime);
+        }
+        
+
+    }
+
+    private void Update() {
+
+        ammoBar.setHealth(ammo);        //ammo, stamina bar set
+        staminaBar.setHealth(stamina);
+
+        for (int i = 0; i < 5; i++)             //sprite switching
+        {
+            if(currenProj !=null && currenProj.name==projList[i].name)
             {
                 anim.SetInteger("attackMode",i+1);
             }
         }
 
+        if (Input.GetButton("Fire1") && (Time.time > lastFireTime + reloadTime) && !(invincible) && currenProj !=null && !pointerBusy && ammo > 0)  //ammo update
+            ammo-=ammoRate;
+
+        if (!Input.GetButton("Fire1") && ammo < ammocapacity)   //ammo recharge
+	        ammo++;
+
+        if (!invincible && stamina < staminacap)    //stamina recharge
+        {
+            if(stamina<=0)
+                stamina=0;
+            if(Time.time > lastRollTime + rollReload)
+	            stamina+=2;
+        }
+
+        if(invincible)            //dash effects
+        {
+            var newEmission = trail.emission;
+                newEmission.rateOverDistance = 100 * stamina/staminacap;
+                trail.Play();
+
+            if(dashLight.intensity<1)
+                    dashLight.intensity+=0.05f;
+            StartCoroutine(trailfadeDelay());
+            AudioManager.instance.Play("dashEffect");   //play dash sound
+            cameraShake.instance.shakeCamera(1f*stamina/staminacap,rollDuration);
+        }
+        
+        if(dashLight.intensity>0.5f)   //dash glow fade off
+                dashLight.intensity-=0.05f;
     }
 
     IEnumerator trailfadeDelay()
@@ -290,7 +301,7 @@ public class controller : MonoBehaviour
                 StartCoroutine(playSound("rpg_load",1.5f));
         }
     }   
-    IEnumerator playSound(string name, float delay)    //play sound with delay
+    IEnumerator playSound(string name, float delay)    //play sound with delay/
     {
         yield return new WaitForSeconds(delay);
         AudioManager.instance.Play(name);
