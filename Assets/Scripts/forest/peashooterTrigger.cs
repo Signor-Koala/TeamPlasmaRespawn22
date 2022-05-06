@@ -23,6 +23,7 @@ public class peashooterTrigger : MonoBehaviour
         {
             player.currenProj=peaPowerUp.projectile;
             CEO_script.activePowerUp = peaPowerUp.projectile;
+            player.switchweapons();
             CEO_script.firstLoad=0;
             Destroy(peaPowerUp.gameObject);
             AudioManager.instance.Play("powerUp1");
@@ -38,9 +39,10 @@ public class peashooterTrigger : MonoBehaviour
        }
        else if(other.CompareTag("Player") && peaPowerUp !=null)
        {
-            player.currenProj=peaPowerUp.projectile;
-            CEO_script.activePowerUp = peaPowerUp.projectile;
-            Destroy(peaPowerUp.gameObject);
+            player.currenProj = peaPowerUp.projectile;
+            player.switchweapons();
+            AudioManager.instance.Play("powerUp"+peaPowerUp.projectileSerial.ToString());
+            Destroy(gameObject);
        }
    }
     

@@ -45,6 +45,14 @@ public class Bullet : MonoBehaviour
             speedVec = speed*(position-(Vector2)positionplr).normalized;
         else if(enemyBullet && !bossBullet)
             speedVec = speed*((position - (Vector2)positionplr).normalized+Vector2.Perpendicular(position - (Vector2)positionplr).normalized*UnityEngine.Random.Range(-0.1f,0.1f)).normalized;
+        //This above code doesnt really need to be there since all the calculations for the 
+        //bullet trajectory have been done in the enemy script itself and forwarded to
+        //the bullet script in the exact same way as the player script
+        //in the eyes of the the bullet (in my initial script) a player and enemy are the exact same thing
+        //nevertheless, i will keep this here and assume you had good reason for putting
+        //this here :harold:
+        //it shouldn't cause too much problems since it only executes once
+        //but still, complicates things :harold:
         else if(boss != null && bossBullet)
         {
             speedVec = speed*(plr.position+new Vector3(0,-0.2f,0) - transform.position).normalized;

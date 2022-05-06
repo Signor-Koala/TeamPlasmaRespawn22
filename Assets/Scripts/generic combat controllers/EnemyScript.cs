@@ -115,7 +115,7 @@ public class EnemyScript : MonoBehaviour
     {
         var position = rbd.transform.position;
         var positionplr = plr.position;
-        destination = (position - positionplr) / (positionplr - position).magnitude;
+        destination = (position - positionplr).normalized;
         destination *= attackDistance;
         deviation = Vector2.Perpendicular(destination);
         deviation /= 10;

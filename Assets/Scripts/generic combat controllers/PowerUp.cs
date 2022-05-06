@@ -14,13 +14,13 @@ public class PowerUp : MonoBehaviour
         if (player != null)
         {
             player.currenProj = projectile;
-            CEO_script.activePowerUp = projectile;
+            player.switchweapons();
             AudioManager.instance.Play("powerUp"+projectileSerial.ToString());
             Destroy(gameObject);
         }
         if(col.CompareTag("Tree"))
-            {
-                col.gameObject.SetActive(false);
-            }
+        {
+            col.gameObject.SetActive(false);
+        }
     }
 }
