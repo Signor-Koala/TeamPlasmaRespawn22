@@ -33,11 +33,10 @@ public class cameraShake : MonoBehaviour
             while (Time.time - shakeStartTime < 2*dur)
             {
                 cinemachineBasicMultiChannelPerlin.m_AmplitudeGain -= amplitude*Time.unscaledDeltaTime/dur;
-                yield return new WaitForSeconds(Time.unscaledDeltaTime);
+                yield return new WaitForSeconds(Time.fixedUnscaledTime);
             }
         }
         cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0;
-        yield return null;
     }
 
 }

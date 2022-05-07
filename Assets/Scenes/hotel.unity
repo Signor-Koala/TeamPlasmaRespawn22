@@ -5816,7 +5816,7 @@ MonoBehaviour:
   speedPrice: 50
   healthAmount: 20
   speedAmount: 0.2
-  playerScript: {fileID: 962121407}
+  vitaminatorUI: {fileID: 4479712491949160226}
 --- !u!114 &4479712491949160226
 MonoBehaviour:
   m_ObjectHideFlags: 0

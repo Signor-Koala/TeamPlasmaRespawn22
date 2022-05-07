@@ -35,6 +35,7 @@ public class EnemyScript : MonoBehaviour
         plr = GameObject.Find("Player").transform;
         rbd = this.GetComponent<Rigidbody2D>();
         enemyAnim = this.GetComponent<Animator>();
+        agroDistance *= agroDistance;
         if (enemyType == 4)
         {
             enemyType = 1;
@@ -42,6 +43,7 @@ public class EnemyScript : MonoBehaviour
             CEO_script.dangerLevel++;
             enemyAnim.SetBool("isAggro",true);
         }
+        reload = currenProj.GetComponent<Bullet>().reload;
     }
 
     
@@ -52,7 +54,7 @@ public class EnemyScript : MonoBehaviour
             
         Vector2 distance = this.transform.position - plr.position;
 
-        if (!isAgro && distance.magnitude < agroDistance)
+        if (!isAgro && distance.sqrMagnitude < agroDistance)
         {
             isAgro = true;
             if(!aggroTriggered)
@@ -128,20 +130,23 @@ public class EnemyScript : MonoBehaviour
     
     void FireWeapon(Vector3 position, Quaternion rotation)
     {
-        GameObject bullet = Instantiate(currenProj, position, rotation);
-        bullet.GetComponent<Bullet>().plr = this.transform;
-        if (enemyType == 3)
-        {
-            GameObject bullet1 = Instantiate(currenProj, position + (Vector3) deviation, rotation);
-            bullet1.GetComponent<Bullet>().plr = transform;
-            GameObject bullet2 = Instantiate(currenProj, position - (Vector3) deviation, rotation);
-            bullet2.GetComponent<Bullet>().plr = transform;
-            AudioManager.instance.Play("enemy_shotgun");
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, position, out hit, agroDistance*5)){
+            if(hit.collider.CompareTag("Player")){ //make sure this is named correctly
+                GameObject bullet = Instantiate(currenProj, position, rotation);
+                bullet.GetComponent<Bullet>().plr = this.transform;
+                if (enemyType == 3)
+                {
+                    GameObject bullet1 = Instantiate(currenProj, position + (Vector3) deviation, rotation);
+                    bullet1.GetComponent<Bullet>().plr = transform;
+                    GameObject bullet2 = Instantiate(currenProj, position - (Vector3) deviation, rotation);
+                    bullet2.GetComponent<Bullet>().plr = transform;
+                    AudioManager.instance.Play("enemy_shotgun");
+                }
+                else if(enemyType==2)
+                    AudioManager.instance.Play("enemy_gunfire");
+            }
         }
-        else if(enemyType==2)
-            AudioManager.instance.Play("enemy_gunfire");
-
-        reload = bullet.GetComponent<Bullet>().reload;
         lastAttack = Time.time;
     }
 
@@ -187,6 +192,8 @@ public class EnemyScript : MonoBehaviour
 
             addScore();
             CEO_script.dangerLevel--;
+            if (CEO_script.dangerLevel<0)
+                CEO_script.dangerLevel = 0;
             
             this.gameObject.GetComponent<Collider2D>().enabled = false;
             this.enabled = false;

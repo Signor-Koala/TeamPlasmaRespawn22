@@ -109,7 +109,6 @@ public class AudioManager : MonoBehaviour
 			s.source.volume -= Time.deltaTime/dur;
 			yield return new WaitForSecondsRealtime(Time.deltaTime);
 		}
-		yield return null;
 	}
 
 

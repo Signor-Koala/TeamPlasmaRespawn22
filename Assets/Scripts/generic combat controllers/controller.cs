@@ -262,17 +262,10 @@ public class controller : MonoBehaviour
                 dashLight.intensity-=0.05f;
     }
     
-    /*
-    private void Update() {
-
-    }
-    */
-
     IEnumerator trailfadeDelay()
     {
         yield return new WaitForSeconds(0.3f);
-        trailRender.enabled = false;
-        
+        trailRender.enabled = false; 
     }
 
     void FireWeapon(Vector3 position, Quaternion rotation)
@@ -360,20 +353,7 @@ public class controller : MonoBehaviour
         yield return new WaitForSeconds(delay);
         AudioManager.instance.Play(name);
     }
-    // IEnumerator machineGunLoop()    //play sound with delay
-    // {
-    //     firing=true;
-    //     while (Input.GetButton("Fire1") && ammo>0)
-    //     {
-    //         AudioManager.instance.Play("machine_gun_shot");
-    //         cameraShake.instance.shakeCamera(0.3f,0.05f);
-    //         yield return new WaitForSeconds(0.0833f);
-    //     }
-    //     firing=false;
-    //     yield return null;
-        
-    // }
-
+    
     IEnumerator gameOverSequence()
     {
         

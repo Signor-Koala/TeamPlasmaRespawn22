@@ -27,7 +27,10 @@ public class heartsUI : MonoBehaviour
         if(playerScript.health>=0)
             UpdateHearts(playerScript.health);
     }
-    void UpdateHearts(int currentHealth)
+    //make this update only when the player gets damaged or ^^
+    //upgrades his health by making the below public
+    //and accessing it outside \/
+    public void UpdateHearts(int currentHealth)
     {
         while(currentHealth/20 < heartStack.Count)
         {

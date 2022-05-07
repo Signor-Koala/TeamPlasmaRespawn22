@@ -80,15 +80,6 @@ public class CEO_script : MonoBehaviour
         //other things
     }
     
-
-    private void Update() {
-        
-        //Debug.Log(1/Time.deltaTime);
-        if(dangerLevel<0)
-            dangerLevel=0;
-    }
-
-    
     public static void loadLevel(string levelName)
     {
         nextLevel = levelName;

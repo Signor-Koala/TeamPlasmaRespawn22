@@ -18,7 +18,7 @@ public class enemySpawner : MonoBehaviour
     
     void Update()
     {
-        if(((this.transform.position - playerPos.position).magnitude < spawnTriggerRadius) && isTriggered==false)
+        if(((this.transform.position - playerPos.position).sqrMagnitude < spawnTriggerRadius*spawnTriggerRadius) && isTriggered==false)
         {
             isTriggered=true;
             initializeRoom(enemyVariety,enemyList,enemyCount,enemyCountScatter,3);

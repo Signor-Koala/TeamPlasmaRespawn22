@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,8 @@ public class vitaminatorUI : MonoBehaviour
         hideUI();
     }
 
-    private void Update() {
+    public void updateStats()
+    {
         currentVE.text = CEO_script.money.ToString();
         healthCost.text = upgradeScript.healthPrice.ToString();
         speedCost.text = upgradeScript.speedPrice.ToString();

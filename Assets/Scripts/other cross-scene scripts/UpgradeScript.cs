@@ -8,10 +8,12 @@ public class UpgradeScript : MonoBehaviour
     public int speedPrice = 50;
     public int healthAmount = 20;
     public float speedAmount = 0.2f;
-    [SerializeField] controller playerScript;
+    controller playerScript;
+    public vitaminatorUI vitaminatorUI;
 
     private void Start() {
         playerScript = GameObject.Find("Player").GetComponent<controller>();
+        vitaminatorUI.updateStats();
     }
 
     public void healthUpgrade()
@@ -25,6 +27,7 @@ public class UpgradeScript : MonoBehaviour
             PlayerPrefs.SetInt("health", CEO_script.health + healthAmount);
             CEO_script.health += healthAmount;
             playerScript.health += healthAmount;
+            vitaminatorUI.updateStats();
         }
         else if(CEO_script.money < healthPrice) {
             AudioManager.instance.Play("buttonClick1_error");
@@ -48,6 +51,7 @@ public class UpgradeScript : MonoBehaviour
             PlayerPrefs.SetFloat("speed", CEO_script.speed + speedAmount);
             CEO_script.speed += speedAmount;
             playerScript.speed += speedAmount;
+            vitaminatorUI.updateStats();
         }
         else if(CEO_script.money < speedPrice) {
             AudioManager.instance.Play("buttonClick1_error");
