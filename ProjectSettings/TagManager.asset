@@ -40,21 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 1034921023
     locked: 0
   - name: Actors
     uniqueID: 2129470939
     locked: 0
-  - name: Fx
-    uniqueID: 2409574779
-    locked: 0
   - name: UI
     uniqueID: 3091456453
     locked: 0
-  - name: Door
-    uniqueID: 3315166199
+  - name: Default
+    uniqueID: 0
     locked: 0

@@ -73,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1885392517
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: 2129470939
+  m_SortingLayer: -3
+  m_SortingOrder: 3
   m_Sprite: {fileID: -8271988938590099505, guid: 823ba0699199a3008ac38c0d4950a6a0, type: 3}
   m_Color: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
   m_FlipX: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   reload: 1.25
   damage: 20
   enemyBullet: 1
+  rotating: 0
   bossBullet: 1
   explosive: 0
   explosiveRange: 4
@@ -116,6 +117,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   bulletLifetime: 5
+  knockBackVal: 1
+  recoilVal: 1
 --- !u!50 &1359436708250724227
 Rigidbody2D:
   serializedVersion: 4
@@ -192,7 +195,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1885392517
-  m_SortingLayer: 3
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Time: 0.2
   m_Parameters:

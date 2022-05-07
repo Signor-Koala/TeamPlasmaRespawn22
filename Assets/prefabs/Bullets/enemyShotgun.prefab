@@ -71,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1885392517
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: 2129470939
+  m_SortingLayer: -3
+  m_SortingOrder: 3
   m_Sprite: {fileID: -5957849654763139637, guid: ea87c538636adc945a22966e4779f5ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   reload: 1
   damage: 15
   enemyBullet: 1
+  rotating: 0
   bossBullet: 0
   explosive: 0
   explosiveRange: 4

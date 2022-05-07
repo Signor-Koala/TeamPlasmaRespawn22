@@ -478,7 +478,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: boss_phase_1
     clip: {fileID: 8300000, guid: f7c3ee149b958f645b8435536b6bbaca, type: 3}
-    volume: 0.74
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -487,7 +487,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: boss_phase_2
     clip: {fileID: 8300000, guid: d6b05a4efe08b374e89ebfb33c99250e, type: 3}
-    volume: 0.74
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0

@@ -32,6 +32,7 @@ public class EnemyScript : MonoBehaviour
     private Rigidbody2D rbd;
     void Start()
     {
+        attackPoint = transform;
         plr = GameObject.Find("Player").transform;
         rbd = this.GetComponent<Rigidbody2D>();
         enemyAnim = this.GetComponent<Animator>();
@@ -43,7 +44,8 @@ public class EnemyScript : MonoBehaviour
             CEO_script.dangerLevel++;
             enemyAnim.SetBool("isAggro",true);
         }
-        reload = currenProj.GetComponent<Bullet>().reload;
+        if(currenProj !=null)
+            reload = currenProj.GetComponent<Bullet>().reload;
     }
 
     
