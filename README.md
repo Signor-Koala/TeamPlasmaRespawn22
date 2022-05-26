@@ -13,6 +13,8 @@ Fight your way through 2 stages against deadly food themed enemies and make your
 
 This game was made for the Respawn Game Jam 2022 using the Unity engine.
 
+Link to game: 
+https://signor-koala.itch.io/fructomania
 
 
 
