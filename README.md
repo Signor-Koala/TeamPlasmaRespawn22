@@ -65,6 +65,6 @@ https://freesound.org/people/timgormly/sounds/152721/
 
 
 ## Project status
-This project was made for the Respawn 2022 GameJam and is currently planned to be brought upto to the original vision for the game.
+This project was made for the Respawn 2022 GameJam and has now been completed according to the original vision for the game. No further updates are planned.
 
 
